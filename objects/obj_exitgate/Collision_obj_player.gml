@@ -286,5 +286,13 @@ with (obj_player)
         global.panic = 0
         global.snickchallenge = 0
     }
+	if ((sprite_index = spr_walkfront) && (floor(image_index) == (image_number - 2)))
+	{
+		scr_soundeffect(sfx_groundpound)
+		sprite_index = spr_Timesup
+		image_index = 0
+		other.image_index = 0
+        ds_list_add(global.saveroom, other.id)
+	}
 }
 

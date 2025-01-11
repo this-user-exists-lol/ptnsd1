@@ -59,14 +59,13 @@ function scr_player_faceslam(){
 			}
 			if (sprite_index = spr_freefall)
 			{
-				if (place_meeting(x, (y + 64), obj_destructibles))
-				{
-					with (instance_place(x, (y + 64), obj_destructibles))
-						instance_destroy()
-				}
+				with (instance_place(x, (y + 64), obj_destructibles))
+					instance_destroy()
+				with (instance_place(x, (y + 1), obj_metalblock))
+			             instance_destroy()
 			}
 		}
-		if ((place_meeting(x, (y + 1), obj_solid)) || (place_meeting(x, (y + 1), obj_platform)) || (place_meeting(x, (y + 1), obj_slope))) && (!place_meeting(x, (y + 32), obj_destructibles))
+		if (grounded) && (!place_meeting(x, (y + 64 + vsp), obj_destructibles) && (!place_meeting(x, (y + 64 + vsp), obj_metalblock)))
 		{
 			if scr_slope()
 			{
@@ -92,11 +91,6 @@ function scr_player_faceslam(){
 					shake_mag = 10
 					shake_mag_acc = (30 / room_speed)
 				}
-			    if (place_meeting(x, (y + 1), obj_metalblock))
-			    {
-			        with (instance_place(x, (y + 1), obj_metalblock))
-			             instance_destroy()
-			    }
 				instance_create(x, (y - 64), obj_pogoeffect)
 				scr_soundeffect(sfx_groundpound)
 				image_index = 0
