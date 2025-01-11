@@ -9,8 +9,7 @@ if (falling == 1)
 {
     sprite_index = spr_bowlingballonaropefall
     y += floor(vsp)
-    if (vsp < 30)
+    if (vsp < 10)
         vsp += grav
-	image_angle -= 2
 }
-mask_index = spr_bowlingballfalling
+mask_index = spr_bowlingballonaropehitbox

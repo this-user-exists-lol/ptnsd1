@@ -458,6 +458,7 @@
     {"id":{"name":"spr_player_idlevomitblood","path":"sprites/spr_player_idlevomitblood/spr_player_idlevomitblood.yy",},"order":161,},
     {"id":{"name":"spr_player_idlevomit","path":"sprites/spr_player_idlevomit/spr_player_idlevomit.yy",},"order":163,},
     {"id":{"name":"spr_player_idledance","path":"sprites/spr_player_idledance/spr_player_idledance.yy",},"order":165,},
+    {"id":{"name":"spr_bowlingballonaropehitbox","path":"sprites/spr_bowlingballonaropehitbox/spr_bowlingballonaropehitbox.yy",},"order":64,},
     {"id":{"name":"spr_player_idlefrown","path":"sprites/spr_player_idlefrown/spr_player_idlefrown.yy",},"order":167,},
     {"id":{"name":"spr_player_grabbingfall","path":"sprites/spr_player_grabbingfall/spr_player_grabbingfall.yy",},"order":169,},
     {"id":{"name":"spr_player_grabbingjump","path":"sprites/spr_player_grabbingjump/spr_player_grabbingjump.yy",},"order":171,},
