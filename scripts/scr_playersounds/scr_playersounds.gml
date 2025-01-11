@@ -1,9 +1,9 @@
 function scr_playersounds() {
 	with (obj_player1)
 	{
-	    if ((state == 69) && ((!audio_is_playing(sfx_mach1)) && grounded))
+	    if ((sprite_index == spr_mach1) && ((!audio_is_playing(sfx_mach1)) && grounded))
 	        mach1snd = audio_play_sound(sfx_mach1, 1, false)
-	    else if ((state != 69) || ((!grounded) || (move == (-xscale))))
+	    else if ((sprite_index != spr_mach1) || ((!grounded) || (move == (-xscale))))
 	        audio_stop_sound(mach1snd)
 	    if (((sprite_index == spr_mach) || (state == 17)) && (!audio_is_playing(sfx_mach2)))
 	        mach2snd = audio_play_sound(sfx_mach2, 1, false)

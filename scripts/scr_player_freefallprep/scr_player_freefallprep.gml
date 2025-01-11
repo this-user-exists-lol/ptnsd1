@@ -20,7 +20,7 @@ function scr_player_freefallprep() {
 	        movespeed = 0
 	    if (move != 0)
 	        xscale = move
-		if (vsp > 15)
+		if (vsp > 15) && (sprite_index != spr_player_hanstandjump)
 		{
 		    state = 74
 		    if (shotgunAnim == 0)
@@ -38,40 +38,54 @@ function scr_player_freefallprep() {
 		if movespeed > 5
 		{
 		    grav = 0.5
-		    sprite_index = spr_crouchslip
+			if sprite_index == spr_player_hanstandjump
+				sprite_index = spr_player_backslidestart
+			else
+				sprite_index = spr_crouchslip
 		    machhitAnim = 0
 		    state = 68
 		    movespeed = 15
 		}
 		else
 		{
-		    scr_soundeffect(sfx_groundpound)
-		    freefallsmash = 0
-		    if (shotgunAnim == 0)
-		        sprite_index = spr_bodyslamland
-		    else
-		        sprite_index = spr_shotgunjump2
-		    image_index = 0
-		    state = 77
-		    jumpAnim = 1
-		    jumpstop = 0
-		    with (obj_baddie)
-		    {
-		        if (grounded && point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0))))
-		        {
-		            vsp = -11
-		            hsp = 0
-		        }
-		    }
-		    with (obj_camera)
-		    {
-		        shake_mag = 10
-		        shake_mag_acc = (30 / room_speed)
-		    }
-		    combo = 0
-		    bounce = 0
-		    instance_create(x, y, obj_landcloud)
-		    freefallstart = 0
+			if (sprite_index != spr_player_hanstandjump)
+			{
+			    scr_soundeffect(sfx_groundpound)
+			    freefallsmash = 0
+			    if (shotgunAnim == 0)
+			        sprite_index = spr_bodyslamland
+			    else
+			        sprite_index = spr_shotgunjump2
+			    image_index = 0
+			    state = 77
+			    jumpAnim = 1
+			    jumpstop = 0
+			    with (obj_baddie)
+			    {
+			        if (grounded && point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0))))
+			        {
+			            vsp = -11
+			            hsp = 0
+			        }
+			    }
+			    with (obj_camera)
+			    {
+			        shake_mag = 10
+			        shake_mag_acc = (30 / room_speed)
+			    }
+			    combo = 0
+			    bounce = 0
+			    instance_create(x, y, obj_landcloud)
+			    freefallstart = 0
+			}
+			else
+			{
+				vsp = 0
+				jumpAnim = 1
+				jumpstop = 0
+				state = 0
+				instance_create(x, y, obj_landcloud)
+			}
 		}
 	}
 

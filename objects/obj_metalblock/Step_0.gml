@@ -5,7 +5,7 @@ with (obj_player1)
 }
 if (place_meeting(x, (y + 1), obj_player1) || (place_meeting(x, (y - 1), obj_player1) || (place_meeting((x - 1), y, obj_player1) || place_meeting((x + 1), y, obj_player1))))
 {
-    if (place_meeting(x, (y - 1), obj_player1) && ((obj_player1.state == 74) && (obj_player1.freefallsmash >= 10)))
+    if (place_meeting(x, (y - 1), obj_player1) && (((obj_player1.state == 74) && (obj_player1.freefallsmash >= 10)) || ((obj_player1.state == "faceslam") && (obj_player1.sprite_index == obj_player1.spr_freefall))))
         instance_destroy()
     if (place_meeting(x, (y - 1), obj_player1) && ((obj_player1.state == 24) || (obj_player1.state == 9)))
     {

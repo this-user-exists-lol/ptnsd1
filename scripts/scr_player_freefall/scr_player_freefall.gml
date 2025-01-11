@@ -32,6 +32,15 @@ function scr_player_freefall() {
 	        other.superslameffectid = id
 	    }
 	}
+	if ((freefallsmash > 10) && (!instance_exists(spriteid)))
+	{
+	    with (instance_create(x, y, obj_sprite))
+		{
+	        other.spriteid = id
+			sprite_index = spr_fastfalleffect
+			animend = 1
+		}
+	}
 	if (grounded && ((!(input_buffer_jump < 8)) && (!place_meeting(x, (y + 1), obj_destructibles))))
 	{
 		if scr_slope()
@@ -64,7 +73,8 @@ function scr_player_freefall() {
 			    state = 77
 			    jumpAnim = 1
 			    jumpstop = 0
-				instance_create(x, (y - 64), obj_pogoeffect)
+				with instance_create(x, y, obj_pogoeffect)
+					sprite_index = spr_groundpoundlandeffect
 			    with (obj_baddie)
 			    {
 			        if (grounded && point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0))))
@@ -80,7 +90,6 @@ function scr_player_freefall() {
 			    }
 			    combo = 0
 			    bounce = 0
-			    instance_create(x, y, obj_landcloud)
 			    freefallstart = 0
 			}
 		}

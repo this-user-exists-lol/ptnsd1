@@ -32,7 +32,9 @@ function scr_player_mach2() {
 	{
 	    if ((machpunchAnim == 0) && ((sprite_index != spr_mach1) && (sprite_index != spr_mach) && ((sprite_index != spr_mach4) && (sprite_index != spr_player_machhit))))
 	    {
-	        if ((sprite_index != spr_player_machhit) && (sprite_index != spr_rollgetup) && (sprite_index != spr_mach1))
+			if ((sprite_index == spr_airdash2) || (sprite_index == spr_airdash1))
+				sprite_index = spr_mach1
+	        else if ((sprite_index != spr_player_machhit) && (sprite_index != spr_rollgetup) && (sprite_index != spr_mach1))
 	            sprite_index = spr_mach
 	    }
 	    if (machpunchAnim == 1)
@@ -90,7 +92,6 @@ function scr_player_mach2() {
 			sprite_index = spr_crouchslip
 			machhitAnim = 0
 			state = 68
-			movespeed = 15
 		}
 	}
 	if (((!grounded) && (place_meeting((x + hsp), y, obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))) && (sprite_index == spr_walljumpstart || sprite_index = spr_walljumpend)) || (grounded && (place_meeting((x + hsp), (y - 64), obj_solid) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && place_meeting(x, (y + 1), obj_slope))))))
@@ -134,12 +135,19 @@ function scr_player_mach2() {
 	        other.dashcloudid = id
 	    }
 	}
-	if (grounded && ((floor(image_index) == (image_number - 1)) && ((sprite_index == spr_player_rollgetup) || (sprite_index == spr_mach1))))
+	if (grounded && ((floor(image_index) == (image_number - 1)) && ((sprite_index == spr_player_rollgetup) || (sprite_index == spr_mach1) || (sprite_index == spr_airdash2))))
 	    sprite_index = spr_mach
-	if ((!grounded) && ((sprite_index != spr_airdash1) && (sprite_index != spr_airdash2) && (sprite_index != spr_walljumpstart) && (sprite_index != spr_walljumpend)))
-	    sprite_index = spr_mach2jump
+	if ((!grounded) && ((sprite_index != spr_airdash1) && (sprite_index != spr_airdash2) && (sprite_index != spr_walljumpstart) && (sprite_index != spr_walljumpend) && (sprite_index != spr_player_hanstandjump) && (sprite_index != spr_player_fall2)))
+	{
+		if (movespeed > 5)
+			sprite_index = spr_mach2jump
+		else
+			sprite_index = spr_airdash1
+	}
 	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_walljumpstart))
 	    sprite_index = spr_walljumpend
+	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_hanstandjump))
+	    sprite_index = spr_fall2
 	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_airdash1))
 	    sprite_index = spr_airdash2
 	if (key_attack && ((!place_meeting((x + xscale), y, obj_solid)) && ((character == "S") && grounded)))
@@ -177,6 +185,8 @@ function scr_player_mach2() {
 	}
 	else if ((move == (-xscale)) && grounded) && (movespeed < 5)
 		xscale = move
+	if (!grounded) && (movespeed == 0)
+		movespeed = 3
 	if (((object_index == obj_player1) && (place_meeting(x, y, obj_player2) && ((obj_player1.hurted == 0) && (obj_player2.hurted == 0)))) || ((object_index == obj_player2) && (place_meeting(x, y, obj_player1) && ((obj_player2.hurted == 0) && (obj_player1.hurted == 0)))))
 	{
 	    if (object_index == obj_player1)

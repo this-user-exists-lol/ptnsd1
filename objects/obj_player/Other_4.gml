@@ -83,7 +83,6 @@ if (object_index == obj_player1)
 		        x = _vinst.x + _vinst.sprite_width * vertical_x
 		        var bbox_size = abs(bbox_right - bbox_left)
 		        x = clamp(x, (_vinst.x + bbox_size), (_vinst.bbox_right - bbox_size))
-		        trace(x, _vinst.x)
 		        if (vhallwaydirection > 0)
 		            y = _vinst.bbox_bottom + 32
 		        else
@@ -114,7 +113,15 @@ if (object_index == obj_player1)
 	if (state == 61)
 	{
 		if !instance_exists(obj_doortransition2)
-			instance_create(x, y, obj_doortransition2)
+		{
+			var doortransisionspr = spr_doortransition
+			if place_meeting(x, y, obj_exitgate)
+				doortransisionspr = spr_doortransitionendbig
+			else
+				doortransisionspr = spr_doortransition
+			with instance_create(x, y, obj_doortransition2)
+				sprite_index = doortransisionspr
+		}
 	}
     hallway = 0
     box = 0

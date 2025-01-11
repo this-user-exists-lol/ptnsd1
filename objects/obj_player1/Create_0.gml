@@ -183,6 +183,7 @@ chargeeffectid = obj_null
 dashcloudid = obj_null
 crazyruneffectid = obj_null
 fightball = 0
+spriteid = obj_null
 superslameffectid = obj_null
 speedlineseffectid = obj_null
 angryeffectid = obj_null

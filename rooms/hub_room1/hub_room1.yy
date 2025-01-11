@@ -146,6 +146,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3C1A4CE0","properties":[],"isDnd":false,"objectId":{"name":"obj_destroyable","path":"objects/obj_destroyable/obj_destroyable.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1888.0,"y":1120.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1A4AF84A","properties":[],"isDnd":false,"objectId":{"name":"obj_destroyable","path":"objects/obj_destroyable/obj_destroyable.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1920.0,"y":1120.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1AD4066F","properties":[],"isDnd":false,"objectId":{"name":"obj_destroyable","path":"objects/obj_destroyable/obj_destroyable.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1920.0,"y":1152.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_64160C75","properties":[],"isDnd":false,"objectId":{"name":"obj_bowlingball","path":"objects/obj_bowlingball/obj_bowlingball.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1184.0,"y":1184.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_33BEA525","spriteId":{"name":"bg_tutorialsign","path":"sprites/bg_tutorialsign/bg_tutorialsign.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":96.0,"y":256.0,},
@@ -286,6 +287,7 @@
     {"name":"inst_3C1A4CE0","path":"rooms/hub_room1/hub_room1.yy",},
     {"name":"inst_1A4AF84A","path":"rooms/hub_room1/hub_room1.yy",},
     {"name":"inst_1AD4066F","path":"rooms/hub_room1/hub_room1.yy",},
+    {"name":"inst_64160C75","path":"rooms/hub_room1/hub_room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

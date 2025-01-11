@@ -5,7 +5,7 @@ function scr_player_crouchslide() {
 	    hsp = ((xscale * movespeed) - 5)
 	else if place_meeting(x, (y + 1), obj_railh2)
 	    hsp = ((xscale * movespeed) + 5)
-	if (movespeed >= 0) && (sprite_index == spr_crouchslip)
+	if (movespeed >= 0) && ((sprite_index == spr_crouchslip) || (sprite_index == spr_player_backslide))
 	    movespeed -= 0.2
 	mask_index = spr_crouchmask
 	if (sprite_index == spr_crouchslip) && (!grounded)
@@ -16,6 +16,7 @@ function scr_player_crouchslide() {
 	{
 	    if (character == "P")
 	        sprite_index = spr_rollgetup
+		image_index = 0
 	    state = 70
 		movespeed = 10
 	}
@@ -59,7 +60,12 @@ function scr_player_crouchslide() {
 	    with (instance_create(x, y, obj_slidecloud))
 	        image_xscale = other.xscale
 	}
-	image_speed = 0.35
+	if (floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_backslidestart)
+		sprite_index = spr_player_backslide
+	if (sprite_index != spr_player_backslidestart)
+		image_speed = movespeed / 20
+	else
+		image_speed = 0.35
 
 
 

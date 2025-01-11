@@ -59,7 +59,7 @@ function scr_collide_destructibles() {
 	            }
 	        }
 	    }
-	    if ((vsp >= 0) && ((state == 92) || (state == 74) || (state == 77)))
+	    if ((vsp >= 0) && ((state == 92) || (state == 74) || (state == 77) || ((state == "faceslam") && (sprite_index == spr_freefall))))
 	    {
 	        if place_meeting(x, ((y + vsp) + 2), obj_destructibles)
 	        {
@@ -67,7 +67,7 @@ function scr_collide_destructibles() {
 	            {
 	                with (obj_player1)
 	                {
-	                    if place_meeting(x, ((y + vsp) + 2), obj_bigdestructibles)
+	                    if (place_meeting(x, ((y + vsp) + 2), obj_bigdestructibles) && ((state == 92) || (state == 74) || (state == 77)))
 	                    {
 	                        if (shotgunAnim == 0)
 	                            sprite_index = spr_bodyslamland

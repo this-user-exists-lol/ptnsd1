@@ -34,7 +34,9 @@ function scr_player_faceslam(){
 		    sprite_index = spr_facestomp
 		if (fallinganimation >= 80)
 		{
-			vsp += 0.5
+			if sprite_index != spr_freefall
+				scr_soundeffect(sfx_superjumpboost)	
+			vsp += 0.1
 		    sprite_index = spr_freefall
 		}
 		if ((sprite_index = spr_freefall) && (!instance_exists(superslameffectid)))
@@ -44,6 +46,15 @@ function scr_player_faceslam(){
 		        playerid = other.object_index
 		        other.superslameffectid = id
 		    }
+		}
+		if ((sprite_index = spr_freefall) && (!instance_exists(spriteid)))
+		{
+		    with (instance_create(x, y, obj_sprite))
+			{
+		        other.spriteid = id
+				sprite_index = spr_fastfalleffect
+				animend = 1
+			}
 		}
 		if (fallinganimation >= 40)
 		{
@@ -57,15 +68,8 @@ function scr_player_faceslam(){
 						instance_destroy()
 				}
 			}
-			if (sprite_index = spr_freefall)
-			{
-				with (instance_place(x, (y + 64), obj_destructibles))
-					instance_destroy()
-				with (instance_place(x, (y + 1), obj_metalblock))
-			             instance_destroy()
-			}
 		}
-		if (grounded) && (!place_meeting(x, (y + 64 + vsp), obj_destructibles) && (!place_meeting(x, (y + 64 + vsp), obj_metalblock)))
+		if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
 		{
 			if scr_slope()
 			{
@@ -77,25 +81,38 @@ function scr_player_faceslam(){
 			}
 			else
 			{
-				with (obj_baddie)
+				if (vsp > 0) && (key_jump2)
 				{
-					if point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0)))
+					image_index = 0
+					state = 92
+					sprite_index = spr_player_hanstandjump
+					movespeed = 10
+					vsp = -8
+				}
+				else
+				{
+					with (obj_baddie)
 					{
-						vsp = -7
-						hsp = 0
-						stunned = 100
+						if point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0)))
+						{
+							vsp = -7
+							hsp = 0
+							stunned = 100
+						}
 					}
+					with (obj_camera)
+					{
+						shake_mag = 10
+						shake_mag_acc = (30 / room_speed)
+					}
+					with instance_create(x, y, obj_pogoeffect)
+						sprite_index = spr_groundpoundlandeffect
+					audio_stop_sound(sfx_superjumpboost)
+					scr_soundeffect(sfx_groundpound)
+					image_index = 0
+					sprite_index = spr_player_freefallland
+					state = 77
 				}
-				with (obj_camera)
-				{
-					shake_mag = 10
-					shake_mag_acc = (30 / room_speed)
-				}
-				instance_create(x, (y - 64), obj_pogoeffect)
-				scr_soundeffect(sfx_groundpound)
-				image_index = 0
-				sprite_index = spr_player_freefallland
-				state = 77
 			}
 		}
 		fallinganimation += 3

@@ -300,7 +300,7 @@ function scr_player_normal() {
 	}
 	if (key_attack && (!place_meeting((x + xscale), y, obj_solid)) && ((sprite_index != spr_facestomp) || (sprite_index != spr_freefall) || (sprite_index != spr_player_freefallland)))
 	{
-	    movespeed = 0
+	    movespeed = 3
 	    sprite_index = spr_mach1
 	    jumpAnim = 1
 	    state = 70

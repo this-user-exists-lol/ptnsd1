@@ -26,17 +26,11 @@ function scr_player_facestomp() {
 	}
 	if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
 	{
-	    scr_sound(sfx_facestomp)
 	    state = 77
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
-	    if (!place_meeting(x, y, obj_water2))
-	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
-	    audio_sound_gain(sfx_land, 0.7, 0)
-	    if (!audio_is_playing(sfx_land))
-	        audio_play_sound(sfx_land, 1, false)
 	}
 	if (facestompAnim == 0)
 	    sprite_index = spr_player_facestomp
@@ -58,8 +52,6 @@ function scr_player_facestomp() {
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
-	    if (!place_meeting(x, y, obj_water2))
-	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	}
 	if key_jump
