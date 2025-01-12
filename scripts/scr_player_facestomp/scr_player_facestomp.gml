@@ -50,20 +50,6 @@ function scr_player_facestomp(){
 				animend = 1
 			}
 		}
-		if (fallinganimation >= 0)
-		{
-			if (sprite_index = spr_player_facestomp)
-			{
-				if (place_meeting(x, (y + 1), obj_destructibles))
-				{
-					vsp = -5
-					sprite_index = spr_player_facestomphit
-					fallinganimation = 0
-					with (instance_place(x, (y + 32), obj_destructibles))
-						instance_destroy()
-				}
-			}
-		}
 		if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
 		{
 			if scr_slope()

@@ -1,3 +1,3 @@
 level = "medieval"
-targetRoom = medieval_1
+targetRoom = rm_t1_intro
 sprite_index = spr_medievalcomputer
