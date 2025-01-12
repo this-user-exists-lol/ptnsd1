@@ -1,16 +1,10 @@
-if ((room == rank_room) || (room == timesuproom))
+if (room == rank_room || room == timesuproom)
     visible = false
-if (obj_player.state == 53)
+if (obj_player.state == states.pizzathrow)
     visible = false
-if (global.miniboss == 0)
-    instance_destroy()
-if ((sprite_index == spr_noisebomb_intro) && (floor(image_index) == (image_number - 1)))
-{
+if (sprite_index == spr_noisebomb_intro && floor(image_index) == (image_number - 1))
     sprite_index = spr_noisebomb_idle
-    x = obj_player1.x
-    y = obj_player1.y
-}
-if ((global.miniboss == 1) && (sprite_index != spr_noisebomb_intro))
+if (global.panic == 1 && sprite_index != spr_noisebomb_intro)
 {
     image_alpha = obj_player.image_alpha
     if (obj_player.hsp != 0)
@@ -45,8 +39,8 @@ if ((global.miniboss == 1) && (sprite_index != spr_noisebomb_intro))
     }
     else
     {
-        ds_queue_enqueue(followQueue, obj_player1.x)
-        ds_queue_enqueue(followQueue, obj_player1.y)
+        ds_queue_enqueue(followQueue, obj_player.x)
+        ds_queue_enqueue(followQueue, obj_player.y)
     }
     LAG_STEPS = 10
     if (ds_queue_size(followQueue) > (LAG_STEPS * 2))
@@ -56,4 +50,3 @@ if ((global.miniboss == 1) && (sprite_index != spr_noisebomb_intro))
     }
     image_xscale = obj_player.xscale
 }
-

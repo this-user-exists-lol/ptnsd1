@@ -1,3 +1,2 @@
 image_speed = 0.5
-ID = 0
-
+ID = obj_slope

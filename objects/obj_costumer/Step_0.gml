@@ -1,18 +1,18 @@
 cutscenetimer--
-if ((cutscenetimer < 0) && ((moving == 0) && (throwcoin == 0)))
+if (cutscenetimer < 0 && moving == 0 && throwcoin == 0)
 {
     cutscenetimer = 30
     moving = 1
 }
-if ((moving == 1) && (cutscenetimer > 0))
+if (moving == 1 && cutscenetimer > 0)
     x += 1
-if ((cutscenetimer < 0) && ((moving == 1) && (throwcoin == 0)))
+if (cutscenetimer < 0 && moving == 1 && throwcoin == 0)
 {
     moving = 0
     throwcoin = 1
     cutscenetimer = 20
 }
-if ((cutscenetimer < 0) && ((throwcoin == 1) && (numberofcoinsthrow != 0)))
+if (cutscenetimer < 0 && throwcoin == 1 && numberofcoinsthrow != 0)
 {
     numberofcoinsthrow -= 1
     cutscenetimer = 30
@@ -22,7 +22,7 @@ if ((cutscenetimer < 0) && ((throwcoin == 1) && (numberofcoinsthrow != 0)))
         vsp = -7
     }
 }
-if ((numberofcoinsthrow == 0) && (done == 0))
+if (numberofcoinsthrow == 0 && done == 0)
 {
     with (obj_player)
     {
@@ -34,4 +34,3 @@ if ((numberofcoinsthrow == 0) && (done == 0))
     }
     done = 1
 }
-

@@ -1,4 +1,5 @@
-function scr_player_superslam() {
+function scr_player_superslam()
+{
 	if (sprite_index == spr_piledriver)
 	{
 	    move = (key_left + key_right)
@@ -9,10 +10,10 @@ function scr_player_superslam() {
 	    move = 0
 	    hsp = 0
 	}
-	if (grounded && ((!place_meeting(x, (y + 1), obj_destructibles)) && ((sprite_index == spr_piledriver) && (vsp > 0))))
+	if (grounded && (!(place_meeting(x, (y + 1), obj_destructibles))) && sprite_index == spr_player_piledriver && vsp > 0)
 	{
 	    scr_soundeffect(sfx_groundpound)
-	    sprite_index = spr_piledriverland
+	    sprite_index = spr_player_piledriverland
 	    jumpAnim = 1
 	    image_index = 0
 	    with (obj_camera)
@@ -55,10 +56,7 @@ function scr_player_superslam() {
 	    movespeed = 0
 	if (movespeed > 6)
 	    movespeed -= 0.1
-	if ((character == "N") && (move != 0))
+	if (character == "N" && move != 0)
 	    xscale = move
 	image_speed = 0.35
-
-
-
 }

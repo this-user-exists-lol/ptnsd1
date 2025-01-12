@@ -1,4 +1,5 @@
-function scr_panicbg_init() {
+function scr_panicbg_init()
+{
 	var layers;
 	var layernum = 0
 	for (i = 0; i < 3; i++)
@@ -13,7 +14,4 @@ function scr_panicbg_init() {
 	var top_id = layer_get_id(layers[(layernum - 1)])
 	layer_script_begin(bottom_id, scr_panicbg_start)
 	layer_script_end(top_id, scr_panicbg_end)
-
-
-
 }

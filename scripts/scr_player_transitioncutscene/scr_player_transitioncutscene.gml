@@ -1,13 +1,14 @@
-function scr_player_transitioncutscene() {
+function scr_player_transitioncutscene()
+{
 	costumercutscenetimer--
-	if ((sprite_index == spr_player_knock) && (costumercutscenetimer < 0))
+	if (sprite_index == spr_player_knock && costumercutscenetimer < 0)
 	{
 	    xscale *= -1
 	    hsp = 5
 	    sprite_index = spr_player_move
 	    costumercutscenetimer = 35
 	}
-	if ((sprite_index == spr_player_move) && (costumercutscenetimer < 0))
+	if (sprite_index == spr_player_move && costumercutscenetimer < 0)
 	{
 	    with (obj_costumerdoor)
 	    {
@@ -19,9 +20,9 @@ function scr_player_transitioncutscene() {
 	    xscale *= -1
 	    sprite_index = spr_player_givepizza
 	}
-	if ((sprite_index == spr_player_levelcomplete) && (costumercutscenetimer < 0))
+	if (sprite_index == spr_player_levelcomplete && costumercutscenetimer < 0)
 	{
-	    if (grounded && (((x > (other.x + 32)) && (x < (other.x + 160))) && (key_up && ((state == 0) || ((state == 69) || ((state == 70) || (state == 91)))))))
+	    if (grounded && x > (other.x + 32) && x < (other.x + 160) && key_up && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.mach3))
 	    {
 	        if (global.collect >= global.srank)
 	            global.rank = "s"
@@ -51,13 +52,13 @@ function scr_player_transitioncutscene() {
 	                ini_write_string("Highscore", "desert", global.collect)
 	            if (global.rank == "s")
 	                ini_write_string("Ranks", "desert", global.rank)
-	            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "desert", "none")))
+	            if (global.rank == "a" && "s" != ini_read_string("Ranks", "desert", "none"))
 	                ini_write_string("Ranks", "desert", global.rank)
-	            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "desert", "none")) && ("a" != ini_read_string("Ranks", "desert", "none"))))
+	            if (global.rank == "b" && "s" != ini_read_string("Ranks", "desert", "none") && "a" != ini_read_string("Ranks", "desert", "none"))
 	                ini_write_string("Ranks", "desert", global.rank)
-	            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "desert", "none")) && (("a" != ini_read_string("Ranks", "desert", "none")) && ("b" != ini_read_string("Ranks", "desert", "none")))))
+	            if (global.rank == "c" && "s" != ini_read_string("Ranks", "desert", "none") && "a" != ini_read_string("Ranks", "desert", "none") && "b" != ini_read_string("Ranks", "desert", "none"))
 	                ini_write_string("Ranks", "desert", global.rank)
-	            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "desert", "none")) && (("a" != ini_read_string("Ranks", "desert", "none")) && (("b" != ini_read_string("Ranks", "desert", "none")) && ("c" != ini_read_string("Ranks", "desert", "none"))))))
+	            if (global.rank == "d" && "s" != ini_read_string("Ranks", "desert", "none") && "a" != ini_read_string("Ranks", "desert", "none") && "b" != ini_read_string("Ranks", "desert", "none") && "c" != ini_read_string("Ranks", "desert", "none"))
 	                ini_write_string("Ranks", "desert", global.rank)
 	        }
 	        if (room == floor2_room0)
@@ -77,13 +78,13 @@ function scr_player_transitioncutscene() {
 	                ini_write_string("Toppin", "mansion5", global.pineapplefollow)
 	            if (global.rank == "s")
 	                ini_write_string("Ranks", "mansion", global.rank)
-	            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "mansion", "none")))
+	            if (global.rank == "a" && "s" != ini_read_string("Ranks", "mansion", "none"))
 	                ini_write_string("Ranks", "mansion", global.rank)
-	            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "mansion", "none")) && ("a" != ini_read_string("Ranks", "mansion", "none"))))
+	            if (global.rank == "b" && "s" != ini_read_string("Ranks", "mansion", "none") && "a" != ini_read_string("Ranks", "mansion", "none"))
 	                ini_write_string("Ranks", "mansion", global.rank)
-	            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "mansion", "none")) && (("a" != ini_read_string("Ranks", "mansion", "none")) && ("b" != ini_read_string("Ranks", "mansion", "none")))))
+	            if (global.rank == "c" && "s" != ini_read_string("Ranks", "mansion", "none") && "a" != ini_read_string("Ranks", "mansion", "none") && "b" != ini_read_string("Ranks", "mansion", "none"))
 	                ini_write_string("Ranks", "mansion", global.rank)
-	            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "mansion", "none")) && (("a" != ini_read_string("Ranks", "mansion", "none")) && (("b" != ini_read_string("Ranks", "mansion", "none")) && ("c" != ini_read_string("Ranks", "mansion", "none"))))))
+	            if (global.rank == "d" && "s" != ini_read_string("Ranks", "mansion", "none") && "a" != ini_read_string("Ranks", "mansion", "none") && "b" != ini_read_string("Ranks", "mansion", "none") && "c" != ini_read_string("Ranks", "mansion", "none"))
 	                ini_write_string("Ranks", "mansion", global.rank)
 	        }
 	        if (room == floor3_room0)
@@ -103,13 +104,13 @@ function scr_player_transitioncutscene() {
 	                ini_write_string("Toppin", "factory5", global.pineapplefollow)
 	            if (global.rank == "s")
 	                ini_write_string("Ranks", "factory", global.rank)
-	            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "factory", "none")))
+	            if (global.rank == "a" && "s" != ini_read_string("Ranks", "factory", "none"))
 	                ini_write_string("Ranks", "factory", global.rank)
-	            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "factory", "none")) && ("a" != ini_read_string("Ranks", "factory", "none"))))
+	            if (global.rank == "b" && "s" != ini_read_string("Ranks", "factory", "none") && "a" != ini_read_string("Ranks", "factory", "none"))
 	                ini_write_string("Ranks", "factory", global.rank)
-	            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "factory", "none")) && (("a" != ini_read_string("Ranks", "factory", "none")) && ("b" != ini_read_string("Ranks", "factory", "none")))))
+	            if (global.rank == "c" && "s" != ini_read_string("Ranks", "factory", "none") && "a" != ini_read_string("Ranks", "factory", "none") && "b" != ini_read_string("Ranks", "factory", "none"))
 	                ini_write_string("Ranks", "factory", global.rank)
-	            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "factory", "none")) && (("a" != ini_read_string("Ranks", "factory", "none")) && (("b" != ini_read_string("Ranks", "factory", "none")) && ("c" != ini_read_string("Ranks", "factory", "none"))))))
+	            if (global.rank == "d" && "s" != ini_read_string("Ranks", "factory", "none") && "a" != ini_read_string("Ranks", "factory", "none") && "b" != ini_read_string("Ranks", "factory", "none") && "c" != ini_read_string("Ranks", "factory", "none"))
 	                ini_write_string("Ranks", "factory", global.rank)
 	        }
 	        if (room == floor4_room0)
@@ -129,13 +130,13 @@ function scr_player_transitioncutscene() {
 	                ini_write_string("Toppin", "sewer5", global.pineapplefollow)
 	            if (global.rank == "s")
 	                ini_write_string("Ranks", "sewer", global.rank)
-	            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "sewer", "none")))
+	            if (global.rank == "a" && "s" != ini_read_string("Ranks", "sewer", "none"))
 	                ini_write_string("Ranks", "sewer", global.rank)
-	            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "sewer", "none")) && ("a" != ini_read_string("Ranks", "sewer", "none"))))
+	            if (global.rank == "b" && "s" != ini_read_string("Ranks", "sewer", "none") && "a" != ini_read_string("Ranks", "sewer", "none"))
 	                ini_write_string("Ranks", "sewer", global.rank)
-	            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "sewer", "none")) && (("a" != ini_read_string("Ranks", "sewer", "none")) && ("b" != ini_read_string("Ranks", "sewer", "none")))))
+	            if (global.rank == "c" && "s" != ini_read_string("Ranks", "sewer", "none") && "a" != ini_read_string("Ranks", "sewer", "none") && "b" != ini_read_string("Ranks", "sewer", "none"))
 	                ini_write_string("Ranks", "sewer", global.rank)
-	            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "sewer", "none")) && (("a" != ini_read_string("Ranks", "sewer", "none")) && (("b" != ini_read_string("Ranks", "sewer", "none")) && ("c" != ini_read_string("Ranks", "sewer", "none"))))))
+	            if (global.rank == "d" && "s" != ini_read_string("Ranks", "sewer", "none") && "a" != ini_read_string("Ranks", "sewer", "none") && "b" != ini_read_string("Ranks", "sewer", "none") && "c" != ini_read_string("Ranks", "sewer", "none"))
 	                ini_write_string("Ranks", "sewer", global.rank)
 	        }
 	        if (room == floor5_room1)
@@ -155,32 +156,29 @@ function scr_player_transitioncutscene() {
 	            ini_open("saveData.ini")
 	            if (global.rank == "s")
 	                ini_write_string("Ranks", "freezer", global.rank)
-	            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "freezer", "none")))
+	            if (global.rank == "a" && "s" != ini_read_string("Ranks", "freezer", "none"))
 	                ini_write_string("Ranks", "freezer", global.rank)
-	            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "freezer", "none")) && ("a" != ini_read_string("Ranks", "freezer", "none"))))
+	            if (global.rank == "b" && "s" != ini_read_string("Ranks", "freezer", "none") && "a" != ini_read_string("Ranks", "freezer", "none"))
 	                ini_write_string("Ranks", "freezer", global.rank)
-	            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "freezer", "none")) && (("a" != ini_read_string("Ranks", "freezer", "none")) && ("b" != ini_read_string("Ranks", "freezer", "none")))))
+	            if (global.rank == "c" && "s" != ini_read_string("Ranks", "freezer", "none") && "a" != ini_read_string("Ranks", "freezer", "none") && "b" != ini_read_string("Ranks", "freezer", "none"))
 	                ini_write_string("Ranks", "freezer", global.rank)
-	            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "freezer", "none")) && (("a" != ini_read_string("Ranks", "freezer", "none")) && (("b" != ini_read_string("Ranks", "freezer", "none")) && ("c" != ini_read_string("Ranks", "freezer", "none"))))))
+	            if (global.rank == "d" && "s" != ini_read_string("Ranks", "freezer", "none") && "a" != ini_read_string("Ranks", "freezer", "none") && "b" != ini_read_string("Ranks", "freezer", "none") && "c" != ini_read_string("Ranks", "freezer", "none"))
 	                ini_write_string("Ranks", "freezer", global.rank)
 	        }
 	        ini_close()
 	        if (!instance_exists(obj_endlevelfade))
 	            instance_create(x, y, obj_endlevelfade)
-	        if (state != 78)
+	        if (state != states.door)
 	        {
 	            audio_stop_all()
-	            state = 78
+	            state = states.door
 	            obj_endlevelfade.alarm[0] = 235
 	            image_index = 0
 	        }
 	    }
 	}
-	if ((sprite_index == spr_player_givepizza) && (floor(image_index) == (image_number - 1)))
+	if (sprite_index == spr_player_givepizza && floor(image_index) == (image_number - 1))
 	    image_speed = 0
-	if ((sprite_index == spr_player_levelcomplete) && (floor(image_index) == (image_number - 1)))
+	if (sprite_index == spr_player_levelcomplete && floor(image_index) == (image_number - 1))
 	    image_speed = 0
-
-
-
 }

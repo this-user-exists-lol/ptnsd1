@@ -1,28 +1,12 @@
-with (obj_player1)
+with (obj_player)
 {
-    if (key_up && (place_meeting(x, y, other.id) && ((ladderbuffer == 0) && (((state == 0) || ((state == 70) || ((state == 91) || ((state == 69) || ((state == 30) || ((state == 58) || (state == 32))))))) && ((state != 73) && ((state != 71) && ((state != 74) && (state != 77))))))))
+    if (key_up && ladderbuffer == 0 && (state == states.normal || state == states.mach2 || state == states.mach3 || state == states.mach1 || state == states.shotgunjump || state == states.jump || state == states.highjump) && state != states.hurt && state != states.machslide && state != states.freefall && state != states.freefallland)
     {
         mach2 = 0
-        state = 59
+        state = states.ladder
         x = (other.x + 16)
         y = floor(y)
         if ((y % 2) == 1)
             y -= 1
     }
 }
-if instance_exists(obj_player2)
-{
-    with (obj_player2)
-    {
-        if (key_up && (place_meeting(x, y, other.id) && ((ladderbuffer == 0) && (((state == 0) || ((state == 70) || ((state == 91) || ((state == 69) || ((state == 30) || ((state == 58) || (state == 32))))))) && ((state != 73) && ((state != 71) && ((state != 74) && (state != 77))))))))
-        {
-            mach2 = 0
-            state = 59
-            x = (other.x + 16)
-            y = floor(y)
-            if ((y % 2) == 1)
-                y -= 1
-        }
-    }
-}
-

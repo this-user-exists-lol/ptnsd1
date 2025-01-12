@@ -12,7 +12,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
     if (reset == 0)
     {
         instance_create(x, (y + 30), obj_bangeffect)
-        if ((stomped == 0) && (shot == 0))
+        if (stomped == 0 && shot == 0)
         {
             with (obj_camera)
             {
@@ -22,7 +22,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
             with (instance_create(x, y, obj_sausageman_dead))
                 sprite_index = spr_cheeserobot_dead
         }
-        if ((stomped == 1) && (shot == 0))
+        if (stomped == 1 && shot == 0)
         {
             with (instance_create(x, y, obj_sausageman_dead))
                 sprite_index = spr_cheeserobot_dead
@@ -34,7 +34,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
             hsp = 0
             vsp = 0
         }
-        if ((shot == 1) && (stomped == 0))
+        if (shot == 1 && stomped == 0)
         {
             with (instance_create(x, y, obj_sausageman_dead))
                 sprite_index = spr_cheeserobot_dead
@@ -74,4 +74,3 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
         global.combotime = 60
     }
 }
-

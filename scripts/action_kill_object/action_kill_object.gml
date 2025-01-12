@@ -1,6 +1,4 @@
-function action_kill_object() {
+function action_kill_object()
+{
 	instance_destroy()
-
-
-
 }

@@ -1,22 +1,20 @@
 with (obj_player)
 {
-    if (grounded && (((x > (other.x - 160)) && (x < (other.x + 160))) && (key_up && (((state == 0) || ((state == 69) || ((state == 70) || (state == 91)))) && ((global.panic == 1) || (global.snickchallenge == 1))))))
+    if (grounded && x > (other.x - 160) && x < (other.x + 160) && key_up && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.mach3) && (global.panic == 1 || global.snickchallenge == 1))
     {
-        if (global.timeattack == 1)
-            obj_timeattack.stop = 1
         targetDoor = "none"
         obj_camera.alarm[2] = -1
-        if ((global.collect + global.collectN) >= global.srank)
+        if (global.collect >= global.srank)
         {
             global.rank = "s"
             if (global.snickchallenge == 1)
                 global.SAGEsnicksrank = 1
         }
-        else if ((global.collect + global.collectN) > global.arank)
+        else if (global.collect > global.arank)
             global.rank = "a"
-        else if ((global.collect + global.collectN) > global.brank)
+        else if (global.collect > global.brank)
             global.rank = "b"
-        else if ((global.collect + global.collectN) > global.crank)
+        else if (global.collect > global.crank)
             global.rank = "c"
         else
             global.rank = "d"
@@ -54,13 +52,13 @@ with (obj_player)
                 ini_write_string("Toppin", "entrance5", global.pineapplefollow)
             if (global.rank == "s")
                 ini_write_string("Ranks", "entrance", global.rank)
-            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "entrance", "none")))
+            if (global.rank == "a" && "s" != ini_read_string("Ranks", "entrance", "none"))
                 ini_write_string("Ranks", "entrance", global.rank)
-            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "entrance", "none")) && ("a" != ini_read_string("Ranks", "entrance", "none"))))
+            if (global.rank == "b" && "s" != ini_read_string("Ranks", "entrance", "none") && "a" != ini_read_string("Ranks", "entrance", "none"))
                 ini_write_string("Ranks", "entrance", global.rank)
-            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "entrance", "none")) && (("a" != ini_read_string("Ranks", "entrance", "none")) && ("b" != ini_read_string("Ranks", "entrance", "none")))))
+            if (global.rank == "c" && "s" != ini_read_string("Ranks", "entrance", "none") && "a" != ini_read_string("Ranks", "entrance", "none") && "b" != ini_read_string("Ranks", "entrance", "none"))
                 ini_write_string("Ranks", "entrance", global.rank)
-            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "entrance", "none")) && (("a" != ini_read_string("Ranks", "entrance", "none")) && (("b" != ini_read_string("Ranks", "entrance", "none")) && ("c" != ini_read_string("Ranks", "entrance", "none"))))))
+            if (global.rank == "d" && "s" != ini_read_string("Ranks", "entrance", "none") && "a" != ini_read_string("Ranks", "entrance", "none") && "b" != ini_read_string("Ranks", "entrance", "none") && "c" != ini_read_string("Ranks", "entrance", "none"))
                 ini_write_string("Ranks", "entrance", global.rank)
         }
         if (string_letters(roomname) == "medieval")
@@ -91,46 +89,14 @@ with (obj_player)
                 ini_write_string("Toppin", "medieval5", global.pineapplefollow)
             if (global.rank == "s")
                 ini_write_string("Ranks", "medieval", global.rank)
-            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "medieval", "none")))
+            if (global.rank == "a" && "s" != ini_read_string("Ranks", "medieval", "none"))
                 ini_write_string("Ranks", "medieval", global.rank)
-            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "medieval", "none")) && ("a" != ini_read_string("Ranks", "medieval", "none"))))
+            if (global.rank == "b" && "s" != ini_read_string("Ranks", "medieval", "none") && "a" != ini_read_string("Ranks", "medieval", "none"))
                 ini_write_string("Ranks", "medieval", global.rank)
-            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "medieval", "none")) && (("a" != ini_read_string("Ranks", "medieval", "none")) && ("b" != ini_read_string("Ranks", "medieval", "none")))))
+            if (global.rank == "c" && "s" != ini_read_string("Ranks", "medieval", "none") && "a" != ini_read_string("Ranks", "medieval", "none") && "b" != ini_read_string("Ranks", "medieval", "none"))
                 ini_write_string("Ranks", "medieval", global.rank)
-            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "medieval", "none")) && (("a" != ini_read_string("Ranks", "medieval", "none")) && (("b" != ini_read_string("Ranks", "medieval", "none")) && ("c" != ini_read_string("Ranks", "medieval", "none"))))))
+            if (global.rank == "d" && "s" != ini_read_string("Ranks", "medieval", "none") && "a" != ini_read_string("Ranks", "medieval", "none") && "b" != ini_read_string("Ranks", "medieval", "none") && "c" != ini_read_string("Ranks", "medieval", "none"))
                 ini_write_string("Ranks", "medieval", global.rank)
-        }
-        if (string_letters(roomname) == "chateau")
-        {
-            ini_open("saveData.ini")
-            if (global.secretfound > global.chateausecret)
-                ini_write_string("Secret", "chateau", global.secretfound)
-            if (global.chateautreasure == 0)
-                ini_write_string("Treasure", "chateau", global.treasure)
-            if (global.chateauhighscore < global.collect)
-                ini_write_string("Highscore", "chateau", global.collect)
-            if (global.chateauhighscore < global.collect)
-                ini_write_string("Highscore", "chateau", global.collect)
-            if (global.chateautoppin1 != 1)
-                ini_write_string("Toppin", "chateau1", global.shroomfollow)
-            if (global.chateautoppin2 != 1)
-                ini_write_string("Toppin", "chateau2", global.cheesefollow)
-            if (global.chateautoppin3 != 1)
-                ini_write_string("Toppin", "chateau3", global.tomatofollow)
-            if (global.chateautoppin4 != 1)
-                ini_write_string("Toppin", "chateau4", global.sausagefollow)
-            if (global.chateautoppin5 != 1)
-                ini_write_string("Toppin", "chateau5", global.pineapplefollow)
-            if (global.rank == "s")
-                ini_write_string("Ranks", "chateau", global.rank)
-            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "chateau", "none")))
-                ini_write_string("Ranks", "chateau", global.rank)
-            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "chateau", "none")) && ("a" != ini_read_string("Ranks", "chateau", "none"))))
-                ini_write_string("Ranks", "chateau", global.rank)
-            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "chateau", "none")) && (("a" != ini_read_string("Ranks", "chateau", "none")) && ("b" != ini_read_string("Ranks", "chateau", "none")))))
-                ini_write_string("Ranks", "chateau", global.rank)
-            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "chateau", "none")) && (("a" != ini_read_string("Ranks", "chateau", "none")) && (("b" != ini_read_string("Ranks", "chateau", "none")) && ("c" != ini_read_string("Ranks", "chateau", "none"))))))
-                ini_write_string("Ranks", "chateau", global.rank)
         }
         if (string_letters(roomname) == "ruin")
         {
@@ -155,13 +121,13 @@ with (obj_player)
                 ini_write_string("Toppin", "ruin5", global.pineapplefollow)
             if (global.rank == "s")
                 ini_write_string("Ranks", "ruin", global.rank)
-            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "ruin", "none")))
+            if (global.rank == "a" && "s" != ini_read_string("Ranks", "ruin", "none"))
                 ini_write_string("Ranks", "ruin", global.rank)
-            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "ruin", "none")) && ("a" != ini_read_string("Ranks", "ruin", "none"))))
+            if (global.rank == "b" && "s" != ini_read_string("Ranks", "ruin", "none") && "a" != ini_read_string("Ranks", "ruin", "none"))
                 ini_write_string("Ranks", "ruin", global.rank)
-            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "ruin", "none")) && (("a" != ini_read_string("Ranks", "ruin", "none")) && ("b" != ini_read_string("Ranks", "ruin", "none")))))
+            if (global.rank == "c" && "s" != ini_read_string("Ranks", "ruin", "none") && "a" != ini_read_string("Ranks", "ruin", "none") && "b" != ini_read_string("Ranks", "ruin", "none"))
                 ini_write_string("Ranks", "ruin", global.rank)
-            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "ruin", "none")) && (("a" != ini_read_string("Ranks", "ruin", "none")) && (("b" != ini_read_string("Ranks", "ruin", "none")) && ("c" != ini_read_string("Ranks", "ruin", "none"))))))
+            if (global.rank == "d" && "s" != ini_read_string("Ranks", "ruin", "none") && "a" != ini_read_string("Ranks", "ruin", "none") && "b" != ini_read_string("Ranks", "ruin", "none") && "c" != ini_read_string("Ranks", "ruin", "none"))
                 ini_write_string("Ranks", "ruin", global.rank)
         }
         if (string_letters(roomname) == "dungeon")
@@ -192,60 +158,14 @@ with (obj_player)
                 ini_write_string("Toppin", "dungeon5", global.pineapplefollow)
             if (global.rank == "s")
                 ini_write_string("Ranks", "dungeon", global.rank)
-            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "dungeon", "none")))
+            if (global.rank == "a" && "s" != ini_read_string("Ranks", "dungeon", "none"))
                 ini_write_string("Ranks", "dungeon", global.rank)
-            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "dungeon", "none")) && ("a" != ini_read_string("Ranks", "dungeon", "none"))))
+            if (global.rank == "b" && "s" != ini_read_string("Ranks", "dungeon", "none") && "a" != ini_read_string("Ranks", "dungeon", "none"))
                 ini_write_string("Ranks", "dungeon", global.rank)
-            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "dungeon", "none")) && (("a" != ini_read_string("Ranks", "dungeon", "none")) && ("b" != ini_read_string("Ranks", "dungeon", "none")))))
+            if (global.rank == "c" && "s" != ini_read_string("Ranks", "dungeon", "none") && "a" != ini_read_string("Ranks", "dungeon", "none") && "b" != ini_read_string("Ranks", "dungeon", "none"))
                 ini_write_string("Ranks", "dungeon", global.rank)
-            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "dungeon", "none")) && (("a" != ini_read_string("Ranks", "dungeon", "none")) && (("b" != ini_read_string("Ranks", "dungeon", "none")) && ("c" != ini_read_string("Ranks", "dungeon", "none"))))))
+            if (global.rank == "d" && "s" != ini_read_string("Ranks", "dungeon", "none") && "a" != ini_read_string("Ranks", "dungeon", "none") && "b" != ini_read_string("Ranks", "dungeon", "none") && "c" != ini_read_string("Ranks", "dungeon", "none"))
                 ini_write_string("Ranks", "dungeon", global.rank)
-        }
-        if (room == strongcold_escape)
-        {
-            ini_open("saveData.ini")
-            if (global.secretfound > global.strongcoldsecret)
-                ini_write_string("Secret", "strongcold", global.secretfound)
-            if (global.strongcoldtreasure == 0)
-                ini_write_string("Treasure", "strongcold", global.treasure)
-            if ((global.strongcoldhighscore < global.collect) && (global.timeattack == 0))
-                ini_write_string("Highscore", "strongcold", global.collect)
-            if (global.strongcoldtoppin1 != 1)
-                ini_write_string("Toppin", "strongcold1", global.shroomfollow)
-            if (global.strongcoldtoppin2 != 1)
-                ini_write_string("Toppin", "strongcold2", global.cheesefollow)
-            if (global.strongcoldtoppin3 != 1)
-                ini_write_string("Toppin", "strongcold3", global.tomatofollow)
-            if (global.strongcoldtoppin4 != 1)
-                ini_write_string("Toppin", "strongcold4", global.sausagefollow)
-            if (global.strongcoldtoppin5 != 1)
-                ini_write_string("Toppin", "strongcold5", global.pineapplefollow)
-            if (global.timeattack == 0)
-            {
-                if (global.rank == "s")
-                    ini_write_string("Ranks", "strongcold", global.rank)
-                if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "strongcold", "none")))
-                    ini_write_string("Ranks", "strongcold", global.rank)
-                if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "strongcold", "none")) && ("a" != ini_read_string("Ranks", "strongcold", "none"))))
-                    ini_write_string("Ranks", "strongcold", global.rank)
-                if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "strongcold", "none")) && (("a" != ini_read_string("Ranks", "strongcold", "none")) && ("b" != ini_read_string("Ranks", "strongcold", "none")))))
-                    ini_write_string("Ranks", "strongcold", global.rank)
-                if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "strongcold", "none")) && (("a" != ini_read_string("Ranks", "strongcold", "none")) && (("b" != ini_read_string("Ranks", "strongcold", "none")) && ("c" != ini_read_string("Ranks", "strongcold", "none"))))))
-                    ini_write_string("Ranks", "strongcold", global.rank)
-            }
-            if (global.timeattack == 1)
-            {
-                if (global.rank == "s")
-                    ini_write_string("Time", "strongcold", global.rank)
-                if ((global.rank == "a") && ("s" != ini_read_string("Time", "strongcold", "none")))
-                    ini_write_string("Time", "strongcold", global.rank)
-                if ((global.rank == "b") && (("s" != ini_read_string("Time", "strongcold", "none")) && ("a" != ini_read_string("Time", "strongcold", "none"))))
-                    ini_write_string("Time", "strongcold", global.rank)
-                if ((global.rank == "c") && (("s" != ini_read_string("Time", "strongcold", "none")) && (("a" != ini_read_string("Time", "strongcold", "none")) && ("b" != ini_read_string("Time", "strongcold", "none")))))
-                    ini_write_string("Time", "strongcold", global.rank)
-                if ((global.rank == "d") && (("s" != ini_read_string("Time", "strongcold", "none")) && (("a" != ini_read_string("Time", "strongcold", "none")) && (("b" != ini_read_string("Time", "strongcold", "none")) && ("c" != ini_read_string("Time", "strongcold", "none"))))))
-                    ini_write_string("Time", "strongcold", global.rank)
-            }
         }
         if (string_letters(roomname) == "snickchallengeend")
         {
@@ -261,38 +181,24 @@ with (obj_player)
                 ini_write_string("Highscore", "snickchallenge", global.collect)
             if (global.rank == "s")
                 ini_write_string("Ranks", "snickchallenge", global.rank)
-            if ((global.rank == "a") && ("s" != ini_read_string("Ranks", "snickchallenge", "none")))
+            if (global.rank == "a" && "s" != ini_read_string("Ranks", "snickchallenge", "none"))
                 ini_write_string("Ranks", "snickchallenge", global.rank)
-            if ((global.rank == "b") && (("s" != ini_read_string("Ranks", "snickchallenge", "none")) && ("a" != ini_read_string("Ranks", "snickchallenge", "none"))))
+            if (global.rank == "b" && "s" != ini_read_string("Ranks", "snickchallenge", "none") && "a" != ini_read_string("Ranks", "snickchallenge", "none"))
                 ini_write_string("Ranks", "snickchallenge", global.rank)
-            if ((global.rank == "c") && (("s" != ini_read_string("Ranks", "snickchallenge", "none")) && (("a" != ini_read_string("Ranks", "snickchallenge", "none")) && ("b" != ini_read_string("Ranks", "snickchallenge", "none")))))
+            if (global.rank == "c" && "s" != ini_read_string("Ranks", "snickchallenge", "none") && "a" != ini_read_string("Ranks", "snickchallenge", "none") && "b" != ini_read_string("Ranks", "snickchallenge", "none"))
                 ini_write_string("Ranks", "snickchallenge", global.rank)
-            if ((global.rank == "d") && (("s" != ini_read_string("Ranks", "snickchallenge", "none")) && (("a" != ini_read_string("Ranks", "snickchallenge", "none")) && (("b" != ini_read_string("Ranks", "snickchallenge", "none")) && ("c" != ini_read_string("Ranks", "snickchallenge", "none"))))))
+            if (global.rank == "d" && "s" != ini_read_string("Ranks", "snickchallenge", "none") && "a" != ini_read_string("Ranks", "snickchallenge", "none") && "b" != ini_read_string("Ranks", "snickchallenge", "none") && "c" != ini_read_string("Ranks", "snickchallenge", "none"))
                 ini_write_string("Ranks", "snickchallenge", global.rank)
             ini_close()
         }
         ini_close()
         if (!instance_exists(obj_endlevelfade))
             instance_create(x, y, obj_endlevelfade)
-        obj_player1.state = 78
-        obj_player1.sprite_index = obj_player1.spr_lookdoor
-        if instance_exists(obj_player2)
-        {
-            obj_player2.state = 78
-            obj_player2.sprite_index = obj_player2.spr_lookdoor
-        }
+        obj_player1.state = states.door
+        obj_player1.sprite_index = spr_player_lookdoor
         obj_endlevelfade.alarm[0] = 235
         image_index = 0
         global.panic = 0
         global.snickchallenge = 0
     }
-	if ((sprite_index = spr_walkfront) && (floor(image_index) == (image_number - 2)))
-	{
-		scr_soundeffect(sfx_groundpound)
-		sprite_index = spr_Timesup
-		image_index = 0
-		other.image_index = 0
-        ds_list_add(global.saveroom, other.id)
-	}
 }
-

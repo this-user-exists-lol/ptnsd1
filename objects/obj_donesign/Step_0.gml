@@ -16,4 +16,3 @@ if (door == "b2")
     else
         visible = false
 }
-

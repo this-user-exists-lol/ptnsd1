@@ -1,10 +1,9 @@
 {
-  "parent": {
-    "name": "Notes",
-    "path": "folders/Notes.yy",
-  },
+  "resourceType": "GMNotes",
   "resourceVersion": "1.1",
   "name": "README",
-  "tags": [],
-  "resourceType": "GMNotes",
+  "parent": {
+    "name": "NSD1_GMS2",
+    "path": "NSD1_GMS2.yyp",
+  },
 }

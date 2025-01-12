@@ -7,4 +7,3 @@ level[4] = "5.FREEZER"
 level[5] = "6.GOLF"
 b = 0
 levelselect = 0
-

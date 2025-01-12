@@ -1,4 +1,4 @@
-if ((obj_player.x > (x - 200)) && (obj_player.x < (x + 200)))
+if (obj_player.x > (x - 200) && obj_player.x < (x + 200))
 {
     if (pushing == 0)
     {
@@ -9,7 +9,7 @@ if ((obj_player.x > (x - 200)) && (obj_player.x < (x + 200)))
 }
 if place_meeting((x + hsp), y, obj_noiserock)
     obj_noiserock.hsp = hsp
-if (((obj_noiserock.falling == 1) || (obj_noiserock.hit == 1)) && (jumpaway == 0))
+if ((obj_noiserock.falling == 1 || obj_noiserock.hit == 1) && jumpaway == 0)
 {
     sprite_index = spr_playerN_jump
     image_index = 0
@@ -18,9 +18,9 @@ if (((obj_noiserock.falling == 1) || (obj_noiserock.hit == 1)) && (jumpaway == 0
     vsp = -5
     jumpaway = 1
 }
-if ((sprite_index == spr_playerN_jump) && (floor(image_index) == (image_number - 1)))
+if (sprite_index == spr_playerN_jump && floor(image_index) == (image_number - 1))
     sprite_index = spr_playerN_fall
-if ((sprite_index != spr_playerN_jump) && (sprite_index != spr_playerN_fall))
+if (sprite_index != spr_playerN_jump && sprite_index != spr_playerN_fall)
     scr_collide()
 else
 {
@@ -29,4 +29,3 @@ else
     x += hsp
     y += floor(vsp)
 }
-

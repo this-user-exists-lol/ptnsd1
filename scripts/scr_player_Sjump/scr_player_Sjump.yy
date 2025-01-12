@@ -2,10 +2,10 @@
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "scr_player_Sjump",
+  "isCompatibility": true,
   "isDnD": false,
-  "isCompatibility": false,
   "parent": {
-    "name": "player_states",
-    "path": "folders/Scripts/player_states.yy",
+    "name": "States",
+    "path": "folders/Scripts/Player/States.yy",
   },
 }

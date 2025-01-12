@@ -1,4 +1,5 @@
-function scr_solid(argument0, argument1) {
+function scr_solid()
+{
 	var old_x = x
 	var old_y = y
 	x = argument0
@@ -9,7 +10,7 @@ function scr_solid(argument0, argument1) {
 	    y = old_y
 	    return 1;
 	}
-	if ((y > old_y) && (((bbox_bottom % 16) == 0) && ((!place_meeting(x, old_y, obj_platform)) && place_meeting(x, y, obj_platform))))
+	if (y > old_y && (bbox_bottom % 16) == 0 && (!(place_meeting(x, old_y, obj_platform))) && place_meeting(x, y, obj_platform))
 	{
 	    x = old_x
 	    y = old_y
@@ -48,7 +49,4 @@ function scr_solid(argument0, argument1) {
 	x = old_x
 	y = old_y
 	return 0;
-
-
-
 }

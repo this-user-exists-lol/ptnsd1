@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "enemy_states",
-    "path": "folders/Scripts/enemy_states.yy",
-  },
+  "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "scr_pizzagoblin_throw",
-  "tags": [],
-  "resourceType": "GMScript",
+  "isCompatibility": true,
+  "isDnD": false,
+  "parent": {
+    "name": "Enemies",
+    "path": "folders/Scripts/Enemies.yy",
+  },
 }

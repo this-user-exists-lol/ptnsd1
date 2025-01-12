@@ -10,4 +10,3 @@ if (image_index == 0)
     audio_stop_sound(mu_snickchallenge)
     audio_stop_sound(mu_snickchallengeend)
 }
-

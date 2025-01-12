@@ -6,4 +6,3 @@ numberofcoinsthrow = 3
 done = 0
 mask_index = spr_player_mask
 depth = -1
-

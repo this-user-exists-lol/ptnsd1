@@ -1,80 +1,67 @@
 switch state
 {
-    case 94:
+    case states.idle:
         scr_enemy_idle()
         break
-    case 96:
+    case 94:
         scr_enemy_charge()
         break
-    case 98:
+    case states.turn:
         scr_enemy_turn()
         break
-    case 102:
+    case states.walk:
         scr_enemy_walk()
         break
-    case 104:
+    case states.land:
         scr_enemy_land()
         break
-    case 105:
+    case states.hit:
         scr_enemy_hit()
         break
-    case 106:
+    case states.stun:
         scr_enemy_stun()
         break
-    case 97:
+    case states.throw2:
         scr_pizzagoblin_throw()
         break
-    case 109:
+    case states.grabbed:
         scr_enemy_grabbed()
         break
 }
 
-if ((state == 106) && ((stunned > 100) && (birdcreated == 0)))
+if (state == states.stun && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != 106)
+if (state != states.stun)
     birdcreated = 0
-if ((state == 102) && ((y > ystart) && (!scr_solid(x, (y - 1)))))
+if (state == states.walk && y > ystart && (!(scr_solid(x, (y - 1)))))
     y--
-if ((state == 102) && ((y < ystart) && (!scr_solid(x, (y + 1)))))
+if (state == states.walk && y < ystart && (!(scr_solid(x, (y + 1)))))
     y++
-if (state == 106)
+if (state == states.stun)
     grav = 0.5
 else
     grav = 0
-if ((flash == 1) && (alarm[2] <= 0))
+if (flash == 1 && alarm[2] <= 0)
     alarm[2] = (0.15 * room_speed)
-if (state != 109)
+if (state != states.grabbed)
     depth = 0
-if (((obj_player1.x > (x - 600)) && (obj_player1.x < (x + 600))) && ((y <= (obj_player1.y + 60)) && (y >= (obj_player1.y - 60))))
+if (obj_player.x > (x - 400) && obj_player.x < (x + 400) && y <= (obj_player.y + 60) && y >= (obj_player.y - 60))
 {
-    if ((state != 94) && (obj_player1.state == 91))
+    if (state != states.idle && obj_player1.state == states.mach3)
     {
-        state = 94
+        state = states.idle
         sprite_index = scaredspr
-        if (x != obj_player1.x)
-            image_xscale = (-sign((x - obj_player1.x)))
+        if (x != obj_player.x)
+            image_xscale = (-(sign((x - obj_player.x))))
     }
 }
-if instance_exists(obj_player2)
+if (sprite_index == spr_ancho_chargestart && floor(image_index) == (image_number - 1))
 {
-    if (((obj_player2.x > (x - 600)) && (obj_player2.x < (x + 600))) && ((y <= (obj_player2.y + 60)) && (y >= (obj_player2.y - 60))))
-    {
-        if ((state != 94) && (obj_player2.state == 91))
-        {
-            state = 94
-            sprite_index = scaredspr
-            if (x != obj_player2.x)
-                image_xscale = (-sign((x - obj_player2.x)))
-        }
-    }
-}
-if ((sprite_index == spr_ancho_chargestart) && (floor(image_index) == (image_number - 1)))
-{
-    if ((hitboxcreate == 0) && (state == 96))
+    if (hitboxcreate == 0 && state == 94)
     {
         hitboxcreate = 1
         with (instance_create(x, y, obj_forkhitbox))
@@ -83,38 +70,22 @@ if ((sprite_index == spr_ancho_chargestart) && (floor(image_index) == (image_num
     sprite_index = spr_ancho_charge
     movespeed = 10
 }
-if ((x != obj_player1.x) && ((state != 96) && (y == ystart)))
+if (x != obj_player1.x && state != 94 && y == ystart)
 {
-    if (((obj_player1.x > (x - 200)) && (obj_player1.x < (x + 200))) && ((y <= (obj_player1.y + 50)) && (y >= (obj_player1.y - 50))))
+    if (obj_player1.x > (x - 200) && obj_player1.x < (x + 200) && y <= (obj_player1.y + 50) && y >= (obj_player1.y - 50))
     {
-        if (state == 102)
+        if (state == states.walk)
         {
             image_index = 0
-            image_xscale = (-sign((x - obj_player.x)))
-            state = 96
+            image_xscale = (-(sign((x - obj_player.x))))
+            state = 94
             sprite_index = spr_ancho_chargestart
         }
     }
 }
-if instance_exists(obj_player2)
-{
-    if ((x != obj_player2.x) && ((state != 96) && (y == ystart)))
-    {
-        if (((obj_player2.x > (x - 200)) && (obj_player2.x < (x + 200))) && ((y <= (obj_player2.y + 50)) && (y >= (obj_player2.y - 50))))
-        {
-            if (state == 102)
-            {
-                image_index = 0
-                image_xscale = (-sign((x - obj_player.x)))
-                state = 96
-                sprite_index = spr_ancho_chargestart
-            }
-        }
-    }
-}
-if ((state == 106) || (state == 102))
+if (state == states.stun || state == states.walk)
     movespeed = 0
-if (state != 106)
+if (state != states.stun)
     thrown = 0
 if (boundbox == 0)
 {
@@ -126,4 +97,3 @@ if (boundbox == 0)
         other.boundbox = 1
     }
 }
-

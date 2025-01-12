@@ -1,4 +1,2 @@
-global.breaksound = 0
-sprite_index = spr_destroyable2
+global.breaksound = sfx_jump
 depth = 1
-

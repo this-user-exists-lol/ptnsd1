@@ -1,19 +1,13 @@
-if ((room == rank_room) || (room == timesuproom))
+if (room == rank_room || room == timesuproom)
     visible = false
-else
-    visible = playerid.visible
-if (obj_player.state == 53)
+if (obj_player.state == states.pizzathrow)
     visible = false
-if (obj_player1.spotlight == 1)
-    playerid = obj_player1
-else
-    playerid = obj_player2
-if ((sprite_index == spr_toppinpineapple_intro) && (floor(image_index) == (image_number - 1)))
+if (sprite_index == spr_toppinpineapple_intro && floor(image_index) == (image_number - 1))
     sprite_index = spr_pizzakinpineapple
-if ((global.pineapplefollow == 1) && (sprite_index != spr_toppinpineapple_intro))
+if (global.pineapplefollow == 1 && sprite_index != spr_toppinpineapple_intro)
 {
-    image_alpha = playerid.image_alpha
-    if (playerid.hsp != 0)
+    image_alpha = obj_player.image_alpha
+    if (obj_player.hsp != 0)
         sprite_index = spr_pizzakinpineapple_run
     else
         sprite_index = spr_pizzakinpineapple
@@ -40,8 +34,8 @@ if ((global.pineapplefollow == 1) && (sprite_index != spr_toppinpineapple_intro)
     }
     else
     {
-        ds_queue_enqueue(followQueue, playerid.x)
-        ds_queue_enqueue(followQueue, playerid.y)
+        ds_queue_enqueue(followQueue, obj_player.x)
+        ds_queue_enqueue(followQueue, obj_player.y)
     }
     LAG_STEPS = 10
     if (ds_queue_size(followQueue) > (LAG_STEPS * 2))
@@ -49,8 +43,7 @@ if ((global.pineapplefollow == 1) && (sprite_index != spr_toppinpineapple_intro)
         x = (ds_queue_dequeue(followQueue) - (image_xscale * 4))
         y = (ds_queue_dequeue(followQueue) + 2)
     }
-    image_xscale = playerid.xscale
+    image_xscale = obj_player.xscale
 }
-if ((global.playerhealth == 1) && (global.pineapplefollow == 1))
+if (global.playerhealth == 1 && global.pineapplefollow == 1)
     sprite_index = spr_pizzakinpineapple_panic
-

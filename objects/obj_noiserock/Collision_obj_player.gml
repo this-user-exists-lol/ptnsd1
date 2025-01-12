@@ -1,9 +1,9 @@
-if ((falling == 1) && (vsp > 0))
+if (falling == 1 && vsp > 0)
 {
     hit = 1
     instance_create(x, y, obj_stompeffect)
     obj_player.image_index = 0
-    obj_player.state = 31
+    obj_player.state = states.stunned
     obj_player.sprite_index = spr_player_stunned
     vsp = -5
     falling = 0
@@ -13,4 +13,3 @@ if ((falling == 1) && (vsp > 0))
         shake_mag_acc = (30 / room_speed)
     }
 }
-

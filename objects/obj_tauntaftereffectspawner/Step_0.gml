@@ -1,3 +1,2 @@
-if (obj_player.state != 51)
+if (obj_player.state != states.backbreaker)
     instance_destroy()
-

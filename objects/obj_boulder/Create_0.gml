@@ -5,4 +5,3 @@ grav = 0
 activated = 0
 hitwall = 0
 depth = -10
-

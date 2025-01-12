@@ -1,11 +1,12 @@
-function scr_player_barrelcrouch() {
+function scr_player_barrelcrouch()
+{
 	mask_index = spr_player_mask
 	hsp = 0
 	if (vsp < 12)
 	    vsp += grav
-	if (grounded && ((!key_down) && (image_speed == 0)))
+	if (grounded && (!key_down) && image_speed == 0)
 	{
-	    state = 84
+	    state = states.barrelnormal
 	    movespeed = 2
 	    image_index = 0
 	}
@@ -14,7 +15,4 @@ function scr_player_barrelcrouch() {
 	    image_speed = 0
 	else
 	    image_speed = 0.35
-
-
-
 }

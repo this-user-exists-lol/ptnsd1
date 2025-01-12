@@ -1,4 +1,5 @@
-function scr_player_barrelslipnslide() {
+function scr_player_barrelslipnslide()
+{
 	mask_index = spr_player_mask
 	hsp = (image_xscale * movespeed)
 	if (movespeed <= 8)
@@ -8,12 +9,9 @@ function scr_player_barrelslipnslide() {
 	sprite_index = spr_player_barrelslipnslide
 	if (floor(image_index) == 6)
 	{
-	    state = 86
+	    state = states.barrelroll
 	    flash = 1
 	}
 	else
 	    image_speed = 0.35
-
-
-
 }

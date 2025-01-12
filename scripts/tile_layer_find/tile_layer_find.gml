@@ -1,4 +1,5 @@
-function tile_layer_find(argument0, argument1, argument2) {
+function tile_layer_find()
+{
 	var __depth = argument0
 	var __x = argument1
 	var __y = argument2
@@ -20,7 +21,7 @@ function tile_layer_find(argument0, argument1, argument2) {
 	            {
 	                var __tileXscale = layer_tile_get_xscale(__els[__j])
 	                var __tileYscale = layer_tile_get_yscale(__els[__j])
-	                if ((__tileXscale >= 0) && (__tileYscale >= 0))
+	                if (__tileXscale >= 0 && __tileYscale >= 0)
 	                {
 	                    var __tileX = layer_tile_get_x(__els[__j])
 	                    if (__x < __tileX)
@@ -93,7 +94,4 @@ function tile_layer_find(argument0, argument1, argument2) {
 	    }
 	}
 	return -1;
-
-
-
 }

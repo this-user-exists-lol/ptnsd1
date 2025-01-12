@@ -1,4 +1,5 @@
-function scr_player_door() {
+function scr_player_door()
+{
 	hsp = 0
 	mach2 = 0
 	jumpAnim = 1
@@ -12,9 +13,6 @@ function scr_player_door() {
 	image_speed = 0.35
 	if (floor(image_index) == (image_number - 1))
 	    image_speed = 0
-	if ((floor(image_index) == (image_number - 1)) && ((!instance_exists(obj_fadeout)) && ((sprite_index == spr_downpizzabox) || (sprite_index == spr_uppizzabox))))
+	if (floor(image_index) == (image_number - 1) && (!instance_exists(obj_fadeout)) && (sprite_index == spr_downpizzabox || sprite_index == spr_uppizzabox))
 	    instance_create(x, y, obj_fadeout)
-
-
-
 }

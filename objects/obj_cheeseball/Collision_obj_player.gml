@@ -1,4 +1,4 @@
-if ((obj_player.state == 24) || (obj_player.state == 25))
+if (obj_player.state == states.knightpep || obj_player.state == states.knightpepattack)
 {
     instance_create(x, y, obj_slimedebris)
     instance_create(x, y, obj_slimedebris)
@@ -17,7 +17,7 @@ else
     obj_player.vsp = vsp
     obj_player.x = x
     obj_player.y = y
-    obj_player.state = 11
+    obj_player.state = states.cheeseball
     instance_create(x, y, obj_slimedebris)
     instance_create(x, y, obj_slimedebris)
     instance_create(x, y, obj_slimedebris)
@@ -28,4 +28,3 @@ else
     instance_create(x, y, obj_slimedebris)
     instance_destroy()
 }
-

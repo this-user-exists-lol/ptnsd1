@@ -12,4 +12,3 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     data = tile_set_empty(data)
     tilemap_set_at_pixel(map_id, data, x, y)
 }
-

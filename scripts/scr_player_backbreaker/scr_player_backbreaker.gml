@@ -1,4 +1,5 @@
-function scr_player_backbreaker() {
+function scr_player_backbreaker()
+{
 	mach2 = 0
 	if (sprite_index != spr_player_machfreefall)
 	{
@@ -8,14 +9,14 @@ function scr_player_backbreaker() {
 	else
 	    hsp = (xscale * movespeed)
 	landAnim = 0
-	if ((sprite_index == spr_player_machfreefall) && place_meeting(x, (y + 1), obj_solid))
+	if (sprite_index == spr_player_machfreefall && place_meeting(x, (y + 1), obj_solid))
 	{
-	    state = 71
+	    state = states.machslide
 	    sprite_index = spr_player_crouchslide
 	}
 	if (sprite_index == spr_taunt)
 	{
-	    if ((global.combo >= 3) && (!instance_exists(obj_tauntaftereffectspawner)))
+	    if (global.combo >= 3 && (!instance_exists(obj_tauntaftereffectspawner)))
 	    {
 	        instance_create(x, y, obj_tauntaftereffectspawner)
 	        with (obj_baddie)
@@ -32,19 +33,19 @@ function scr_player_backbreaker() {
 	    taunttimer--
 	    vsp = 0
 	}
-	if ((taunttimer == 0) && (sprite_index == spr_taunt))
+	if (taunttimer == 0 && sprite_index == spr_taunt)
 	{
 	    movespeed = tauntstoredmovespeed
 	    sprite_index = tauntstoredsprite
 	    state = tauntstoredstate
 	}
-	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_eatspaghetti))
-	    state = 0
-	if ((floor(image_index) == (image_number - 1)) && ((sprite_index == spr_Timesup) && place_meeting(x, y, obj_exitgate)))
-	    state = 0
-	if ((floor(image_index) == (image_number - 1)) && ((sprite_index == spr_player_levelcomplete) || (sprite_index == spr_playerN_victory)))
-	    state = 0
-	if (key_jump && (sprite_index == spr_player_phoneidle))
+	if (floor(image_index) == (image_number - 1) && sprite_index == spr_player_eatspaghetti)
+	    state = states.normal
+	if (floor(image_index) == (image_number - 1) && sprite_index == spr_Timesup && place_meeting(x, y, obj_exitgate))
+	    state = states.normal
+	if (floor(image_index) == (image_number - 1) && (sprite_index == spr_player_levelcomplete || sprite_index == spr_playerN_victory))
+	    state = states.normal
+	if (key_jump && sprite_index == spr_player_phoneidle)
 	{
 	    global.panic = 1
 	    sprite_index = spr_bossintro
@@ -55,10 +56,5 @@ function scr_player_backbreaker() {
 	        sprite_index = spr_phonedebris
 	    }
 	}
-	if ((global.miniboss == 1) && ((sprite_index == spr_bossintro) && (floor(image_index) == (image_number - 1))))
-	    state = 0
 	image_speed = 0.35
-
-
-
 }

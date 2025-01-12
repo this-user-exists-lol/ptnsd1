@@ -1,4 +1,5 @@
-function scr_initinput() {
+function scr_initinput()
+{
 	ini_open("saveData.ini")
 	global.key_up = ini_read_string("ControlsKeys", "up", 38)
 	global.key_right = ini_read_string("ControlsKeys", "right", 39)
@@ -21,7 +22,4 @@ function scr_initinput() {
 	global.key_attackC = ini_read_string("ControllerButton", "attack", 32774)
 	global.key_startC = ini_read_string("ControllerButton", "start", 32778)
 	ini_close()
-
-
-
 }

@@ -6,4 +6,3 @@ if (other.drop == 0)
     hsp = spd
     other.drop = 1
 }
-

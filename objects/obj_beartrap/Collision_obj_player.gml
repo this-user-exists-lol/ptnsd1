@@ -1,4 +1,4 @@
-if (obj_player.state != 54)
+if (obj_player.state != states.bossintro)
 {
     with (instance_create(x, (y - 75), obj_press))
         ID = other.id
@@ -8,12 +8,12 @@ with (obj_player)
     hsp = 0
     if (other.drop == 0)
     {
-        if (state != 54)
+        if (state != states.bossintro)
         {
             sprite_index = spr_player_hurt
             instance_create(x, y, obj_spikehurteffect)
         }
-        if (key_jump || (key_attack2 || key_slap2))
+        if (key_jump || key_attack2 || key_slap2)
         {
             if grounded
             {
@@ -21,7 +21,7 @@ with (obj_player)
                 other.press += 2
             }
         }
-        state = 54
+        state = states.bossintro
     }
 }
 if (floor(image_index) == 0)
@@ -30,4 +30,3 @@ if (floor(image_index) == (image_number - 1))
     image_speed = 0
 if (press < 8)
     closed = 1
-

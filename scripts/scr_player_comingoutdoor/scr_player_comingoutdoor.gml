@@ -1,4 +1,5 @@
-function scr_player_comingoutdoor() {
+function scr_player_comingoutdoor()
+{
 	mach2 = 0
 	jumpAnim = 1
 	dashAnim = 1
@@ -13,13 +14,9 @@ function scr_player_comingoutdoor() {
 	{
 	    start_running = 1
 	    movespeed = 0
-	    state = 0
+	    state = states.normal
 	    image_alpha = 1
 	}
-	if sprite_index != spr_Timesup
-		sprite_index = spr_walkfront
+	sprite_index = spr_walkfront
 	image_speed = 0.35
-
-
-
 }

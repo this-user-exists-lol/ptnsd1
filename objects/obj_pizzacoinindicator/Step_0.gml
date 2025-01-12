@@ -7,4 +7,3 @@ if (show > 0)
     show -= 1
     visible = true
 }
-

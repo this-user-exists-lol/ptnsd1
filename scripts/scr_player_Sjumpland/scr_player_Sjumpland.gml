@@ -1,4 +1,5 @@
-function scr_player_Sjumpland() {
+function scr_player_Sjumpland()
+{
 	mach2 = 0
 	jumpAnim = 1
 	dashAnim = 1
@@ -14,14 +15,10 @@ function scr_player_Sjumpland() {
 	alarm[4] = 14
 	vsp = 0
 	hsp = 0
-	audio_stop_sound(sfx_superjumpboost)
 	if (floor(image_index) == 6)
 	{
 	    sprite_index = spr_machfreefall
-	    state = 58
+	    state = states.jump
 	    jumpAnim = 0
 	}
-
-
-
 }

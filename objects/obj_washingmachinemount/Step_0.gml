@@ -1,3 +1,2 @@
-if (obj_player.state != 9)
+if (obj_player.state != states.hookshot)
     visible = true
-

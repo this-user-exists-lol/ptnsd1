@@ -1,5 +1,6 @@
-function scr_panicbg_end() {
-	if ((event_type == 8) && (event_number == 0))
+function scr_panicbg_end()
+{
+	if (event_type == 8 && event_number == 0)
 	{
 	    surface_reset_target()
 	    shader_set(shd_panicbg)
@@ -10,7 +11,4 @@ function scr_panicbg_end() {
 	    draw_surface(global.panicbg_surface, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]))
 	    shader_reset()
 	}
-
-
-
 }

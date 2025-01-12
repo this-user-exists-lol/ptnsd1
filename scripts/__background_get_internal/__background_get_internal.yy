@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "background",
-    "path": "folders/Scripts/compatibility/background.yy",
-  },
+  "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "__background_get_internal",
-  "tags": [],
-  "resourceType": "GMScript",
+  "isCompatibility": true,
+  "isDnD": false,
+  "parent": {
+    "name": "Backgrounds",
+    "path": "folders/Scripts/Utilities/Compatibility/Backgrounds.yy",
+  },
 }

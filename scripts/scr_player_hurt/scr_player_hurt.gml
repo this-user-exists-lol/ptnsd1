@@ -1,4 +1,5 @@
-function scr_player_hurt() {
+function scr_player_hurt()
+{
 	if (sprite_index == spr_hurtjump)
 	    hsp = (xscale * movespeed)
 	if (sprite_index == spr_hurt)
@@ -32,7 +33,4 @@ function scr_player_hurt() {
 	if scr_solid((x + hsp), y)
 	    xscale *= -1
 	image_speed = 0.35
-
-
-
 }

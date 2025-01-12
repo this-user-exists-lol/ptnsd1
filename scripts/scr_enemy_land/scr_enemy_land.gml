@@ -1,4 +1,5 @@
-function scr_enemy_land() {
+function scr_enemy_land()
+{
 	if (vsp > 0)
 	    hsp = 0
 	sprite_index = landspr
@@ -6,10 +7,7 @@ function scr_enemy_land() {
 	if (floor(image_index) == (image_number - 1))
 	{
 	    sprite_index = idlespr
-	    state = 94
+	    state = states.idle
 	    image_index = 0
 	}
-
-
-
 }

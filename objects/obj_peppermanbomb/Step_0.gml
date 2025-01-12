@@ -11,4 +11,3 @@ if (drop == 1)
         instance_destroy()
     scr_collide()
 }
-

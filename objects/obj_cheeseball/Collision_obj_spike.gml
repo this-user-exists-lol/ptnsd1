@@ -1,4 +1,4 @@
-if (obj_player.state == 11)
+if (obj_player.state == states.cheeseball)
 {
     with (obj_player)
     {
@@ -23,7 +23,7 @@ if (obj_player.state == 11)
         image_index = 0
         obj_player.image_index = 0
         obj_player.flash = 1
-        state = 72
+        state = states.bump
     }
 }
 else
@@ -38,4 +38,3 @@ else
     instance_create(x, y, obj_slimedebris)
     instance_destroy()
 }
-

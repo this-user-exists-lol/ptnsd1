@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "panicbg",
-    "path": "folders/Scripts/panicbg.yy",
-  },
+  "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "scr_panicbg_start",
-  "tags": [],
-  "resourceType": "GMScript",
+  "isCompatibility": true,
+  "isDnD": false,
+  "parent": {
+    "name": "Utilities",
+    "path": "folders/Scripts/Utilities.yy",
+  },
 }

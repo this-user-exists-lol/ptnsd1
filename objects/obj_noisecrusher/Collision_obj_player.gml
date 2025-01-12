@@ -1,19 +1,19 @@
 if (invframes == 0)
 {
-    if ((state != 109) && ((obj_player.state != 15) && (obj_player.state != 72)))
+    if (state != states.grabbed && obj_player.state != states.boxxedpep && obj_player.state != states.bump)
     {
         with (obj_player)
         {
-            if ((y > other.y) && ((other.vsp > 1) && ((other.grounded == 0) && (other.state == 95))))
+            if (y > other.y && other.vsp > 1 && other.grounded == 0 && other.state == 93)
                 other.caughtplayer = 1
-            if ((y < other.y) && ((attacking == 0) && ((state == 58) && ((vsp > 0) && (sprite_index != spr_player_stompprep)))))
+            if (y < other.y && attacking == 0 && state == states.jump && vsp > 0 && sprite_index != spr_player_stompprep)
             {
                 if (other.helmet == 0)
                 {
                     other.stunned = 200
                     other.vsp = -5
                     other.hsp = ((-other.image_xscale) * 3)
-                    other.state = 106
+                    other.state = states.stun
                     other.image_index = 0
                 }
                 else
@@ -28,7 +28,7 @@ if (invframes == 0)
                 else
                     vsp = -9
             }
-            if (((state == 70) || ((state == 91) || (state == 46))) && ((other.grounded == 1) && (other.state == 106)))
+            if ((state == states.mach2 || state == states.mach3 || state == states.grab) && other.grounded == 1 && other.state == states.stun)
             {
                 global.hit += 1
                 instance_create(other.x, other.y, obj_slapstar)
@@ -43,25 +43,24 @@ if (invframes == 0)
                 other.hsp = xscale
                 other.image_index = 0
                 other.stunned = 200
-                other.state = 106
+                other.state = states.stun
                 machpunchAnim = 1
-                if ((!grounded) && ((state != 74) && key_jump2))
+                if ((!grounded) && state != states.freefall && key_jump2)
                 {
                     sprite_index = spr_player_mach2jump
                     vsp = -11
                 }
             }
-            if ((!(y < other.y)) && ((state != 72) && ((state != 73) && (other.state != 106))))
+            if ((!(y < other.y)) && state != states.bump && state != states.hurt && other.state != states.stun)
             {
                 instance_create(x, y, obj_bumpeffect)
                 if (x != other.x)
-                    xscale = (-sign((x - other.x)))
+                    xscale = (-(sign((x - other.x))))
                 hsp = ((-xscale) * 10)
                 vsp = -4
                 image_index = 0
-                state = 72
+                state = states.bump
             }
         }
     }
 }
-

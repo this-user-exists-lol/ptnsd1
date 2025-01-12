@@ -2,20 +2,20 @@ if (global.panic == 1)
 {
     switch state
     {
-        case 94:
+        case states.idle:
             scr_fakepeppino_idle()
             break
-        case 102:
+        case states.walk:
             scr_fakepeppino_walk()
             break
-        case 105:
+        case states.hit:
             scr_fakepeppino_hit()
             break
-        case 58:
+        case states.jump:
             scr_fakepeppino_jump()
             break
     }
-    
+
 }
 if place_meeting((x + hsp), y, obj_destructibles)
 {
@@ -31,10 +31,8 @@ if (appeartimer == 0)
 }
 if (obj_player.x > (x - 200) && obj_player.x < (x + 200) && sprite_index == spr_fakepeppino_walk && y == obj_player.y)
 {
-    state = 105
+    state = states.hit
     sprite_index = spr_fakepeppino_grabdash
     image_index = 0
     movespeed = 8
 }
-
-

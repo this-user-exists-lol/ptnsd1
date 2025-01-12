@@ -1,9 +1,8 @@
 image_speed = 0.35
-with (playerid)
+with (obj_player)
 {
-    if (((!place_meeting(x, y, obj_snick)) && ((!place_meeting(x, y, obj_dresser)) && ((!place_meeting(x, y, obj_door)) && ((!place_meeting(x, y, obj_keydoor)) && (!place_meeting(x, y, obj_exitgate)))))) || ((!grounded) || (state != 0)))
+    if (((!(place_meeting(x, y, obj_snick))) && (!(place_meeting(x, y, obj_door))) && (!(place_meeting(x, y, obj_keydoor))) && (!(place_meeting(x, y, obj_exitgate)))) || (!grounded) || state != states.normal)
         instance_destroy(other.id)
 }
-x = playerid.x
-y = (playerid.y - 50)
-
+x = obj_player.x
+y = (obj_player.y - 50)

@@ -1,4 +1,4 @@
-if ((ds_list_find_index(global.baddieroom, id) == -1) && (important == 0))
+if (ds_list_find_index(global.baddieroom, id) == -1 && important == 0)
 {
     if (global.golfhit < 10)
     {
@@ -52,4 +52,3 @@ if ((ds_list_find_index(global.baddieroom, id) == -1) && (important == 0))
     hsp = 0
     vsp = 0
 }
-

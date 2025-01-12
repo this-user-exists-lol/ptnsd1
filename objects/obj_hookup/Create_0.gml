@@ -6,4 +6,3 @@ grav = 0.6
 startx = x
 starty = y
 hspeed = 0
-

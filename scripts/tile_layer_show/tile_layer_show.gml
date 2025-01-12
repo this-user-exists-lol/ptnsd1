@@ -1,4 +1,5 @@
-function tile_layer_show(argument0) {
+function tile_layer_show()
+{
 	var __depth = argument0
 	var __layers = layer_get_all()
 	var __numlayers = array_length_1d(__layers)
@@ -19,7 +20,4 @@ function tile_layer_show(argument0) {
 	        }
 	    }
 	}
-
-
-
 }

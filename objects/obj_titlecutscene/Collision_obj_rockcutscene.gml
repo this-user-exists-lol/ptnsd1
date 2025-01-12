@@ -8,4 +8,3 @@ if (other.image_index == 0)
     hsp = 8
     other.image_index = 1
 }
-

@@ -1,8 +1,8 @@
 with (obj_player)
 {
-    if (state == 70)
+    if (state == states.mach2)
         machpunchAnim = 1
-    if ((state == 70) || (state == 91))
+    if (state == states.mach2 || state == states.mach3)
     {
         with (instance_create(other.x, other.y, obj_sausageman_dead))
             sprite_index = spr_noise_dead
@@ -21,4 +21,3 @@ with (obj_player)
         instance_destroy(other.id)
     }
 }
-

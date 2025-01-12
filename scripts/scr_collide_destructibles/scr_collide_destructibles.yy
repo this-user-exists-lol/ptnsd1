@@ -2,10 +2,10 @@
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "scr_collide_destructibles",
+  "isCompatibility": true,
   "isDnD": false,
-  "isCompatibility": false,
   "parent": {
-    "name": "collisions",
-    "path": "folders/Scripts/collisions.yy",
+    "name": "Collision",
+    "path": "folders/Scripts/Collision.yy",
   },
 }

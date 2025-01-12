@@ -1,14 +1,15 @@
-function scr_fakepeppino_hit() {
+function scr_fakepeppino_hit()
+{
 	hsp = (image_xscale * movespeed)
-	if (place_meeting(x, y, obj_player) && (obj_player.state != 55))
+	if (place_meeting(x, y, obj_player) && obj_player.state != states.gameover)
 	{
 	    with (obj_player)
 	    {
-	        if ((state != 73) && ((hurted == 0) && ((cutscene == 0) && (state != 72))))
+	        if (state != states.hurt && hurted == 0 && cutscene == 0 && state != states.bump)
 	        {
-	            if (state != 51)
+	            if (state != states.backbreaker)
 	            {
-	                state = 51
+	                state = states.backbreaker
 	                sprite_index = spr_player_hurt
 	                x = (other.x + (other.image_xscale * 50))
 	                y = other.y
@@ -25,18 +26,18 @@ function scr_fakepeppino_hit() {
 	        }
 	    }
 	}
-	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_fakepeppino_grabdash))
+	if (floor(image_index) == (image_number - 1) && sprite_index == spr_fakepeppino_grabdash)
 	{
-	    state = 94
+	    state = states.idle
 	    image_index = 0
 	    sprite_index = spr_fakepeppino_idle
 	    movespeed = 0
 	}
-	if ((sprite_index == spr_fakepeppino_grabattack) && (floor(image_index) == (image_number - 1)))
+	if (sprite_index == spr_fakepeppino_grabattack && floor(image_index) == (image_number - 1))
 	{
 	    with (obj_player)
 	    {
-	        if ((state != 73) && scr_sound(sound_touchspike))
+	        if (state != states.hurt && scr_sound(sound_touchspike))
 	            global.hurtcounter += 1
 	        alarm[8] = 60
 	        alarm[7] = 120
@@ -79,15 +80,12 @@ function scr_fakepeppino_hit() {
 	            }
 	        }
 	        instance_create(x, y, obj_spikehurteffect)
-	        state = 73
+	        state = states.hurt
 	        image_index = 0
 	        flash = 1
 	    }
-	    state = 94
+	    state = states.idle
 	    sprite_index = spr_fakepeppino_idle
 	    image_index = 0
 	}
-
-
-
 }

@@ -1,4 +1,5 @@
-function pal_swap_set_tiles() {
+function pal_swap_set_tiles()
+{
 	var _pal_sprite = argument[0]
 	var _pal_index = argument[1]
 	var _low = (argument[2] + 1)
@@ -49,7 +50,4 @@ function pal_swap_set_tiles() {
 	        depth = _high
 	    }
 	}
-
-
-
 }

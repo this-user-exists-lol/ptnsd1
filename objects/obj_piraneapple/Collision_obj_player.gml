@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if ((state == 24) || (state == 25))
+    if (state == states.knightpep || state == states.knightpepattack)
     {
         with (instance_create(x, y, obj_knightdebris))
             image_index = 0
@@ -22,11 +22,11 @@ with (obj_player)
         image_index = 0
         obj_player.image_index = 0
         obj_player.flash = 1
-        state = 72
+        state = states.bump
     }
-    else if ((state == 27) && (hurted == 0))
+    else if (state == states.bombpep && hurted == 0)
         instance_create(x, y, obj_bombexplosion)
-    else if ((state != 73) && ((hurted == 0) && ((cutscene == 0) && ((state != 72) && ((state != 91) && (state != 22))))))
+    else if (state != states.hurt && hurted == 0 && cutscene == 0 && state != states.bump && state != states.mach3 && state != states.handstandjump)
     {
         if (global.collect > 20)
         {
@@ -61,11 +61,10 @@ with (obj_player)
         movespeed = 8
         vsp = -5
         instance_create(x, y, obj_spikehurteffect)
-        state = 73
+        state = states.hurt
         image_index = 0
         flash = 1
     }
 }
-if ((obj_player.state == 91) || (obj_player.state == 22))
+if (obj_player.state == states.mach3 || obj_player.state == states.handstandjump)
     instance_destroy()
-

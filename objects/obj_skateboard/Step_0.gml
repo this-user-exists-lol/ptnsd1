@@ -11,4 +11,3 @@ if (scr_solid((x + 1), y) || scr_solid((x - 1), y))
     instance_create(x, (y + 10), obj_skateboarddebris2)
 }
 scr_collide()
-

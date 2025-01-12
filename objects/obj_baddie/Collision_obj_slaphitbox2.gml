@@ -13,7 +13,7 @@ if (grounded)
 		image_xscale = -obj_player.xscale
 	vsp = -3
 	hsp = ((-image_xscale) * 3)
-	state = 106
+	state = states.stun
 	image_index = 0
 	hp -= 1
 	if hp = 0

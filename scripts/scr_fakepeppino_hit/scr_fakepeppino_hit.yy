@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "fakepeppino",
-    "path": "folders/Scripts/fakepeppino.yy",
-  },
+  "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "scr_fakepeppino_hit",
-  "tags": [],
-  "resourceType": "GMScript",
+  "isCompatibility": true,
+  "isDnD": false,
+  "parent": {
+    "name": "Fake Peppino (GOLF)",
+    "path": "folders/Scripts/Fake Peppino (GOLF).yy",
+  },
 }

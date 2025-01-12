@@ -1,11 +1,10 @@
-x = playerid.x
-y = playerid.y
-image_xscale = playerid.xscale
-if (playerid.movespeed <= 7)
+x = obj_player.x
+y = obj_player.y
+image_xscale = obj_player.xscale
+if (obj_player.movespeed <= 7)
     instance_destroy()
-with (playerid)
+with (obj_player)
 {
-    if (state != 70)
+    if (state != states.mach2)
         instance_destroy(other.id)
 }
-

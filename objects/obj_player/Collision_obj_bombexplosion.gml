@@ -1,6 +1,6 @@
-if ((hurted == 0) && ((cutscene == 0) && (((state != 27) && (sprite_index != spr_bombpep_end)) && ((state != 63) && (state != 65)))))
+if (hurted == 0 && cutscene == 0 && state != states.bombpep && sprite_index != spr_bombpep_end && state != states.Sjump && state != states.Sjumpprep)
 {
-    if ((state == 24) || (state == 25))
+    if (state == states.knightpep || state == states.knightpepattack)
     {
         scr_soundeffect(sfx_loseknight)
         with (instance_create(x, y, obj_knightdebris))
@@ -22,7 +22,6 @@ if ((hurted == 0) && ((cutscene == 0) && (((state != 27) && (sprite_index != spr
     hurted = 1
     vsp = -4
     sprite_index = spr_bombpepend
-    state = 27
+    state = states.bombpep
     bombpeptimer = 0
 }
-

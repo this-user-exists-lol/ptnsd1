@@ -1,7 +1,7 @@
-if (((state == 58) || ((state == 63) || ((state == 70) || (obj_player.state == 91)))) && (other.drop == 0))
+if ((state == states.jump || state == states.Sjump || state == states.mach2 || obj_player.state == states.mach3) && other.drop == 0)
 {
     mach2 = 0
-    state = 75
+    state = states.hang
     image_xscale = 1
     other.hooked = 1
     other.vspeed = -5
@@ -10,4 +10,3 @@ if (((state == 58) || ((state == 63) || ((state == 70) || (obj_player.state == 9
     if (other.hspeed == 0)
         sprite_index = spr_player_hang
 }
-

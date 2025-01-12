@@ -1,11 +1,7 @@
-if ((obj_player.state != 73) && (global.shroomfollow == 0))
+if (obj_player.state != states.hurt && global.shroomfollow == 0)
 {
-	scr_soundeffect(sfx_collecttoppin)
-	sprite_index = spr_toppinshroom_intro
     global.combotime = 60
-    global.collect = 1000
-	scr_smalltext("1000")
-	scr_pepsfx("good")
+    global.style += 50
     ds_list_add(global.saveroom, id)
     if (global.toppintotal < 5)
         obj_tv.message = (("YOU NEED " + string((5 - global.toppintotal))) + " MORE TOPPINS!")
@@ -17,4 +13,3 @@ if ((obj_player.state != 73) && (global.shroomfollow == 0))
     global.shroomfollow = 1
     panic = 0
 }
-

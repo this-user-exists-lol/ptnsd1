@@ -1,6 +1,5 @@
-if (state == 73)
+if (state == states.hurt)
 {
-    state = 0
+    state = states.normal
     movespeed = 0
 }
-

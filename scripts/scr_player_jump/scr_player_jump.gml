@@ -1,4 +1,5 @@
-function scr_player_jump() {
+function scr_player_jump()
+{
 	if (momemtum == 0)
 	    hsp = (move * movespeed)
 	else
@@ -19,54 +20,50 @@ function scr_player_jump() {
 	    movespeed = 0
 	    mach2 = 0
 	}
-	if ((move != 0) && (movespeed < 6))
+	if (move != 0 && movespeed < 6)
 	    movespeed += 0.5
 	if (movespeed > 6)
 	    movespeed -= 0.1
-	if ((scr_solid((x + 1), y) && (move == 1)) || (scr_solid((x - 1), y) && (move == -1)))
+	if ((scr_solid((x + 1), y) && move == 1) || (scr_solid((x - 1), y) && move == -1))
 	    movespeed = 0
 	if (dir != xscale)
 	    dir = xscale
 	landAnim = 1
-	if ((!key_jump2) && ((jumpstop == 0) && ((vsp < 0.5) && (stompAnim == 0))))
+	if ((!key_jump2) && jumpstop == 0 && vsp < 0.5 && stompAnim == 0)
 	{
-		vsp /= 10
-		jumpstop = 1
+	    vsp /= 10
+	    jumpstop = 1
 	}
 	if (ladderbuffer > 0)
 	    ladderbuffer--
-	if (scr_solid(x, (y - 1)) && ((jumpstop == 0) && (jumpAnim == 1)))
+	if (scr_solid(x, (y - 1)) && jumpstop == 0 && jumpAnim == 1)
 	{
-		vsp = grav
-		jumpstop = 1
+	    vsp = grav
+	    jumpstop = 1
 	}
-	if ((grounded && ((input_buffer_jump < 8) && ((!key_down) && ((!key_attack) && (vsp > 0))))) && (!((sprite_index == spr_facestomp) || (sprite_index == spr_freefall))))
+	if (grounded && input_buffer_jump < 8 && (!key_down) && (!key_attack) && vsp > 0 && (!((sprite_index == spr_player_facestomp || sprite_index == spr_player_freefall))))
 	{
 	    scr_soundeffect(sfx_jump)
 	    sprite_index = spr_jump
 	    if (shotgunAnim == 1)
-	        sprite_index = spr_shotgunjump
+	        sprite_index = spr_shotgun_jump
 	    instance_create(x, y, obj_highjumpcloud2)
 	    stompAnim = 0
-	    if (character == "P")
-	        vsp = -11
-	    else
-	        vsp = -13
-	    state = 58
+	    vsp = -11
+	    state = states.jump
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
 	    movespeed = 2
 	    freefallstart = 0
 	}
-	if ((grounded && (vsp > 0)) && (!key_attack))
+	if (grounded && vsp > 0 && (!key_attack))
 	{
 	    scr_soundeffect(sfx_step)
-		instance_create(x, y, obj_landcloud)
 	    if key_attack
 	        landAnim = 0
 	    input_buffer_secondjump = 0
-	    state = 0
+	    state = states.normal
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -75,10 +72,14 @@ function scr_player_jump() {
 	}
 	if key_jump
 	    input_buffer_jump = 0
-	if key_down
+	if (character == "P")
 	{
-		sprite_index = spr_facestomp
-		state = "faceslam"
+	    if (vsp > 5)
+	        fallinganimation++
+	    if (fallinganimation >= 40 && fallinganimation < 80)
+	        sprite_index = spr_player_facestomp
+	    if (fallinganimation >= 80)
+	        sprite_index = spr_player_freefall
 	}
 	if (stompAnim == 0)
 	{
@@ -91,8 +92,8 @@ function scr_player_jump() {
 	    {
 	        if (sprite_index == spr_airdash1)
 	            sprite_index = spr_airdash2
-	        if (sprite_index == spr_shotgunjump)
-	            sprite_index = spr_shotgunfall
+	        if (sprite_index == spr_shotgun_jump)
+	            sprite_index = spr_shotgun_fall
 	        if (sprite_index == spr_jump)
 	            sprite_index = spr_fall
 	        if (sprite_index == spr_player_Sjumpstart)
@@ -105,48 +106,63 @@ function scr_player_jump() {
 	}
 	if (stompAnim == 1)
 	{
-	    if ((sprite_index == spr_stompprep) && (floor(image_index) == (image_number - 1)))
+	    if (sprite_index == spr_stompprep && floor(image_index) == (image_number - 1))
 	        sprite_index = spr_stomp
+	}
+	if key_down
+	{
+		state = states.facestomp
+		sprite_index = spr_player_facestomp
 	}
 	if (move != 0)
 	    xscale = move
 	image_speed = 0.35
-	if (key_slap2 && ((suplexmove == 0) && (!((shotgunAnim == 1) && key_up))))
+	if (character == "N" && key_jump && sprite_index != spr_playerN_glide)
+	{
+	    jumpstop = 0
+	    sprite_index = spr_playerN_glide
+	    vsp = -11
+	}
+	if (key_slap2 && character == "N" && (!instance_exists(obj_bomb)))
+	{
+	    with (instance_create(x, y, obj_bomb))
+	    {
+	        vsp = -5
+	        hsp = (other.xscale * 5)
+	    }
+	}
+	if (key_slap2 && character == "P" && suplexmove == 0 && (!((shotgunAnim == 1 && key_up))))
 	{
 	    suplexmove = 1
-	    suplexdashsnd = audio_play_sound(sfx_suplexdash, 1, false)
-	    state = 12
+	    scr_soundeffect(sfx_suplexdash)
+	    state = states.handstandjump
 	    image_index = 0
-		if key_up
-			sprite_index = spr_player_slapup
-		else
-			sprite_index = choose(spr_player_slap1, spr_player_slap2)
+	    sprite_index = spr_player_suplexgrabjumpstart
+	    vsp = -4
+	    movespeed = 6
 	}
-	if (key_slap2 && ((shotgunAnim == 1) && key_up))
+	if (key_slap2 && character == "P" && shotgunAnim == 1 && key_up)
 	{
 	    scr_soundeffect(sfx_killingblow)
-	    state = 38
+	    state = states.shotgun
 	    with (instance_create(x, y, obj_pistoleffect))
 	        image_xscale = other.image_xscale
 	    image_index = 0
-	    sprite_index = spr_shotgunshoot
-	    if (character == "P")
-	    {
-	        instance_create((x + (image_xscale * 20)), (y + 20), obj_shotgunbullet)
-	        with (instance_create((x + (image_xscale * 20)), (y + 20), obj_shotgunbullet))
-	            spdh = 4
-	        with (instance_create((x + (image_xscale * 20)), (y + 20), obj_shotgunbullet))
-	            spdh = -4
-	    }
+	    sprite_index = spr_player_shotgun
+	    instance_create((x + (image_xscale * 20)), (y + 20), obj_shotgunbullet)
+	    with (instance_create((x + (image_xscale * 20)), (y + 20), obj_shotgunbullet))
+	        spdh = 4
+	    with (instance_create((x + (image_xscale * 20)), (y + 20), obj_shotgunbullet))
+	        spdh = -4
 	}
-	if ((!key_attack) || (move != xscale))
+	if ((!key_attack) || move != xscale)
 	    mach2 = 0
-	if (key_attack && ((sprite_index != spr_facestomp) || (sprite_index != spr_freefall) || (sprite_index != spr_player_freefallland)))
+	if (key_attack && grounded && fallinganimation < 40)
 	{
-	    movespeed = 2
-	    sprite_index = spr_airdash1
+	    movespeed = 6
+	    sprite_index = spr_mach1
 	    jumpAnim = 1
-	    state = 70
+	    state = states.mach1
 	    image_index = 0
 	}
 	if key_taunt2
@@ -156,12 +172,9 @@ function scr_player_jump() {
 	    tauntstoredmovespeed = movespeed
 	    tauntstoredsprite = sprite_index
 	    tauntstoredstate = state
-	    state = 51
+	    state = states.backbreaker
 	    image_index = random_range(0, (sprite_get_number(spr_taunt) - 1))
 	    sprite_index = spr_taunt
 	    instance_create(x, y, obj_taunteffect)
 	}
-
-
-
 }

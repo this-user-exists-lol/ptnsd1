@@ -1,3 +1,2 @@
-global.breaksound = 0
+global.breaksound = sfx_jump
 depth = 1
-

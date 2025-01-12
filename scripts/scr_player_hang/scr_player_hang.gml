@@ -1,4 +1,5 @@
-function scr_player_hang() {
+function scr_player_hang()
+{
 	hsp = 0
 	vsp = 0
 	jumpAnim = 1
@@ -13,7 +14,4 @@ function scr_player_hang() {
 	start_running = 1
 	alarm[4] = 14
 	image_speed = 0.35
-
-
-
 }

@@ -23,4 +23,3 @@ with (instance_create(x, y, obj_sausageman_dead))
     sprite_index = spr_noise_dead
 hsp = 0
 vsp = 0
-

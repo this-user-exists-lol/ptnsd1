@@ -4,4 +4,3 @@ hsp = ((-obj_player.xscale) * random_range(4, 8))
 grav = 0.4
 image_xscale = obj_player.xscale
 depth = -1
-

@@ -1,4 +1,4 @@
-if ((sprite_index == spr_noise_button) && (floor(image_index) == (image_number - 1)))
+if (sprite_index == spr_noise_button && floor(image_index) == (image_number - 1))
 {
     hspeed = 2.8
     image_xscale = 1
@@ -11,4 +11,3 @@ if (floor(image_index) == 86)
     obj_player.sprite_index = spr_player_bossintro
 }
 scr_collide()
-

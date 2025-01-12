@@ -1,24 +1,24 @@
 switch state
 {
-    case 94:
+    case states.idle:
         scr_enemy_idle()
         break
-    case 98:
+    case states.turn:
         scr_enemy_turn()
         break
-    case 102:
+    case states.walk:
         scr_enemy_walk()
         break
-    case 104:
+    case states.land:
         scr_enemy_land()
         break
-    case 105:
+    case states.hit:
         scr_enemy_hit()
         break
-    case 106:
+    case states.stun:
         scr_enemy_stun()
         break
-    case 109:
+    case states.grabbed:
         scr_enemy_grabbed()
         break
 }
@@ -46,11 +46,9 @@ if (cigar == 0)
     stompedspr = spr_noisesatellite
     grabbedspr = spr_noisesatellitestun
 }
-if (state != 109)
+if (state != states.grabbed)
     depth = 0
-if (state != 106)
+if (state != states.stun)
     thrown = 0
 if (flash == 1 && alarm[2] <= 0)
     alarm[2] = (0.15 * room_speed)
-
-

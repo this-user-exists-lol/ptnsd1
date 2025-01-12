@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "pal_swap",
-    "path": "folders/Scripts/pal_swap.yy",
-  },
+  "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "wrap",
-  "tags": [],
-  "resourceType": "GMScript",
+  "isCompatibility": true,
+  "isDnD": false,
+  "parent": {
+    "name": "Utilities",
+    "path": "folders/Scripts/Utilities.yy",
+  },
 }

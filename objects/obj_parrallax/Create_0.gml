@@ -1,4 +1,3 @@
-bg = 1205
-bg2 = 1249
-bg3 = 1249
-
+bg = bg_desert
+bg2 = bg_null
+bg3 = bg_null

@@ -1,27 +1,28 @@
-function scr_player_crouchjump() {
+function scr_player_crouchjump()
+{
 	move = (key_left + key_right)
 	fallinganimation++
-	if ((fallinganimation >= 40) && (fallinganimation < 80))
+	if (fallinganimation >= 40 && fallinganimation < 80)
 	{
-	    sprite_index = spr_facestomp
-	    state = 58
+	    sprite_index = spr_player_facestomp
+	    state = states.jump
 	}
 	mask_index = spr_crouchmask
 	hsp = (move * movespeed)
 	movespeed = 4
-	if ((!key_jump2) && ((jumpstop == 0) && (jumpAnim == 1)))
+	if ((!key_jump2) && jumpstop == 0 && jumpAnim == 1)
 	{
 	    vsp /= 2
 	    jumpstop = 1
 	}
-	if (scr_solid(x, (y - 1)) && ((jumpstop == 0) && (jumpAnim == 1)))
+	if (scr_solid(x, (y - 1)) && jumpstop == 0 && jumpAnim == 1)
 	{
 	    vsp = grav
 	    jumpstop = 1
 	}
 	if (grounded && key_down)
 	{
-	    state = 66
+	    state = states.crouch
 	    jumpAnim = 1
 	    crouchAnim = 1
 	    image_index = 0
@@ -33,7 +34,7 @@ function scr_player_crouchjump() {
 	    if (shotgunAnim == 0)
 	        sprite_index = spr_crouchjump
 	    else
-	        sprite_index = spr_crouchjump
+	        sprite_index = spr_shotgun_crouchjump1
 	    if (floor(image_index) == (image_number - 1))
 	        jumpAnim = 0
 	}
@@ -42,12 +43,12 @@ function scr_player_crouchjump() {
 	    if (shotgunAnim == 0)
 	        sprite_index = spr_crouchfall
 	    else
-	        sprite_index = spr_crouchfall
+	        sprite_index = spr_shotgun_crouchjump2
 	}
-	if (grounded && ((!key_down) && (!scr_solid(x, (y - 16)))))
+	if (grounded && (!key_down) && (!(scr_solid(x, (y - 16)))))
 	{
 	    movespeed = 0
-	    state = 0
+	    state = states.normal
 	    jumpAnim = 1
 	    landAnim = 1
 	    crouchAnim = 1
@@ -59,7 +60,4 @@ function scr_player_crouchjump() {
 	if (move != 0)
 	    xscale = move
 	image_speed = 0.35
-
-
-
 }

@@ -1,13 +1,24 @@
 if (ds_list_find_index(global.saveroom, id) == -1)
 {
-	scr_destroyabledebris(spr_bigdebris, 6, 32)
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
+    with (instance_create((x + 32), (y + 32), obj_debris))
+        sprite_index = spr_bigdebris
     if (audio_is_playing(sfx_breakblock1) || audio_is_playing(sfx_breakblock2))
     {
         audio_stop_sound(sfx_breakblock1)
         audio_stop_sound(sfx_breakblock2)
     }
-	if content != 0
-		instance_create((x + 32), (y + 32), content)
     scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
     ds_list_add(global.saveroom, id)
     var lay_id = layer_get_id("Tiles_1")
@@ -25,4 +36,3 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     tilemap_set_at_pixel(map_id, data3, x, (y + 33))
     tilemap_set_at_pixel(map_id, data4, (x + 33), (y + 33))
 }
-

@@ -5,7 +5,6 @@ with (obj_player1)
     sprite_index = spr_player_haulingstart
     heavy = 1
     baddiegrabbedID = other.id
-    state = 46
+    state = states.grab
 }
 grabbed = 1
-

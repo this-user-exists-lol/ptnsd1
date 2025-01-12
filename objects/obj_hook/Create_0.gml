@@ -5,4 +5,3 @@ hsp = 0
 grav = 0.6
 startx = x
 starty = y
-

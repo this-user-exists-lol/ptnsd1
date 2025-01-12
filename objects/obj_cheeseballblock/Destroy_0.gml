@@ -11,4 +11,3 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     scr_sound(choose(sound_destroyblock1, sound_destroyblock2))
     ds_list_add(global.saveroom, id)
 }
-

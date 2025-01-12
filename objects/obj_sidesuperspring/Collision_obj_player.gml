@@ -6,4 +6,3 @@ with (obj_player)
     if (movespeed < 10)
         movespeed = 10
 }
-

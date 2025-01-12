@@ -11,6 +11,5 @@ treasure = ini_read_string("SAGE2019", "treasure", 0)
 ini_close()
 picy = 640
 up = 0
-sprite = 1360
+sprite = bg_SAGEcombo10
 depth = -9999
-

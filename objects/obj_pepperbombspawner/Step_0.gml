@@ -1,6 +1,6 @@
 if instance_exists(obj_pepperman)
 {
-    if ((obj_pepperman.hp <= 6) && (start == 0))
+    if (obj_pepperman.hp <= 6 && start == 0)
     {
         alarm[0] = 500
         start = 1
@@ -8,4 +8,3 @@ if instance_exists(obj_pepperman)
 }
 else
     instance_destroy()
-

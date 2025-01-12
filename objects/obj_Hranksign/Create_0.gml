@@ -1,6 +1,2 @@
-global.rank = "none"
-global.strongcoldtime = "none"
-levelsign = "none"
+global.HAT_rank = "none"
 image_speed = 0
-depth = -1
-

@@ -1,4 +1,5 @@
-function __background_get_element(argument0) {
+function __background_get_element()
+{
 	var __result;
 	var __bind = argument0
 	__result[0] = -1
@@ -86,13 +87,10 @@ function __background_get_element(argument0) {
 	}
 	else
 	{
-	    var __newback = __background_set_element(__bind, 0, 0, -1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 16777215, 1)
+	    var __newback = __background_set_element(__bind, false, 0, -1, 0, 0, 1, 1, 1, 1, 0, 0, 0, c_white, 1)
 	    __result[0] = __newback[0]
 	    __result[1] = __newback[1]
 	    __result[2] = 0
 	}
 	return __result;
-
-
-
 }

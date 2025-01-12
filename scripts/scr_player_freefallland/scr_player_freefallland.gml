@@ -1,4 +1,5 @@
-function scr_player_freefallland() {
+function scr_player_freefallland()
+{
 	mach2 = 0
 	jumpAnim = 1
 	dashAnim = 1
@@ -14,15 +15,12 @@ function scr_player_freefallland() {
 	alarm[4] = 14
 	vsp = 0
 	hsp = 0
-	if ((floor(image_index) == (image_number - 1)) && (!(superslam > 30)))
-	    state = 0
-	if ((floor(image_index) == (image_number - 1)) && (superslam > 30))
+	if (floor(image_index) == (image_number - 1) && (!(superslam > 30)))
+	    state = states.normal
+	if (floor(image_index) == (image_number - 1) && superslam > 30)
 	{
-	    state = 40
+	    state = states.machfreefall
 	    vsp = -7
 	}
 	image_speed = 0.35
-
-
-
 }

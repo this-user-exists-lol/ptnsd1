@@ -1,4 +1,5 @@
-function scr_player_runonball() {
+function scr_player_runonball()
+{
 	move = (key_left + key_right)
 	if (!key_attack)
 	    hsp = (move * movespeed)
@@ -6,17 +7,17 @@ function scr_player_runonball() {
 	    hsp = (image_xscale * movespeed)
 	jumpstop = 0
 	vsp = obj_player.vsp
-	if (!place_meeting(x, (y + 1), obj_runonball))
+	if (!(place_meeting(x, (y + 1), obj_runonball)))
 	{
 	    mach2 = 0
-	    state = 0
+	    state = states.normal
 	    jumpAnim = 1
 	    jumpstop = 0
 	}
-	if (key_jump && (grounded && ((!key_down) && (!key_attack))))
+	if (key_jump && grounded && (!key_down) && (!key_attack))
 	{
 	    vsp = -7
-	    state = 58
+	    state = states.jump
 	    image_index = 0
 	    machslideAnim = 1
 	    jumpAnim = 1
@@ -39,7 +40,4 @@ function scr_player_runonball() {
 	if (!key_attack)
 	    mach2 = 0
 	image_speed = 0.35
-
-
-
 }

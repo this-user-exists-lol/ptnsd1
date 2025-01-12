@@ -15,6 +15,11 @@ if (ds_list_find_index(global.saveroom, id) == -1)
         }
         scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
         ds_list_add(global.saveroom, id)
+        var pizzacoin = random_range(1, 100)
+        if (pizzacoin >= 90)
+        {
+            with (instance_create(x, y, obj_pizzacoin))
+                hsp = choose(-2, 2)
+        }
     }
 }
-

@@ -1,17 +1,17 @@
 if (!instance_exists(obj_keyconfig))
 {
-    if (((-obj_player.key_left2) || keyboard_check_pressed(vk_left)) && (optionselected > 0))
+    if ((-obj_player.key_left2) && optionselected > 0)
     {
         optionselected -= 1
         scr_soundeffect(sfx_step)
     }
-    if ((obj_player.key_right2 || keyboard_check_pressed(vk_right)) && (optionselected < 1))
+    if (obj_player.key_right2 && optionselected < 1)
     {
         optionselected += 1
         scr_soundeffect(sfx_step)
     }
 }
-if ((optionselected == 1) && (obj_player.key_jump || keyboard_check_pressed(vk_return)))
+if (optionselected == 1 && obj_player.key_jump)
 {
     file_delete("saveData.ini")
     scr_initinput()
@@ -56,10 +56,9 @@ if ((optionselected == 1) && (obj_player.key_jump || keyboard_check_pressed(vk_r
     obj_mainmenuselect.selected = 0
     instance_destroy()
 }
-if ((obj_player.key_slap2 || keyboard_check_pressed(vk_escape)) || ((optionselected == 0) && (obj_player.key_jump || keyboard_check_pressed(vk_return))))
+if (obj_player.key_slap2 || (optionselected == 0 && obj_player.key_jump) || obj_player.key_start)
 {
     scr_soundeffect(sfx_enemyprojectile)
     obj_mainmenuselect.selected = 0
     instance_destroy()
 }
-

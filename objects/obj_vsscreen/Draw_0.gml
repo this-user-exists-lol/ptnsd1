@@ -22,4 +22,3 @@ if flash
     draw_sprite(spr_vstitle, 0, shake, (vsy + shake))
     shader_reset()
 }
-

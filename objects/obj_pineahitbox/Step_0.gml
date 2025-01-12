@@ -6,10 +6,9 @@ image_xscale = ID.image_xscale
 image_index = ID.image_index
 with (ID)
 {
-    if ((state != 94) && (state != 102))
+    if (state != states.idle && state != states.walk)
     {
         hitboxcreate = 0
         instance_destroy(other.id)
     }
 }
-

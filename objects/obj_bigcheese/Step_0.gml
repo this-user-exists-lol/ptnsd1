@@ -1,47 +1,47 @@
 switch state
 {
-    case 94:
+    case states.idle:
         scr_enemy_idle()
         break
-    case 96:
+    case 94:
         scr_enemy_charge()
         break
-    case 98:
+    case states.turn:
         scr_enemy_turn()
         break
-    case 102:
+    case states.walk:
         scr_enemy_walk()
         break
-    case 104:
+    case states.land:
         scr_enemy_land()
         break
-    case 105:
+    case states.hit:
         scr_enemy_hit()
         break
-    case 106:
+    case states.stun:
         scr_enemy_stun()
         break
-    case 97:
+    case states.throw2:
         scr_pizzagoblin_throw()
         break
-    case 109:
+    case states.grabbed:
         scr_enemy_grabbed()
         break
 }
 
-if ((state == 106) && ((stunned > 40) && (birdcreated == 0)))
+if (state == states.stun && stunned > 40 && birdcreated == 0)
 {
     birdcreated = 1
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != 106)
+if (state != states.stun)
     birdcreated = 0
-if ((flash == 1) && (alarm[2] <= 0))
+if (flash == 1 && alarm[2] <= 0)
     alarm[2] = (0.15 * room_speed)
-if (state != 109)
+if (state != states.grabbed)
     depth = 0
-if (state != 106)
+if (state != states.stun)
     thrown = 0
 if (boundbox == 0)
 {
@@ -53,4 +53,3 @@ if (boundbox == 0)
         other.boundbox = 1
     }
 }
-

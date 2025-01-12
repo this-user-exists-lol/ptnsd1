@@ -11,4 +11,3 @@ if (sprite_index == spr_pizzaportalend)
         ds_list_clear(global.baddieroom)
     }
 }
-

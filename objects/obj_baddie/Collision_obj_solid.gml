@@ -1,3 +1,2 @@
-if (state != 109)
+if (state != states.grabbed)
     instance_destroy()
-

@@ -55,4 +55,3 @@ with (obj_tv)
         alarm[0] = 2
     }
 }
-
