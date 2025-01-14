@@ -59,7 +59,7 @@ function scr_player_jump() {
 	    movespeed = 2
 	    freefallstart = 0
 	}
-	if ((grounded && (vsp > 0)) && (!key_attack))
+	if (grounded && (vsp > 0))
 	{
 	    scr_soundeffect(sfx_step)
 		instance_create(x, y, obj_landcloud)
@@ -75,7 +75,7 @@ function scr_player_jump() {
 	}
 	if key_jump
 	    input_buffer_jump = 0
-	if key_down
+	if (key_down) && (bumped != 2)
 	{
 		sprite_index = spr_facestomp
 		state = "faceslam"
@@ -93,7 +93,7 @@ function scr_player_jump() {
 	            sprite_index = spr_airdash2
 	        if (sprite_index == spr_shotgunjump)
 	            sprite_index = spr_shotgunfall
-	        if (sprite_index == spr_jump)
+	        if (sprite_index == spr_jump) || (sprite_index == spr_player_hanstandjump2)
 	            sprite_index = spr_fall
 	        if (sprite_index == spr_player_Sjumpstart)
 	            sprite_index = spr_player_Sjump
@@ -149,7 +149,7 @@ function scr_player_jump() {
 	    state = 70
 	    image_index = 0
 	}
-	if bumped
+	if (bumped) && (!key_down)
 		sprite_index = spr_machfreefall
 	if key_taunt2
 	{

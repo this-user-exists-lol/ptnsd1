@@ -46,8 +46,6 @@ function scr_player_crouchslide() {
 	{
 	    movespeed = 0
 	    state = 72
-	    hsp = -2.5
-	    vsp = -3
 	    mach2 = 0
 	    image_index = 0
 	    machslideAnim = 1
@@ -58,8 +56,6 @@ function scr_player_crouchslide() {
 	{
 	    movespeed = 0
 	    state = 72
-	    hsp = 2.5
-	    vsp = -3
 	    mach2 = 0
 	    image_index = 0
 	    machslideAnim = 1

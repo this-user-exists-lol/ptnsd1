@@ -24,8 +24,6 @@ function scr_player_machslide() {
 	}
 	if (place_meeting((x + xscale), y, obj_solid) && ((sprite_index == spr_machslide) || (sprite_index == spr_machslidestart)))
 	{
-	    hsp = ((-xscale) * 2.5)
-	    vsp = -4
 	    state = 72
 	    image_index = 4
 	}

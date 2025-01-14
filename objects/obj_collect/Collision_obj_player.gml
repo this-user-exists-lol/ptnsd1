@@ -5,6 +5,6 @@ if (other.object_index == obj_player1)
     global.collect += 10
 else
     global.collectN += 10
-scr_smalltext("10")
+scr_smalltext("10", 0)
 instance_destroy()
 

@@ -79,7 +79,7 @@ function scr_player_mach2() {
 	    input_buffer_jump = 0
 	if key_down && (movespeed > 5)
 	{
-		if (!grounded && (!place_meeting(x, y, obj_dashpad)))
+		if (!grounded && (!place_meeting(x, y, obj_dashpad)))  && ((sprite_index != spr_player_hanstandjump) && (sprite_index != spr_player_hanstandjumpfall))
 		{
 		    with (instance_create(x, y, obj_jumpdust))
 		        image_xscale = other.xscale
@@ -131,21 +131,28 @@ function scr_player_mach2() {
 	        other.dashcloudid = id
 	    }
 	}
-	if (grounded && ((floor(image_index) == (image_number - 1)) && ((sprite_index == spr_player_rollgetup) || (sprite_index == spr_mach1) || (sprite_index == spr_airdash2))))
+	if (animation_end() && (sprite_index == spr_player_rollgetup || sprite_index == spr_player_mach1) && (grounded))
 	    sprite_index = spr_mach
-	if ((!grounded) && ((sprite_index != spr_airdash1) && (sprite_index != spr_airdash2) && (sprite_index != spr_walljumpstart) && (sprite_index != spr_walljumpend) && (sprite_index != spr_player_hanstandjump) && (sprite_index != spr_player_fall2)))
+	if ((!grounded) && ((sprite_index != spr_airdash1) && (sprite_index != spr_airdash2) && (sprite_index != spr_walljumpstart) && (sprite_index != spr_walljumpend) && (sprite_index != spr_player_hanstandjumpfall)))
 	{
 		if (movespeed > 5)
-			sprite_index = spr_mach2jump
+		{
+			if (sprite_index == spr_player_hanstandjump)
+				sprite_index = spr_player_hanstandjump
+			else
+				sprite_index = spr_secondjump1
+		}
 		else
 			sprite_index = spr_airdash1
 	}
-	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_walljumpstart))
-	    sprite_index = spr_walljumpend
-	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_hanstandjump))
-	    sprite_index = spr_fall2
-	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_airdash1))
+	if (animation_end() && (sprite_index == spr_secondjump1))
+	    sprite_index = spr_secondjump2
+	if (animation_end() && (sprite_index == spr_airdash1))
 	    sprite_index = spr_airdash2
+	if (animation_end() && (sprite_index == spr_player_hanstandjump))
+		sprite_index = spr_player_hanstandjumpfall
+	if (animation_end() && (sprite_index == spr_player_walljumpstart))
+	    sprite_index = spr_player_walljumpend
 	if (key_attack && ((!place_meeting((x + xscale), y, obj_solid)) && ((character == "S") && grounded)))
 	{
 	    state = 22

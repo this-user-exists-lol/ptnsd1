@@ -1,4 +1,4 @@
-scr_smalltext("1000")
+scr_smalltext("1000", 0)
 if (other.object_index == obj_player1)
     global.collect += 1000
 else

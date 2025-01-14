@@ -81,7 +81,7 @@ function scr_collide_destructibles() {
 	            }
 	        }
 	    }
-	    if ((state == 74) || (state == 77) || (fallinganimation > 20))
+	    if ((state == 74) || (state == 77) || (state == "faceslam"))
 	    {
 	        if (place_meeting(x, (y + 1), obj_metalblock) && (freefallsmash > 10))
 	        {

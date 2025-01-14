@@ -48,6 +48,7 @@ function scr_player_climbwall() {
 	if (wallspeed <= 1)
 	{
 	    state = 58
+		bumped = 1
 	    sprite_index = spr_machfreefall
 	}
 	image_speed = 0.6

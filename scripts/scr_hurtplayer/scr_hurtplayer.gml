@@ -29,11 +29,12 @@ function scr_hurtplayer(argument0) {
 	            sprite_index = spr_hurt
 			var hurtdir = choose(1,-1)
 			xscale = hurtdir
-	        movespeed = random_range(3, 7)
-	        vsp = -5
+	        movespeed = random_range(7, 10)
+	        vsp = -12
 	        timeuntilhpback = 300
 	        instance_create(x, y, obj_spikehurteffect)
 			instance_create(x, y, obj_bangeffect)
+			scr_smalltext("-100", 1)
 			repeat (5)
 				instance_create(x, y, obj_slapstar)
 	        state = 73

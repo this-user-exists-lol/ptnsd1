@@ -70,7 +70,7 @@ function scr_player_faceslam(){
 				}
 			}
 		}
-		if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
+		if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || !place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
 		{
 			if scr_slope()
 			{
@@ -82,16 +82,24 @@ function scr_player_faceslam(){
 			}
 			else
 			{
-				if (vsp > 0) && (key_jump2)
+				if (vsp > 0) && (key_jump2) && (!place_meeting(x, (y + 64), obj_metalblock))
 				{
 					image_index = 0
-					state = 92
 					if (move != 0)
+					{
+						state = 70
+						vsp = -8
+						movespeed = 10
 						sprite_index = spr_player_hanstandjump
+					}
 					else
+					{
+						state = 58
+						vsp = -18
+						jumpAnim = 1
+						bumped = 2
 						sprite_index = spr_player_hanstandjump2
-					movespeed = 10
-					vsp = -12
+					}
 				}
 				else
 				{
