@@ -1,17 +1,17 @@
 with (obj_player)
 {
-    if ((state == states.knightpep || state == states.knightpepattack || state == states.knightpepslopes) && cutscene == 0)
+    if (((state == 24) || ((state == 25) || (state == 18))) && (cutscene == 0))
         instance_destroy(other.id)
-    else if (state == states.bombpep && hurted == 0)
+    else if ((state == 27) && (hurted == 0))
     {
     }
-    else if (state == states.boxxedpep)
+    else if (state == 15)
     {
     }
-    else if (state == states.cheesepep || state == states.cheesepepstick)
+    else if ((state == 13) || (state == 14))
     {
     }
-    else if (state != states.hurt && cutscene == 0 && state != states.bump)
+    else if ((state != 73) && ((cutscene == 0) && (state != 72)))
     {
         xscale = (-other.image_xscale)
         hsp = (other.image_xscale * 10)
@@ -51,8 +51,9 @@ with (obj_player)
             instance_create(x, y, obj_pizzaloss)
         }
         instance_create(x, y, obj_spikehurteffect)
-        state = states.hurt
+        state = 73
         image_index = 0
         flash = 1
     }
 }
+

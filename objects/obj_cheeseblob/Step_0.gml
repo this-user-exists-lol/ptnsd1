@@ -1,4 +1,4 @@
-if (grounded || scr_solid((x + 1), y) || scr_solid((x - 1), y))
+if (grounded || (scr_solid((x + 1), y) || scr_solid((x - 1), y)))
 {
     instance_create(x, (y + 20), obj_slimedebris)
     instance_create(x, (y + 20), obj_slimedebris)
@@ -13,3 +13,4 @@ if (grounded || scr_solid((x + 1), y) || scr_solid((x - 1), y))
     instance_destroy()
 }
 scr_collide()
+

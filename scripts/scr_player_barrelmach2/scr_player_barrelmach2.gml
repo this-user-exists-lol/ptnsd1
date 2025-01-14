@@ -1,24 +1,23 @@
-function scr_player_barrelmach2()
-{
+function scr_player_barrelmach2() {
 	hsp = (image_xscale * movespeed)
 	movespeed = 10
 	if (vsp < 12)
 	    vsp += grav
 	if (!grounded)
 	{
-	    state = states.barrelfall
+	    state = 83
 	    image_index = 0
 	}
 	if ((!key_attack) && grounded)
 	{
-	    state = states.barrelnormal
+	    state = 84
 	    image_index = 0
 	    mach2 = 0
 	}
-	if (scr_solid((x + 1), y) && image_xscale == 1)
+	if (scr_solid((x + 1), y) && (image_xscale == 1))
 	{
 	    barrel = 0
-	    state = states.bump
+	    state = 72
 	    hsp = -2
 	    vsp = -2
 	    mach2 = 0
@@ -35,10 +34,10 @@ function scr_player_barrelmach2()
 	    instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
 	    instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
 	}
-	if (scr_solid((x - 1), y) && image_xscale == -1)
+	if (scr_solid((x - 1), y) && (image_xscale == -1))
 	{
 	    barrel = 0
-	    state = states.bump
+	    state = 72
 	    hsp = 2
 	    vsp = -2
 	    mach2 = 0
@@ -60,4 +59,7 @@ function scr_player_barrelmach2()
 	instance_create(x, y, obj_mach2effect)
 	if ((!instance_exists(obj_dashcloud)) && grounded)
 	    instance_create(x, y, obj_dashcloud)
+
+
+
 }

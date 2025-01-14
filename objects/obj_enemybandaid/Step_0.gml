@@ -6,3 +6,4 @@ if instance_exists(baddieid)
 }
 else
     instance_destroy()
+

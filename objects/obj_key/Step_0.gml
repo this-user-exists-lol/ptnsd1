@@ -5,3 +5,4 @@ if (inv_frame == 1)
 if (inv_frame == 0)
     image_alpha = 1
 scr_collide()
+

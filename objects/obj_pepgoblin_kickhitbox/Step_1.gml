@@ -1,2 +1,3 @@
-if ((!instance_exists(baddieID)) || baddieID.state != states.throw2)
+if ((!instance_exists(baddieID)) || (baddieID.state != 97))
     instance_destroy()
+

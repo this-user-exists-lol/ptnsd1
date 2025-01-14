@@ -10,3 +10,4 @@ thumbingup = 0
 xstarte = x
 ystarte = y
 delay = 5
+

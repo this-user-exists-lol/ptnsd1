@@ -18,12 +18,13 @@ if instance_exists(obj_noisecrusher)
     else if (global.bosshealth == 1)
         draw_sprite_ext(spr_pizzahealthbar, 7, 862, 80, 1, 1, 1, c_white, alpha)
     draw_sprite_ext(noisesprite, -1, 832, 100, 1, 1, 1, c_white, alpha)
-    if (obj_player.state == states.hurt)
-        noisesprite = spr_noiseHUD_happy
-    else if (obj_noisecrusher.state == states.stun || obj_noisecrusher.state == states.grabbed)
-        noisesprite = spr_noiseHUD_hurt
+    if (obj_player.state == 73)
+        noisesprite = 877
+    else if ((obj_noisecrusher.state == 106) || (obj_noisecrusher.state == 109))
+        noisesprite = 876
     else if (global.bosshealth <= 3)
-        noisesprite = spr_noiseHUD_lowhealth
+        noisesprite = 875
     else if (!(global.bosshealth <= 0))
-        noisesprite = spr_noiseHUD_idle
+        noisesprite = 878
 }
+

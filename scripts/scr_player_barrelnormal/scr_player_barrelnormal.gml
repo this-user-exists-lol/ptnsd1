@@ -1,5 +1,4 @@
-function scr_player_barrelnormal()
-{
+function scr_player_barrelnormal() {
 	mask_index = spr_player_mask
 	move = (key_left + key_right)
 	hsp = (move * movespeed)
@@ -7,19 +6,19 @@ function scr_player_barrelnormal()
 	    vsp += grav
 	if ((!grounded) && (!key_jump))
 	{
-	    state = states.barrelfall
+	    state = 83
 	    image_index = 0
 	    hsp = 0
 	}
 	if ((key_down && grounded) || scr_solid(x, (y - 3)))
 	{
-	    state = states.barrelcrouch
+	    state = 79
 	    image_index = 0
 	}
 	if (key_attack && grounded)
 	{
 	    movespeed = 0
-	    state = states.barrelmach1
+	    state = 82
 	    landAnim = 0
 	}
 	if place_meeting(x, y, obj_water2)
@@ -33,4 +32,7 @@ function scr_player_barrelnormal()
 	    xscale = move
 	}
 	image_speed = 0.35
+
+
+
 }

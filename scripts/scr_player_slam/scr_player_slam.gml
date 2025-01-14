@@ -1,19 +1,18 @@
-function scr_player_slam()
-{
+function scr_player_slam() {
 	if (windingAnim < 200)
 	    windingAnim += 5
 	move = (key_left + key_right)
 	if (!grounded)
 	    hsp = (move * movespeed)
-	if ((scr_solid((x + 1), y) && xscale == 1) || (scr_solid((x - 1), y) && xscale == -1))
+	if ((scr_solid((x + 1), y) && (xscale == 1)) || (scr_solid((x - 1), y) && (xscale == -1)))
 	    movespeed = 0
 	if (move == 0)
 	    movespeed = 0
-	if (move != 0 && movespeed < 4)
+	if ((move != 0) && (movespeed < 4))
 	    movespeed += 0.5
-	if (xscale == 1 && move == -1)
+	if ((xscale == 1) && (move == -1))
 	    movespeed = 0
-	if (xscale == -1 && move == 1)
+	if ((xscale == -1) && (move == 1))
 	    movespeed = 0
 	jumpAnim = 1
 	dashAnim = 1
@@ -24,12 +23,12 @@ function scr_player_slam()
 	crouchslideAnim = 1
 	crouchAnim = 1
 	if (floor(image_index) == 8)
-	    state = states.normal
+	    state = 0
 	if (move != 0)
 	    xscale = move
-	if (floor(image_index) == 3 && (!grounded))
+	if ((floor(image_index) == 3) && (!grounded))
 	    image_speed = 0
-	else if (grounded && slamming == 0 && vsp > 0)
+	else if (grounded && ((slamming == 0) && (vsp > 0)))
 	{
 	    slamming = 1
 	    hsp = 0
@@ -49,4 +48,7 @@ function scr_player_slam()
 	    }
 	}
 	sprite_index = spr_player_slam
+
+
+
 }

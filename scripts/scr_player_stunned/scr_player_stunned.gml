@@ -1,5 +1,4 @@
-function scr_player_stunned()
-{
+function scr_player_stunned() {
 	hsp = 0
 	combo = 0
 	mach2 = 0
@@ -25,8 +24,11 @@ function scr_player_stunned()
 	if (floor(image_index) == (image_number - 1))
 	{
 	    mask_index = spr_player_mask
-	    state = states.normal
+	    state = 0
 	    sprite_index = spr_idle
 	    image_index = 0
 	}
+
+
+
 }

@@ -1,5 +1,4 @@
-function __background_set_element()
-{
+function __background_set_element(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11, argument12, argument13, argument14) {
 	var __result, __slots, __isforeground;
 	var __bind = argument0
 	var __vis = argument1
@@ -133,4 +132,7 @@ function __background_set_element()
 	__result[0] = __backel
 	__result[1] = __layerid
 	return __result;
+
+
+
 }

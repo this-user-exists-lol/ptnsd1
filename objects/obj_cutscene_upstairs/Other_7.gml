@@ -1,7 +1,7 @@
 image_speed = 0
 obj_player.visible = true
 obj_camera.visible = true
-obj_player.state = states.comingoutdoor
+obj_player.state = 61
 if instance_exists(obj_pizzakinshroom)
     obj_pizzakinshroom.visible = true
 if instance_exists(obj_pizzakincheese)
@@ -13,12 +13,13 @@ if instance_exists(obj_pizzakinsausage)
 if instance_exists(obj_pizzakinpineapple)
     obj_pizzakinpineapple.visible = true
 if (global.progress == "entrance")
-    obj_player1.targetRoom = medieval_1
+    obj_player1.targetRoom = 40
 if (global.progress == "medieval")
-    obj_player1.targetRoom = ruin_1
+    obj_player1.targetRoom = 58
 if (global.progress == "ruin")
-    obj_player1.targetRoom = dungeon_1
+    obj_player1.targetRoom = 77
 if (global.progress == "dungeon")
-    obj_player1.targetRoom = hub_room1
+    obj_player1.targetRoom = 6
 if (!instance_exists(obj_fadeout))
     instance_create(x, y, obj_fadeout)
+

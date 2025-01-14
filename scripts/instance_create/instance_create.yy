@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "instance",
+    "path": "folders/Scripts/compatibility/instance.yy",
+  },
   "resourceVersion": "1.0",
   "name": "instance_create",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "Utilities",
-    "path": "folders/Scripts/Utilities.yy",
-  },
+  "tags": [],
+  "resourceType": "GMScript",
 }

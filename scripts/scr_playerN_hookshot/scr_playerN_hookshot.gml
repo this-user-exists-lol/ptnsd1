@@ -1,5 +1,4 @@
-function scr_playerN_hookshot()
-{
+function scr_playerN_hookshot() {
 	move = (key_left + key_right)
 	hsp = (movespeed * move)
 	if (move != 0)
@@ -11,7 +10,7 @@ function scr_playerN_hookshot()
 	    scr_sound(sound_jump)
 	    sprite_index = spr_jump
 	    stompAnim = 0
-	    state = states.jump
+	    state = 58
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -38,13 +37,13 @@ function scr_playerN_hookshot()
 	        if (grounded && point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0))))
 	        {
 	            image_index = 0
-	            state = states.idle
+	            state = 94
 	            vsp = -7
 	            hsp = 0
 	        }
 	    }
 	}
-	if (floor(image_index) == (image_number - 1) && sprite_index == spr_playerN_hookshot1)
+	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_playerN_hookshot1))
 	    sprite_index = spr_playerN_hookshot2
 	if (move != 0)
 	{
@@ -56,4 +55,7 @@ function scr_playerN_hookshot()
 	else
 	    movespeed = 0
 	image_speed = 0.35
+
+
+
 }

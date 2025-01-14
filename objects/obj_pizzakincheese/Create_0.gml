@@ -7,3 +7,6 @@ movespeed = 3
 panic = 0
 throwable = 0
 throwed = 0
+playerid = obj_player1
+toppinname = "cheese"
+

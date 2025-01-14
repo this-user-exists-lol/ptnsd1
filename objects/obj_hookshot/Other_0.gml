@@ -3,6 +3,7 @@ with (obj_player)
 {
     sprite_index = spr_fall
     jumpAnim = 0
-    state = states.jump
+    state = 58
     image_index = 0
 }
+

@@ -2,9 +2,9 @@ if instance_exists(other.baddieID)
 {
     with (other.id)
     {
-        if ((baddieID.state == states.stun && baddieID.hsp != 0 && baddieID.thrown == 1 && other.state != states.stun) || (baddieID.state == states.grabbed && obj_player.state == states.superslam))
+        if ((((baddieID.state == 106) && ((baddieID.hsp != 0) && (baddieID.thrown == 1))) && (other.state != 106)) || ((baddieID.state == 109) && (obj_player.state == 43)))
         {
-            other.state = states.stun
+            other.state = 106
             instance_create(other.x, other.y, obj_slapstar)
             instance_create(other.x, other.y, obj_baddiegibs)
             other.flash = 1
@@ -17,3 +17,4 @@ if instance_exists(other.baddieID)
         }
     }
 }
+

@@ -1,5 +1,4 @@
-function scr_player_timesup()
-{
+function scr_player_timesup() {
 	xscale = 1
 	inv_frames = 0
 	sprite_index = spr_Timesup
@@ -8,7 +7,7 @@ function scr_player_timesup()
 	alarm[5] = -1
 	if place_meeting(x, y, obj_timesup)
 	{
-	    state = states.gameover
+	    state = 55
 	    sprite_index = spr_deathend
 	    alarm[10] = 5
 	    vsp = -8
@@ -21,4 +20,7 @@ function scr_player_timesup()
 	}
 	if (floor(image_index) == 9)
 	    image_speed = 0
+
+
+
 }

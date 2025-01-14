@@ -1,5 +1,4 @@
-function scr_player_tackle()
-{
+function scr_player_tackle() {
 	combo = 0
 	mach2 = 0
 	hsp = ((-xscale) * movespeed)
@@ -14,6 +13,9 @@ function scr_player_tackle()
 	crouchslideAnim = 1
 	crouchAnim = 1
 	if (floor(image_index) == (image_number - 1))
-	    state = states.normal
+	    state = 0
 	image_speed = 0.35
+
+
+
 }

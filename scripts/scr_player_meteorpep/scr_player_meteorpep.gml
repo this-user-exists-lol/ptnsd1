@@ -1,9 +1,8 @@
-function scr_player_meteorpep()
-{
+function scr_player_meteorpep() {
 	mach2 = 0
 	landAnim = 1
 	vsp = 0
-	if (sprite_index == spr_meteorpep_impact && floor(image_index) == (image_number - 1))
+	if ((sprite_index == spr_meteorpep_impact) && (floor(image_index) == (image_number - 1)))
 	    sprite_index = spr_meteorpep_flying
 	if (sprite_index == spr_meteorpep_flying)
 	{
@@ -13,7 +12,7 @@ function scr_player_meteorpep()
 	}
 	else
 	    hsp = 0
-	if (scr_solid((x - 1), y) && xscale == 1 && hsp != 0)
+	if (scr_solid((x - 1), y) && ((xscale == 1) && (hsp != 0)))
 	{
 	    movespeed = 0
 	    with (obj_baddie)
@@ -32,7 +31,7 @@ function scr_player_meteorpep()
 	    image_index = 0
 	    sprite_index = spr_meteorpep_land
 	}
-	if (scr_solid((x + 1), y) && xscale == -1 && hsp != 0)
+	if (scr_solid((x + 1), y) && ((xscale == -1) && (hsp != 0)))
 	{
 	    movespeed = 0
 	    if point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0)))
@@ -48,7 +47,10 @@ function scr_player_meteorpep()
 	    image_index = 0
 	    sprite_index = spr_meteorpep_land
 	}
-	if (sprite_index == spr_meteorpep_land && floor(image_index) == (image_number - 1))
-	    state = states.normal
+	if ((sprite_index == spr_meteorpep_land) && (floor(image_index) == (image_number - 1)))
+	    state = 0
 	image_speed = 0.35
+
+
+
 }

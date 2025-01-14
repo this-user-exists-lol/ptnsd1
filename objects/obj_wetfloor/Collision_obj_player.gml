@@ -1,6 +1,7 @@
 with (obj_player)
 {
-    state = states.slipnslide
+    state = 60
     if (movespeed < 8)
         movespeed = 8
 }
+

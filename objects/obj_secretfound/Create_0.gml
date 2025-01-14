@@ -1,4 +1,4 @@
-if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == 0)
+if ((ds_list_find_index(global.saveroom, id) == -1) && (global.snickchallenge == 0))
 {
     global.secretfound += 1
     with (obj_tv)
@@ -10,3 +10,4 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == 0)
     scr_soundeffect(sfx_secretfound)
     ds_list_add(global.saveroom, id)
 }
+

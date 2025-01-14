@@ -3,3 +3,4 @@ if (y == yup)
 if (y == ydown)
     vsp = -1
 scr_collide()
+

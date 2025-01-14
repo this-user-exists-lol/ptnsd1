@@ -26,3 +26,4 @@ with (instance_create(x, y, obj_tauntafterimage))
     hspeed = -20
     vspeed = -20
 }
+

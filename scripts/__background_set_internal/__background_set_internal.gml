@@ -1,5 +1,4 @@
-function __background_set_internal()
-{
+function __background_set_internal(argument0, argument1, argument2, argument3) {
 	var __prop = argument0
 	var __bind = argument1
 	var __val = argument2
@@ -41,7 +40,7 @@ function __background_set_internal()
 	            layer_background_change(__backid, __val)
 	            if sprite_exists(__val)
 	            {
-	                layer_background_blend(__backid, c_white)
+	                layer_background_blend(__backid, 16777215)
 	                layer_background_alpha(__backid, 1)
 	            }
 	            break
@@ -78,7 +77,10 @@ function __background_set_internal()
 	        default:
 	            break
 	    }
-	
+    
 	}
 	return -1;
+
+
+
 }

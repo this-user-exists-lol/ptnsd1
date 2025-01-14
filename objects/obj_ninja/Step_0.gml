@@ -1,43 +1,43 @@
 switch state
 {
-    case states.idle:
+    case 94:
         scr_enemy_idle()
         break
-    case 94:
+    case 96:
         scr_enemy_charge()
         break
-    case states.turn:
+    case 98:
         scr_enemy_turn()
         break
-    case states.walk:
+    case 102:
         scr_enemy_walk()
         break
-    case states.land:
+    case 104:
         scr_enemy_land()
         break
-    case states.hit:
+    case 105:
         scr_enemy_hit()
         break
-    case states.stun:
+    case 106:
         scr_enemy_stun()
         break
-    case states.throw2:
+    case 97:
         scr_pizzagoblin_throw()
         break
-    case states.grabbed:
+    case 109:
         scr_enemy_grabbed()
         break
 }
 
-if (state == states.stun && stunned > 40 && birdcreated == 0)
+if ((state == 106) && ((stunned > 40) && (birdcreated == 0)))
 {
     birdcreated = 1
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != states.stun)
+if (state != 106)
     birdcreated = 0
-if (hitboxcreate == 0 && state == 94 && obj_player.state != states.mach3 && obj_player.state != states.mach2)
+if ((hitboxcreate == 0) && ((state == 96) && ((obj_player.state != 91) && (obj_player.state != 70))))
 {
     hitboxcreate = 1
     with (instance_create(x, y, obj_forkhitbox))
@@ -48,37 +48,37 @@ if (hitboxcreate == 0 && state == 94 && obj_player.state != states.mach3 && obj_
 }
 if (attack == 0)
     sprite_index = spr_pizzaboy
-if (attack == 0 && state != states.grabbed && state != states.stun)
+if ((attack == 0) && ((state != 109) && (state != 106)))
 {
-    state = states.idle
+    state = 94
     roaming = 0
 }
-if (state != states.idle)
+if (state != 94)
     roaming = 1
 if (x != obj_player.x)
 {
-    if (obj_player.x > (x - 200) && obj_player.x < (x + 200) && obj_player.y == y)
+    if (((obj_player.x > (x - 200)) && (obj_player.x < (x + 200))) && (obj_player.y == y))
     {
-        if (state == states.walk || state == states.idle)
+        if ((state == 102) || (state == 94))
         {
             if (sprite_index == spr_pizzaboy)
                 instance_create(x, y, obj_balloonpop)
-            image_xscale = (-(sign((x - obj_player.x))))
+            image_xscale = (-sign((x - obj_player.x)))
             roaming = 1
             attack = 1
             vsp = -11
             scr_sound(sound_enemythrow)
             image_index = 0
-            image_xscale = (-(sign((x - obj_player.x))))
-            state = 94
+            image_xscale = (-sign((x - obj_player.x)))
+            state = 96
         }
     }
 }
-if (flash == 1 && alarm[2] <= 0)
+if ((flash == 1) && (alarm[2] <= 0))
     alarm[2] = (0.15 * room_speed)
-if (state != states.grabbed)
+if (state != 109)
     depth = 0
-if (state != states.stun)
+if (state != 106)
     thrown = 0
 if (boundbox == 0)
 {
@@ -90,3 +90,4 @@ if (boundbox == 0)
         other.boundbox = 1
     }
 }
+

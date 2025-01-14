@@ -1,5 +1,4 @@
-function scr_player_barrelfloat()
-{
+function scr_player_barrelfloat() {
 	mask_index = spr_player_mask
 	move = (key_left + key_right)
 	hsp = (move * movespeed)
@@ -8,7 +7,7 @@ function scr_player_barrelfloat()
 	{
 	    jumpstop = 1
 	    jumpAnim = 1
-	    state = states.jump
+	    state = 58
 	    landAnim = 0
 	    vsp = -7
 	    with (instance_create(x, y, obj_barrelfloat))
@@ -23,4 +22,7 @@ function scr_player_barrelfloat()
 	image_speed = 0.35
 	if place_meeting(x, y, obj_water2)
 	    vsp -= 1
+
+
+
 }

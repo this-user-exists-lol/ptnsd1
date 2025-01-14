@@ -2,7 +2,7 @@ grav = 0.5
 hsp = 0
 vsp = 0
 movespeed = 1
-state = states.walk
+state = 102
 stunned = 0
 alarm[0] = 150
 roaming = 1
@@ -33,3 +33,7 @@ spr_dead = spr_pizzard_dead
 important = 0
 heavy = 1
 depth = 0
+grabbedby = 0
+paletteselect = 1
+spr_palette = palette_pizzard
+

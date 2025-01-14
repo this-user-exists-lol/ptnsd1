@@ -1,5 +1,5 @@
 scr_getinput()
-obj_player.state = states.comingoutdoor
+obj_player.state = 61
 if instance_exists(obj_pizzakinshroom)
     obj_pizzakinshroom.visible = false
 if instance_exists(obj_pizzakincheese)
@@ -12,3 +12,4 @@ if instance_exists(obj_pizzakinpineapple)
     obj_pizzakinpineapple.visible = false
 obj_player.x = x
 obj_player.y = y
+

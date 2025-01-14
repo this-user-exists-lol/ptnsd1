@@ -1,5 +1,4 @@
-function scr_checkanygamepad()
-{
+function scr_checkanygamepad() {
 	if gamepad_button_check_pressed(0, gp_face1)
 	    return 32769;
 	else if gamepad_button_check_pressed(0, gp_face2)
@@ -40,4 +39,7 @@ function scr_checkanygamepad()
 	    return 32787;
 	else if gamepad_button_check_pressed(0, gp_axisrv)
 	    return 32788;
+
+
+
 }

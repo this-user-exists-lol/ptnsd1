@@ -1,4 +1,4 @@
-draw_text(100, 200, string(global.style))
+draw_text(100, 200, string_hash_to_newline(string(global.style)))
 if (global.stylethreshold == 4)
 {
     draw_sprite_ext(spr_stylepizza, 4, 832, 74, image_xscale, image_yscale, 0, c_white, alpha)
@@ -24,3 +24,4 @@ if (global.stylethreshold == 0)
     draw_sprite_ext(spr_stylepizza, 0, 832, 74, image_xscale, image_yscale, 0, c_white, alpha)
     draw_sprite_part_ext(spr_stylepizzadown, 0, 0, 0, sprite_get_width(spr_stylepizzadown), (sprite_get_height(spr_stylepizzadown) - global.style), 750, -14, image_xscale, image_yscale, c_white, alpha)
 }
+

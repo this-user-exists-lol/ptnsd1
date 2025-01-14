@@ -5,3 +5,4 @@ if instance_exists(ID)
 }
 else
     instance_destroy()
+

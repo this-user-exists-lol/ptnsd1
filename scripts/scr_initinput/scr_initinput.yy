@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
+  },
   "resourceVersion": "1.0",
   "name": "scr_initinput",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "Player",
-    "path": "folders/Scripts/Player.yy",
-  },
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -1,5 +1,4 @@
-function scr_player_Sjump()
-{
+function scr_player_Sjump() {
 	hsp = 0
 	mach2 = 0
 	jumpAnim = 1
@@ -11,7 +10,7 @@ function scr_player_Sjump()
 	crouchAnim = 0
 	machhitAnim = 0
 	if (sprite_index == spr_superjump)
-	    vsp = -15
+	    vsp = -25
 	if (sprite_index == spr_player_supersidejump)
 	{
 	    if (a < 25)
@@ -19,7 +18,7 @@ function scr_player_Sjump()
 	    hsp = (xscale * a)
 	    vsp = 0
 	}
-	if (scr_solid(x, (y - 1)) && (!(place_meeting(x, (y - 1), obj_destructibles))))
+	if (scr_solid(x, (y - 1)) && (!place_meeting(x, (y - 1), obj_destructibles)))
 	{
 	    a = 0
 	    if (sprite_index == spr_player_supersidejump)
@@ -42,18 +41,12 @@ function scr_player_Sjump()
 	    }
 	    scr_soundeffect(sfx_groundpound)
 	    image_index = 0
-	    state = states.Sjumpland
+	    state = 93
 	    machhitAnim = 0
-	}
-	if key_attack2
-	{
-	    movespeed = 12
-	    machhitAnim = 0
-	    state = states.mach3
-	    flash = 1
-	    sprite_index = spr_mach4
-	    instance_create(x, y, obj_jumpdust)
 	}
 	image_speed = 0.5
 	scr_collide_player()
+
+
+
 }

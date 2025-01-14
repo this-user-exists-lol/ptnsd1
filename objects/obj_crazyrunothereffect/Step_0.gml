@@ -1,3 +1,4 @@
-image_xscale = obj_player.xscale
-if (obj_player.movespeed <= 12)
+image_xscale = playerid.xscale
+if (playerid.movespeed <= 5)
     instance_destroy()
+

@@ -1,6 +1,5 @@
-function pal_swap_index_palette()
-{
-	if (!(ds_map_exists(global.Pal_Map, argument[0])))
+function pal_swap_index_palette() {
+	if (!ds_map_exists(global.Pal_Map, argument[0]))
 	{
 	    var _spr = argument[0]
 	    var _colors = sprite_get_height(_spr)
@@ -26,4 +25,7 @@ function pal_swap_index_palette()
 	}
 	else
 	    show_debug_message("That palette has already been indexed.")
+
+
+
 }

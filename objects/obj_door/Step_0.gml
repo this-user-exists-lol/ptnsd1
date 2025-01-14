@@ -1,4 +1,4 @@
-if (visited == 1 && sprite_index != spr_pepperdoor)
+if ((visited == 1) && (sprite_index != spr_pepperdoor))
     sprite_index = spr_doorvisited
 if instance_exists(obj_noisesatellite)
     sprite_index = spr_doorblocked
@@ -12,3 +12,4 @@ if place_meeting(x, y, obj_doorD)
     targetDoor = "D"
 if place_meeting(x, y, obj_doorE)
     targetDoor = "E"
+

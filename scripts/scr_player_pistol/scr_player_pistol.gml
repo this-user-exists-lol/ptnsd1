@@ -1,34 +1,33 @@
-function scr_player_pistol()
-{
+function scr_player_pistol() {
 	mach2 = 0
 	move = (key_left + key_right)
-	if (sprite_index != spr_player_pistolair && sprite_index != spr_player_shootslide)
+	if ((sprite_index != spr_player_pistolair) && (sprite_index != spr_player_shootslide))
 	    hsp = 0
-	if (key_shoot2 && key_down && image_index > 2)
+	if (key_shoot2 && (key_down && (image_index > 2)))
 	{
 	    sprite_index = spr_player_crouchshoot
-	    state = states.pistol
+	    state = 39
 	    image_index = 0
 	    shoot = 1
 	}
-	else if (key_shoot2 && (!key_up) && image_index > 2)
+	else if (key_shoot2 && ((!key_up) && (image_index > 2)))
 	{
 	    sprite_index = spr_player_pistol
-	    state = states.pistol
+	    state = 39
 	    image_index = 0
 	    shoot = 1
 	}
-	else if (key_up && key_shoot2 && move == 0 && image_index > 2)
+	else if (key_up && (key_shoot2 && ((move == 0) && (image_index > 2))))
 	{
 	    sprite_index = spr_player_shootup
-	    state = states.pistol
+	    state = 39
 	    image_index = 0
 	    shoot = 1
 	}
-	else if (key_up && key_shoot2 && move != 0 && image_index > 2)
+	else if (key_up && (key_shoot2 && ((move != 0) && (image_index > 2))))
 	{
 	    sprite_index = spr_player_shootdiagonal
-	    state = states.pistol
+	    state = 39
 	    image_index = 0
 	    shoot = 1
 	}
@@ -39,25 +38,25 @@ function scr_player_pistol()
 	stopAnim = 1
 	crouchslideAnim = 1
 	crouchAnim = 1
-	if (floor(image_index) == (image_number - 1) && sprite_index != spr_player_crouchshoot && sprite_index != spr_player_shootup && sprite_index != spr_player_shootdiagonal && sprite_index != spr_player_pistolair && (!key_down))
-	    state = states.normal
-	else if (floor(image_index) == (image_number - 1) && key_down && sprite_index != spr_player_shootup && sprite_index != spr_player_shootdiagonal && sprite_index != spr_player_pistolair)
-	    state = states.crouch
-	else if (floor(image_index) == (image_number - 1) && sprite_index != spr_player_pistolair)
+	if ((floor(image_index) == (image_number - 1)) && ((sprite_index != spr_player_crouchshoot) && ((sprite_index != spr_player_shootup) && ((sprite_index != spr_player_shootdiagonal) && ((sprite_index != spr_player_pistolair) && (!key_down))))))
+	    state = 0
+	else if ((floor(image_index) == (image_number - 1)) && (key_down && ((sprite_index != spr_player_shootup) && ((sprite_index != spr_player_shootdiagonal) && (sprite_index != spr_player_pistolair)))))
+	    state = 66
+	else if ((floor(image_index) == (image_number - 1)) && (sprite_index != spr_player_pistolair))
 	{
 	    if (move != 0)
 	        sprite_index = spr_player_aimdiagonal
 	    else
 	        sprite_index = spr_player_aimup
 	    image_index = 2
-	    state = states.pistolaim
+	    state = 16
 	}
-	else if (grounded && vsp > 0 && sprite_index == spr_player_pistolair)
+	else if (grounded && ((vsp > 0) && (sprite_index == spr_player_pistolair)))
 	{
 	    sprite_index = spr_player_shootslide
-	    state = states.crouchslide
+	    state = 68
 	}
-	if (shoot == 1 && floor(image_index) == 0 && (sprite_index == spr_player_pistol || sprite_index == spr_player_pistolair))
+	if ((shoot == 1) && ((floor(image_index) == 0) && ((sprite_index == spr_player_pistol) || (sprite_index == spr_player_pistolair))))
 	{
 	    with (obj_camera)
 	    {
@@ -74,7 +73,7 @@ function scr_player_pistol()
 	    ID.hspeed = (xscale * 15)
 	    shoot = 0
 	}
-	if (shoot == 1 && floor(image_index) == 0 && sprite_index == spr_player_crouchshoot)
+	if ((shoot == 1) && ((floor(image_index) == 0) && (sprite_index == spr_player_crouchshoot)))
 	{
 	    with (obj_camera)
 	    {
@@ -91,7 +90,7 @@ function scr_player_pistol()
 	    ID.hspeed = (xscale * 15)
 	    shoot = 0
 	}
-	if (shoot == 1 && floor(image_index) == 0 && sprite_index == spr_player_shootup)
+	if ((shoot == 1) && ((floor(image_index) == 0) && (sprite_index == spr_player_shootup)))
 	{
 	    with (obj_camera)
 	    {
@@ -108,7 +107,7 @@ function scr_player_pistol()
 	    ID.vspeed = -15
 	    shoot = 0
 	}
-	if (shoot == 1 && floor(image_index) == 0 && sprite_index == spr_player_shootdiagonal)
+	if ((shoot == 1) && ((floor(image_index) == 0) && (sprite_index == spr_player_shootdiagonal)))
 	{
 	    with (obj_camera)
 	    {
@@ -130,15 +129,18 @@ function scr_player_pistol()
 	    ID.hspeed = (xscale * 15)
 	    shoot = 0
 	}
-	if (key_shoot && (!grounded) && floor(image_index) == (image_number - 1))
+	if (key_shoot && ((!grounded) && (floor(image_index) == (image_number - 1))))
 	{
 	    image_index = 0
 	    shoot = 1
 	}
-	if ((!grounded) && sprite_index != spr_player_pistolair)
+	if ((!grounded) && (sprite_index != spr_player_pistolair))
 	    sprite_index = spr_player_pistolair
 	if (floor(image_index) != (image_number - 1))
 	    image_speed = 0.45
 	else
 	    image_speed = 0
+
+
+
 }

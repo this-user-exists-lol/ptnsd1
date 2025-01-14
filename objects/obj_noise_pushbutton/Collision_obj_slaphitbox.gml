@@ -15,3 +15,4 @@ with (obj_camera)
 }
 instance_create(x, y, obj_bangeffect)
 instance_destroy()
+

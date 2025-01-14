@@ -6,7 +6,8 @@ grav = 0.5
 flash = 1
 hp = 0
 grounded = 1
-state = states.normal
+state = 0
 mask_index = spr_player_mask
 image_speed = 0.4
 depth = 1
+

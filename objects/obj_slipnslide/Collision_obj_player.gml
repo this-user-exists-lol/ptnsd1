@@ -3,7 +3,10 @@ if (drop == 0)
     with (obj_player)
     {
         other.drop = 1
-        state = states.slipnslide
-        movespeed = 12
+        other.vsp = -5
+        state = 60
+        if (movespeed < 12)
+            movespeed = 12
     }
 }
+

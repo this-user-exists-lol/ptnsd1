@@ -1,2 +1,3 @@
-if (obj_player.state != states.portal)
+if (obj_player.state != 19)
     instance_destroy()
+

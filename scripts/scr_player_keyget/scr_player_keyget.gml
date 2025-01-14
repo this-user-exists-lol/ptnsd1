@@ -1,5 +1,4 @@
-function scr_player_keyget()
-{
+function scr_player_keyget() {
 	hsp = 0
 	vsp = 0
 	image_speed = 0.35
@@ -17,7 +16,10 @@ function scr_player_keyget()
 	if (floor(image_index) == (image_number - 1))
 	{
 	    global.keyget = 0
-	    state = states.normal
+	    state = 0
 	    image_index = 0
 	}
+
+
+
 }

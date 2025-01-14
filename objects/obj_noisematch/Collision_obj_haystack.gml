@@ -4,3 +4,4 @@ with (other.id)
     image_index = 0
 }
 instance_destroy()
+

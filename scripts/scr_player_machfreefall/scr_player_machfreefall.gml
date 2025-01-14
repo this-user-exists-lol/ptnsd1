@@ -1,5 +1,4 @@
-function scr_player_machfreefall()
-{
+function scr_player_machfreefall() {
 	if (mach2 == 0)
 	{
 	    hsp = (move * movespeed)
@@ -15,10 +14,10 @@ function scr_player_machfreefall()
 	move = (key_right + key_left)
 	crouchslideAnim = 1
 	sprite_index = spr_player_machfreefall
-	if (scr_solid((x + 1), y) && image_xscale == 1)
+	if (scr_solid((x + 1), y) && (image_xscale == 1))
 	{
 	    machhitAnim = 0
-	    state = states.bump
+	    state = 72
 	    hsp = -2.5
 	    vsp = -2.5
 	    mach2 = 0
@@ -28,10 +27,10 @@ function scr_player_machfreefall()
 	    if (!audio_is_playing(sfx_bump))
 	        audio_play_sound(sfx_bump, 1, false)
 	}
-	else if (scr_solid((x - 1), y) && image_xscale == -1)
+	else if (scr_solid((x - 1), y) && (image_xscale == -1))
 	{
 	    machhitAnim = 0
-	    state = states.bump
+	    state = 72
 	    hsp = 2.5
 	    vsp = -2.5
 	    mach2 = 0
@@ -49,7 +48,7 @@ function scr_player_machfreefall()
 	        shake_mag_acc = (40 / room_speed)
 	    }
 	    bounce = 0
-	    state = states.freefallland
+	    state = 77
 	    jumpstop = 0
 	    image_index = 0
 	    with (instance_create(x, (y + 35), obj_bangeffect))
@@ -64,7 +63,7 @@ function scr_player_machfreefall()
 	        if point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0)))
 	        {
 	            image_index = 0
-	            state = states.hit
+	            state = 105
 	            vsp = -7
 	            hsp = 0
 	            stunned = 200
@@ -74,20 +73,23 @@ function scr_player_machfreefall()
 	audio_sound_gain(sfx_mach2, 0.7, 0)
 	if (!audio_is_playing(sfx_mach2))
 	    audio_play_sound(sfx_mach2, 1, false)
-	if (grounded && input_buffer_jump < 8 && vsp > 0)
+	if (grounded && ((input_buffer_jump < 8) && (vsp > 0)))
 	{
 	    sprite_index = spr_player_hanstandjump
 	    stompAnim = 0
 	    hsp = 0
-	    state = states.handstandjump
+	    state = 22
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+	    if (!place_meeting(x, y, obj_water2))
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	}
 	if key_jump
 	    input_buffer_jump = 0
 	image_speed = 0.5
+
+
+
 }

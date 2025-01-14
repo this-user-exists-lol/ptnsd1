@@ -6,3 +6,4 @@ if ((!scr_slope()) && instance_place((x + sign(hsp)), y, obj_solid))
     instance_destroy()
 }
 scr_collide()
+

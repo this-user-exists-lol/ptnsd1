@@ -1,10 +1,9 @@
-function scr_enemy_bounce()
-{
+function scr_enemy_bounce() {
 	if (!grounded)
 	    hsp = (image_xscale * movespeed)
 	else
 	    hsp = 0
-	if (sprite_index == jumpprepspr && floor(image_index) == (image_number - 1))
+	if ((sprite_index == jumpprepspr) && (floor(image_index) == (image_number - 1)))
 	{
 	    if (global.bosshealth == 8)
 	    {
@@ -57,9 +56,9 @@ function scr_enemy_bounce()
 	    sprite_index = jumpspr
 	    vsp = (-jumpheight)
 	}
-	if (vsp > 1 && jumpspr)
+	if ((vsp > 1) && jumpspr)
 	    sprite_index = airspr
-	if (sprite_index == airspr && grounded)
+	if ((sprite_index == airspr) && grounded)
 	{
 	    image_index = 0
 	    with (obj_camera)
@@ -69,21 +68,21 @@ function scr_enemy_bounce()
 	    }
 	    sprite_index = landspr
 	}
-	if (sprite_index == landspr && floor(image_index) == (image_number - 1))
+	if ((sprite_index == landspr) && (floor(image_index) == (image_number - 1)))
 	{
-	    if (global.bosshealth == 8 && (!instance_exists(obj_noisey)))
+	    if ((global.bosshealth == 8) && (!instance_exists(obj_noisey)))
 	        instance_create((room_width - (room_width / 4)), 60, obj_noisey)
-	    else if (global.bosshealth == 7 && (!instance_exists(obj_noisey)))
+	    else if ((global.bosshealth == 7) && (!instance_exists(obj_noisey)))
 	    {
 	        instance_create((room_width - (room_width / 4)), 60, obj_noisey)
 	        instance_create((room_width / 4), 60, obj_noisey)
 	    }
-	    else if (global.bosshealth == 6 && (!instance_exists(obj_noisey)))
+	    else if ((global.bosshealth == 6) && (!instance_exists(obj_noisey)))
 	    {
 	        instance_create((room_width - (room_width / 4)), 60, obj_noisey)
 	        instance_create((room_width / 4), 60, obj_noisey)
 	    }
-	    else if (global.bosshealth == 5 && (!instance_exists(obj_noisey)))
+	    else if ((global.bosshealth == 5) && (!instance_exists(obj_noisey)))
 	    {
 	        instance_create((room_width - (room_width / 4)), 60, obj_noisey)
 	        instance_create((room_width / 4), 60, obj_noisey)
@@ -133,9 +132,12 @@ function scr_enemy_bounce()
 	        }
 	    }
 	    image_index = 0
-	    state = states.idle
+	    state = 94
 	    sprite_index = idlespr
 	}
 	image_speed = 0.35
 	scr_collide()
+
+
+
 }

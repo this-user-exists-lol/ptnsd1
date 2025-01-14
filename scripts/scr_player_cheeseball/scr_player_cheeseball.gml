@@ -1,5 +1,4 @@
-function scr_player_cheeseball()
-{
+function scr_player_cheeseball() {
 	hsp = (xscale * 12)
 	if ((!scr_slope()) && instance_place((x + sign(hsp)), y, obj_solid))
 	{
@@ -16,15 +15,18 @@ function scr_player_cheeseball()
 	    image_index = 0
 	    obj_player.image_index = 0
 	    obj_player.flash = 1
-	    state = states.bump
+	    state = 72
 	}
 	sprite_index = spr_player_cheeseball
 	if key_jump
 	    input_buffer_jump = 0
-	if (input_buffer_jump < 8 && grounded)
+	if ((input_buffer_jump < 8) && grounded)
 	{
 	    instance_create(x, y, obj_highjumpcloud2)
 	    scr_sound(sound_jump)
 	    vsp = -5
 	}
+
+
+
 }

@@ -1,5 +1,8 @@
-image_xscale = obj_player.xscale
-if (obj_player.state != states.mach3)
+image_xscale = playerid.xscale
+if (playerid.state != 91)
     instance_destroy()
-x = obj_player.x
-y = obj_player.y
+x = playerid.x
+y = playerid.y
+if (sprite_index == spr_startchargeeffect && (floor(image_index) == (image_number - 1)))
+	sprite_index = spr_chargeeffect
+

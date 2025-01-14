@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "player_states",
+    "path": "folders/Scripts/player_states.yy",
+  },
   "resourceVersion": "1.0",
   "name": "scr_player_barrelmach1",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "Transformations",
-    "path": "folders/Scripts/Player/States/Transformations.yy",
-  },
+  "tags": [],
+  "resourceType": "GMScript",
 }

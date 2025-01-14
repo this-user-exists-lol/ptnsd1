@@ -3,3 +3,4 @@ visited = 0
 depth = 2
 targetDoor = "A"
 depth = 1
+

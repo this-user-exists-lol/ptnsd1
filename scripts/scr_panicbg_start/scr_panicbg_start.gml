@@ -1,8 +1,7 @@
-function scr_panicbg_start()
-{
+function scr_panicbg_start() {
 	if ((!variable_global_exists("panicbg_surface")) || (!surface_exists(global.panicbg_surface)))
 	    global.panicbg_surface = surface_create(__view_get(2, 0), __view_get(3, 0))
-	if (event_type == 8 && event_number == 0)
+	if ((event_type == 8) && (event_number == 0))
 	{
 	    surface_set_target(global.panicbg_surface)
 	    draw_clear_alpha(c_black, 0)
@@ -18,4 +17,7 @@ function scr_panicbg_start()
 	    layer_x(bg3, (layer_get_x(bg3) - _cam_x))
 	    layer_y(bg3, (layer_get_y(bg3) - _cam_y))
 	}
+
+
+
 }

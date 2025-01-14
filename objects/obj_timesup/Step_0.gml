@@ -5,3 +5,4 @@ else if (floor(image_index) != 8)
 else
     image_speed = 0
 scr_collide()
+

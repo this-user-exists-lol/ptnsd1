@@ -5,3 +5,6 @@ vsp = 0
 grav = 0.23
 movespeed = 3
 panic = 0
+playerid = obj_player1
+toppinname = "sausage"
+

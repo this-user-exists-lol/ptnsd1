@@ -1,4 +1,4 @@
-if (obj_player.state != states.hurt && global.sausagefollow == 0)
+if ((obj_player.state != 73) && (global.sausagefollow == 0))
 {
     global.combotime = 60
     global.style += 50
@@ -13,3 +13,4 @@ if (obj_player.state != states.hurt && global.sausagefollow == 0)
     global.sausagefollow = 1
     panic = 0
 }
+

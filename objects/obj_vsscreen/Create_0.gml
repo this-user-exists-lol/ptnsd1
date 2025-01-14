@@ -8,3 +8,4 @@ instance_deactivate_all(true)
 flash = 0
 flashed = 0
 flamey = 0
+

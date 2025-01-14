@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "fakepeppino",
+    "path": "folders/Scripts/fakepeppino.yy",
+  },
   "resourceVersion": "1.0",
   "name": "scr_fakepeppino_walk",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "Fake Peppino (GOLF)",
-    "path": "folders/Scripts/Fake Peppino (GOLF).yy",
-  },
+  "tags": [],
+  "resourceType": "GMScript",
 }

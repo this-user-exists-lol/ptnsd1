@@ -6,7 +6,7 @@ sprite_index = spr_piraneapple
 hsp = 0
 vsp = 0
 movespeed = 0
-state = states.idle
+state = 94
 stunned = 0
 alarm[0] = 150
 roaming = 1
@@ -26,3 +26,4 @@ dir = image_xscale
 image_xscale = -1
 hp = 1
 image_speed = 0.35
+

@@ -6,3 +6,4 @@ image_xscale = sign((obj_player.x - x))
 instance_create(x, y, obj_bangeffect)
 drop = 0
 alarm[0] = 50
+

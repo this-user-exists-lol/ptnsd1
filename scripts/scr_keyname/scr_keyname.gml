@@ -1,5 +1,4 @@
-function scr_keyname()
-{
+function scr_keyname(argument0) {
 	if (argument0 == 37)
 	    return "LEFT";
 	if (argument0 == 39)
@@ -97,4 +96,7 @@ function scr_keyname()
 	if (argument0 == -1)
 	    return "PRESS KEY";
 	return chr(argument0);
+
+
+
 }

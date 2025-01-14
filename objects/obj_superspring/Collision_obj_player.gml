@@ -1,8 +1,8 @@
 with (obj_player)
 {
-    if (state != states.Sjump)
+    if (state != 63)
     {
-        if (state == states.knightpep || state == states.knightpepattack || state == states.knightpepslopes)
+        if ((state == 24) || ((state == 25) || (state == 18)))
         {
             with (instance_create(x, y, obj_knightdebris))
                 image_index = 0
@@ -17,13 +17,15 @@ with (obj_player)
             with (instance_create(x, y, obj_knightdebris))
                 image_index = 5
         }
-        if (state == states.bombpep)
+        if (state == 27)
             instance_create(x, y, obj_bombexplosion)
-        scr_sound(sound_superjumprelease)
         sprite_index = spr_player_superjump
-        state = states.Sjump
+		x = other.x + 16
+		y = other.y - 32
+        state = 63
         vsp = -10
         other.image_index = 0
         other.image_speed = 0.35
     }
 }
+

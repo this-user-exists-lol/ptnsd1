@@ -1,5 +1,4 @@
-function scr_player_barrelmach1()
-{
+function scr_player_barrelmach1() {
 	hsp = (image_xscale * movespeed)
 	if (movespeed <= 8)
 	    movespeed += 0.2
@@ -12,34 +11,34 @@ function scr_player_barrelmach1()
 	    if (mach2 >= 35)
 	    {
 	        image_index = 0
-	        state = states.barrelslipnslide
+	        state = 85
 	        flash = 1
 	    }
 	}
 	if (!grounded)
 	{
-	    state = states.barrelfall
+	    state = 83
 	    image_index = 0
 	    hsp = 0
 	}
 	if ((!key_attack) && grounded)
 	{
-	    state = states.barrelnormal
+	    state = 84
 	    image_index = 0
 	    mach2 = 0
 	}
-	if (scr_solid((x + 1), y) && image_xscale == 1)
+	if (scr_solid((x + 1), y) && (image_xscale == 1))
 	{
-	    state = states.barrelfall
+	    state = 83
 	    hsp = -2
 	    vsp = -2
 	    mach2 = 0
 	    image_index = 0
 	    instance_create((x + 10), (y + 10), obj_bumpeffect)
 	}
-	if (scr_solid((x - 1), y) && image_xscale == -1)
+	if (scr_solid((x - 1), y) && (image_xscale == -1))
 	{
-	    state = states.barrelfall
+	    state = 83
 	    hsp = 2
 	    vsp = -2
 	    mach2 = 0
@@ -50,4 +49,7 @@ function scr_player_barrelmach1()
 	image_speed = 0.35
 	if ((!instance_exists(obj_dashcloud)) && grounded)
 	    instance_create(x, y, obj_dashcloud)
+
+
+
 }

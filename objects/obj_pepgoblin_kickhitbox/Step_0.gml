@@ -4,3 +4,4 @@ if instance_exists(baddieID)
     x = (baddieID.x + (baddieID.image_xscale * 50))
     y = baddieID.y
 }
+

@@ -1,5 +1,4 @@
-function pal_swap_set()
-{
+function pal_swap_set() {
 	shader_set(global.Pal_Shader)
 	var _pal_sprite = argument[0]
 	var _pal_index = argument[1]
@@ -30,4 +29,7 @@ function pal_swap_set()
 	    shader_set_uniform_f(global.Pal_UVs, texel_hx, texel_hy, (1 + texel_hx), (1 + texel_hy))
 	    shader_set_uniform_f(global.Pal_Index, _pal_index)
 	}
+
+
+
 }

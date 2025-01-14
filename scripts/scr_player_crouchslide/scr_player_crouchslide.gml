@@ -1,26 +1,39 @@
-function scr_player_crouchslide()
-{
-	if ((!(place_meeting(x, (y + 1), obj_railh))) && (!(place_meeting(x, (y + 1), obj_railh2))))
+function scr_player_crouchslide() {
+	if ((!place_meeting(x, (y + 1), obj_railh)) && (!place_meeting(x, (y + 1), obj_railh2)))
 	    hsp = (xscale * movespeed)
 	else if place_meeting(x, (y + 1), obj_railh)
 	    hsp = ((xscale * movespeed) - 5)
 	else if place_meeting(x, (y + 1), obj_railh2)
 	    hsp = ((xscale * movespeed) + 5)
-	if (movespeed >= 0)
+	if (movespeed >= 0) && ((sprite_index == spr_crouchslip) || (sprite_index == spr_player_backslide))
 	    movespeed -= 0.2
 	mask_index = spr_crouchmask
-	if (mach2 >= 35 && (!key_down) && (!(scr_solid((x + 27), (y - 32)))) && (!(scr_solid((x - 27), (y - 32)))) && (!(scr_solid(x, (y - 32)))) && (!(scr_solid(x, (y - 16)))) && key_attack && sprite_index != spr_player_shootslide)
+	if (sprite_index == spr_crouchslip) && (!grounded)
+		sprite_index = spr_player_crouchslipfall
+	else if (sprite_index == spr_player_crouchslipfall) && (grounded)
+		sprite_index = spr_crouchslip
+	if ((movespeed >= 5) && (((!scr_solid((x + 27), (y - 32))) && ((!scr_solid((x - 27), (y - 32))) && ((!scr_solid(x, (y - 32))) && ((!scr_solid(x, (y - 16)))))))))
 	{
-	    if (character == "P")
-	        sprite_index = spr_player_machhit
-	    mach2 = 35
-	    state = states.mach2
-	    if (movespeed < 10)
-	        movespeed = 10
+		if (!key_down)
+		{
+		    if (character == "P")
+		        sprite_index = spr_rollgetup
+			image_index = 0
+		    state = 70
+			movespeed = 10
+		}
+		else if (key_jump)
+		{
+		    sprite_index = spr_mach2jump
+			image_index = 0
+		    state = 70
+			vsp = -13
+			movespeed = 12
+		}
 	}
-	if (((hsp == 0 || (scr_solid((x + 1), y) && xscale == 1) || (scr_solid((x - 1), y) && xscale == -1)) && (!(place_meeting((x + sign(hsp)), y, obj_slope)))) || movespeed <= 0)
+	if ((((hsp == 0) || ((scr_solid((x + 1), y) && (xscale == 1)) || (scr_solid((x - 1), y) && (xscale == -1)))) && (!place_meeting((x + sign(hsp)), y, obj_slope))) || (movespeed <= 0))
 	{
-	    state = states.crouch
+	    state = 66
 	    movespeed = 0
 	    mach2 = 0
 	    crouchslideAnim = 1
@@ -29,10 +42,10 @@ function scr_player_crouchslide()
 	    start_running = 1
 	    alarm[4] = 14
 	}
-	if (scr_solid((x + 1), y) && xscale == 1 && (!(place_meeting((x + sign(hsp)), y, obj_slope))))
+	if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
 	    movespeed = 0
-	    state = states.bump
+	    state = 72
 	    hsp = -2.5
 	    vsp = -3
 	    mach2 = 0
@@ -41,10 +54,10 @@ function scr_player_crouchslide()
 	    machhitAnim = 0
 	    instance_create((x + 10), (y + 10), obj_bumpeffect)
 	}
-	if (scr_solid((x - 1), y) && xscale == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slope))))
+	if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x + sign(hsp)), y, obj_slope)))
 	{
 	    movespeed = 0
-	    state = states.bump
+	    state = 72
 	    hsp = 2.5
 	    vsp = -3
 	    mach2 = 0
@@ -53,10 +66,18 @@ function scr_player_crouchslide()
 	    machhitAnim = 0
 	    instance_create((x - 10), (y + 10), obj_bumpeffect)
 	}
-	if ((!instance_exists(obj_slidecloud)) && grounded && movespeed > 5)
+	if ((!instance_exists(obj_slidecloud)) && (grounded && (movespeed > 5)))
 	{
 	    with (instance_create(x, y, obj_slidecloud))
 	        image_xscale = other.xscale
 	}
-	image_speed = 0.35
+	if (floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_backslidestart)
+		sprite_index = spr_player_backslide
+	if (sprite_index != spr_player_backslidestart)
+		image_speed = movespeed / 20
+	else
+		image_speed = 0.35
+
+
+
 }

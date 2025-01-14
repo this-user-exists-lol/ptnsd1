@@ -7,3 +7,4 @@ if (ds_list_find_index(global.saveroom, id) != -1)
     tilemap_set_at_pixel(map_id, data, x, y)
     instance_destroy()
 }
+

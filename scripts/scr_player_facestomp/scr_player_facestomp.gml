@@ -1,110 +1,62 @@
-function scr_player_facestomp(){
+function scr_player_facestomp() {
+	move = (key_left + key_right)
+	jumpAnim = 0
+	hsp = (move * movespeed)
+	if ((scr_solid((x + 1), y) && (xscale == 1)) || (scr_solid((x - 1), y) && (xscale == -1)))
+	    movespeed = 0
+	if (move == 0)
+	    movespeed = 0
+	if ((move != 0) && (movespeed < 6))
+	    movespeed += 0.5
+	if ((xscale == 1) && (move == -1))
+	    movespeed = 0
+	if ((xscale == -1) && (move == 1))
+	    movespeed = 0
+	if (!key_down)
+	    state = 58
+	landAnim = 1
+	if (vsp > 0)
+	    superslam++
+	else
+	    superslam = 0
+	if (vsp > 15)
 	{
-		if (momemtum == 0)
-		    hsp = (move * movespeed)
-		else
-		    hsp = (xscale * movespeed)
-		if (dir != xscale)
-		{
-		    dir = xscale
-		    movespeed = 2
-		    facehurt = 0
-		}
-		if (move != xscale)
-		    movespeed = 2
-		move = (key_left + key_right)
-		if (movespeed == 0)
-		    momemtum = 0
-		if scr_solid((x + hsp), y)
-		{
-		    movespeed = 0
-		    mach2 = 0
-		}
-		if ((move != 0) && (movespeed < 6))
-		    movespeed += 0.5
-		if (movespeed > 6)
-		    movespeed -= 0.1
-		if ((scr_solid((x + 1), y) && (move == 1)) || (scr_solid((x - 1), y) && (move == -1)))
-		    movespeed = 0
-		if (dir != xscale)
-		    dir = xscale
-		if (move != 0)
-			xscale = move
-		if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_facestomphit))
-		    sprite_index = spr_player_facestomp
-		if (fallinganimation >= 80)
-		{
-			if sprite_index != spr_player_freefall
-				scr_soundeffect(sfx_superjumpboost)	
-			vsp += 0.1
-		    sprite_index = spr_player_freefall
-		}
-		if ((sprite_index = spr_player_freefall) && (!instance_exists(obj_superslameffect)))
-		    instance_create(x, y, obj_superslameffect)
-		if ((sprite_index = spr_player_freefall) && (!instance_exists(spriteid)))
-		{
-		    with (instance_create(x, y, obj_sprite))
-			{
-		        other.spriteid = id
-				sprite_index = spr_fastfalleffect
-				animend = 1
-			}
-		}
-		if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
-		{
-			if scr_slope()
-			{
-				movespeed = fallinganimation / 5
-			    with (instance_place((x + xscale), (y + 1), obj_slope))
-			        other.xscale = (-sign(image_xscale))
-			    state = states.machroll
-			    sprite_index = spr_crouchslip
-			}
-			else
-			{
-				if (vsp > 0) && (key_jump2)
-				{
-					image_index = 0
-					state = states.jump
-					if (move != 0)
-						sprite_index = spr_player_hanstandjump
-					else
-						sprite_index = spr_player_hanstandjump2
-					movespeed = 10
-					vsp = -12
-				}
-				else
-				{
-					with (obj_baddie)
-					{
-						if point_in_rectangle(x, y, __view_get(0, 0), __view_get(1, 0), (__view_get(0, 0) + __view_get(2, 0)), (__view_get(1, 0) + __view_get(3, 0)))
-						{
-							vsp = -7
-							hsp = 0
-							stunned = 100
-						}
-					}
-					with (obj_camera)
-					{
-						shake_mag = 10
-						shake_mag_acc = (30 / room_speed)
-					}
-					with instance_create(x, y, obj_pogoeffect)
-						sprite_index = spr_groundpoundlandeffect
-					audio_stop_sound(sfx_superjumpboost)
-					scr_soundeffect(sfx_groundpound)
-					image_index = 0
-					sprite_index = spr_player_freefallland
-					state = states.freefallland
-				}
-			}
-		}
-		fallinganimation += 3
-		if (!key_down) && (fallinganimation <= 40)
-		{
-			sprite_index = spr_player_fall
-			fallinganimation = 0
-			state = states.jump
-		}
+	    state = 74
+	    superslam = 0
 	}
+	if (grounded && (((!place_meeting(x, (y + 1), obj_destructibles)) || place_meeting(x, (y + 1), obj_metalblock)) && (vsp > 0)))
+	{
+	    state = 77
+	    jumpAnim = 1
+	    jumpstop = 0
+	    image_index = 0
+	    freefallstart = 0
+	}
+	if (facestompAnim == 0)
+	    sprite_index = spr_player_facestomp
+	else if (facestompAnim == 1)
+	{
+	    sprite_index = spr_player_facestomphit
+	    if (floor(image_index) == 5)
+	        facestompAnim = 0
+	}
+	if (move != 0)
+	    xscale = move
+	image_speed = 0.35
+	if (grounded && ((input_buffer_jump < 8) && (vsp > 0)))
+	{
+	    sprite_index = spr_player_hanstandjump
+	    stompAnim = 0
+	    hsp = 0
+	    state = 22
+	    jumpAnim = 1
+	    jumpstop = 0
+	    image_index = 0
+	    freefallstart = 0
+	}
+	if key_jump
+	    input_buffer_jump = 0
+
+
+
 }

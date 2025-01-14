@@ -1,2 +1,4 @@
-x = obj_player.x
-y = (obj_player.y - 50)
+playerid = obj_player1
+x = playerid.x
+y = (playerid.y - 50)
+

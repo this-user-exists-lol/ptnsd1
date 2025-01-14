@@ -1,4 +1,4 @@
-if (thumbingup == 0 && x <= (xstarte + 5) && x >= (xstarte - 5) && y <= (ystarte + 5) && y >= (ystarte - 5) && grabbing == 0)
+if ((thumbingup == 0) && (((x <= (xstarte + 5)) && (x >= (xstarte - 5))) && (((y <= (ystarte + 5)) && (y >= (ystarte - 5))) && (grabbing == 0))))
 {
     scr_sound(sound_slaphit)
     delay = 5
@@ -8,3 +8,4 @@ if (thumbingup == 0 && x <= (xstarte + 5) && x >= (xstarte - 5) && y <= (ystarte
     sprite_index = spr_grabbiehand_hifive
     image_index = 0
 }
+

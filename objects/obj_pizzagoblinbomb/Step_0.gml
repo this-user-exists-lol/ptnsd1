@@ -1,5 +1,5 @@
 countdown -= 0.5
-if (place_meeting((x + 1), y, obj_bombblock) || place_meeting((x - 1), y, obj_bombblock) || place_meeting(x, (y - 1), obj_bombblock) || place_meeting(x, (y + 1), obj_bombblock))
+if (place_meeting((x + 1), y, obj_bombblock) || (place_meeting((x - 1), y, obj_bombblock) || (place_meeting(x, (y - 1), obj_bombblock) || place_meeting(x, (y + 1), obj_bombblock))))
     instance_create(x, y, obj_bombexplosion)
 if (scr_solid((x + 1), y) || scr_solid((x - 1), y))
     drop = 1
@@ -12,3 +12,4 @@ if (countdown < 50)
 if (countdown == 0)
     instance_create(x, y, obj_bombexplosion)
 scr_collide()
+

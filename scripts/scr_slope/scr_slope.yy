@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "collisions",
+    "path": "folders/Scripts/collisions.yy",
+  },
   "resourceVersion": "1.0",
   "name": "scr_slope",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "Collision",
-    "path": "folders/Scripts/Collision.yy",
-  },
+  "tags": [],
+  "resourceType": "GMScript",
 }

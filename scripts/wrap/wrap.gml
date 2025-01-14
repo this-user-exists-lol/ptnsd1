@@ -1,11 +1,10 @@
-function wrap()
-{
+function wrap() {
 	var _val = argument[0]
 	var _max = argument[2]
 	var _min = argument[1]
 	if ((_val % 1) == 0)
 	{
-	    while (_val > _max || _val < _min)
+	    while ((_val > _max) || (_val < _min))
 	    {
 	        if (_val > _max)
 	            _val = (((_min + _val) - _max) - 1)
@@ -27,4 +26,7 @@ function wrap()
 	    }
 	    return _val;
 	}
+
+
+
 }

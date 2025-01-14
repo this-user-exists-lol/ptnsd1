@@ -1,2 +1,4 @@
-x = obj_player1.x
-y = obj_player1.y
+playerid = obj_player1
+x = playerid.x
+y = playerid.y
+

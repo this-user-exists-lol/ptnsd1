@@ -1,5 +1,4 @@
-function scr_slope()
-{
+function scr_slope() {
 	y++
 	var slope = instance_place(x, y, obj_slope)
 	if slope
@@ -32,4 +31,7 @@ function scr_slope()
 	}
 	y--
 	return 0;
+
+
+
 }

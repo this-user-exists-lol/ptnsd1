@@ -1,5 +1,4 @@
-function __view_get()
-{
+function __view_get(argument0, argument1) {
 	var __prop = argument0
 	var __index = argument1
 	var __res = -1
@@ -69,6 +68,9 @@ function __view_get()
 	    default:
 	        break
 	}
-	
+
 	return __res;
+
+
+
 }

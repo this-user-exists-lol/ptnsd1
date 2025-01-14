@@ -4,3 +4,4 @@ hsp = random_range(-2, 2)
 vsp = random_range(-2, 2)
 grav = 0.5
 depth = -1
+

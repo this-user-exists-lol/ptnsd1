@@ -10,3 +10,4 @@ sausagedone = 0
 pineappledone = 0
 depth = -998
 draw_screen = 0
+

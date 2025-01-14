@@ -1,6 +1,6 @@
 with (other.id)
 {
-    if (key_up && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.mach3 || state == states.Sjumpprep) && y == (other.y + 50) && (!instance_exists(obj_noisesatellite)) && (!instance_exists(obj_fadeout)) && state != states.door && state != states.comingoutdoor)
+    if (key_up && (((state == 0) || ((state == 69) || ((state == 70) || ((state == 91) || (state == 65))))) && ((y == (other.y + 50)) && ((!instance_exists(obj_noisesatellite)) && ((!instance_exists(obj_fadeout)) && ((state != 78) && (state != 61)))))))
     {
         lastroom_x = other.x
         lastroom_y = other.y
@@ -11,7 +11,7 @@ with (other.id)
         obj_player1.targetDoor = other.targetDoor
         obj_player1.targetRoom = other.targetRoom
         obj_player1.image_index = 0
-        obj_player1.state = states.door
+        obj_player1.state = 78
         obj_player1.mach2 = 0
         if instance_exists(obj_player2)
         {
@@ -29,10 +29,11 @@ with (other.id)
             obj_player2.targetDoor = other.targetDoor
             obj_player2.targetRoom = other.targetRoom
             obj_player2.image_index = 0
-            obj_player2.state = states.door
+            obj_player2.state = 78
             obj_player2.mach2 = 0
         }
         other.visited = 1
         instance_create(x, y, obj_fadeout)
     }
 }
+

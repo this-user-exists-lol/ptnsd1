@@ -5,3 +5,4 @@ if obj_player.grounded
 else
     visible = false
 image_xscale = obj_player.xscale
+

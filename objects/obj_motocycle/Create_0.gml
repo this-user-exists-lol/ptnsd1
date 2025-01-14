@@ -6,4 +6,5 @@ grav = 0.5
 flash = 1
 hp = 0
 grounded = 1
-state = states.normal
+state = 0
+
