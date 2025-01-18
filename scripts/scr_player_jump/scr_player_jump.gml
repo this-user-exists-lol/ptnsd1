@@ -53,6 +53,7 @@ function scr_player_jump() {
 	    else
 	        vsp = -13
 	    state = 58
+		bumped = 0
 	    jumpAnim = 1
 	    jumpstop = 0
 	    image_index = 0
@@ -149,7 +150,7 @@ function scr_player_jump() {
 	    state = 70
 	    image_index = 0
 	}
-	if (bumped) && (!key_down)
+	if (bumped == 1) && (!key_down)
 		sprite_index = spr_machfreefall
 	if key_taunt2
 	{

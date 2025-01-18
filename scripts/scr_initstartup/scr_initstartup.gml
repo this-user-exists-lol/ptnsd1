@@ -4,7 +4,7 @@ function scr_initstartup()
 	global.currentlevel = "none"
 	pal_swap_init_system(shd_pal_swapper)
 	audio_group_load(sfx)
-	audio_group_load(mus)
+	//audio_group_load(mus)
 	global.goldenpizzaslices = 0
 	ini_open("saveData.ini")
 	global.deserthighscore = ini_read_string("Highscore", "desert", 0)

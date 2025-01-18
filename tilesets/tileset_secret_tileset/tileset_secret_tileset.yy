@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tileset_secret_tileset",
   "spriteId": {
     "name": "tileset_secret",
     "path": "sprites/tileset_secret/tileset_secret.yy",
@@ -217,8 +220,4 @@
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tileset_secret_tileset",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

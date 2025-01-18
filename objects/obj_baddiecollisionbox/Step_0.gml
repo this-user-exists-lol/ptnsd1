@@ -14,15 +14,16 @@ if (instance_exists(baddieID) && (place_meeting(x, y, obj_player1) && ((obj_play
         {
             if (instakillmove == 1)
             {
-				scr_macheffectextra(1)
                 if ((state == 91) && (sprite_index != spr_mach3hit))
                 {
+					scr_macheffectextra(1)
                     if (fightball == 0)
                         sprite_index = spr_mach3hit
                     image_index = 0
                 }
                 if ((state == 70) && grounded)
                 {
+					scr_macheffectextra(1)
                     machpunchAnim = 1
                     image_index = 0
                 }
@@ -37,6 +38,7 @@ if (instance_exists(baddieID) && (place_meeting(x, y, obj_player1) && ((obj_play
                 {
 					if (state == "faceslam")
 					{
+						scr_macheffectextra(2)
 						vsp = -5
 						sprite_index = spr_player_facestomphit
 					}

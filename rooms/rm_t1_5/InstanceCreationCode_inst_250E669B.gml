@@ -1,0 +1,1 @@
+targetRoom = rm_t1_keydoor

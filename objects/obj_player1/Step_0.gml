@@ -9,6 +9,8 @@ if ((state != 91) && (state != 109))
     fightball = 0
 if ((state != 109) && (state != 73))
     thrown = 0
+if (state != 63)
+	superjumpspeed = -15
 if (grounded && (state != 22))
     suplexmove = 0
 if ((grounded) && (state != 72) && (state != 93) && (state != 58))

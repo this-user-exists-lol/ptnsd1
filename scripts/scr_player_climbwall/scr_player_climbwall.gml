@@ -5,7 +5,7 @@ function scr_player_climbwall() {
 	suplexmove = 0
 	vsp = (-wallspeed)
 	if ((wallspeed < 24) && (move == xscale))
-	    wallspeed -= 0.25
+	    wallspeed -= 0.5
 	crouchslideAnim = 1
 	if (wallspeed < 5)
 		sprite_index = spr_player_climbwallabouttofalloff
@@ -45,7 +45,7 @@ function scr_player_climbwall() {
 	    xscale *= -1
 	    jumpstop = 0
 	}
-	if (wallspeed <= 1)
+	if (wallspeed <= 0)
 	{
 	    state = 58
 		bumped = 1

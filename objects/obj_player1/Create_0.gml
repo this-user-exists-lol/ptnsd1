@@ -13,6 +13,7 @@ movespeed = 19
 jumpstop = 0
 visible = true
 state = 8
+superjumpspeed = 0
 jumpAnim = 1
 mapdir = 0
 landAnim = 0

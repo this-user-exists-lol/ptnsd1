@@ -32,6 +32,8 @@ function scr_player_faceslam(){
 			xscale = move
 		if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_facestomphit))
 		    sprite_index = spr_facestomp
+		if key_jump
+		    input_buffer_jump = 0
 		if (fallinganimation >= 80)
 		{
 			if sprite_index != spr_freefall
@@ -82,24 +84,14 @@ function scr_player_faceslam(){
 			}
 			else
 			{
-				if (vsp > 0) && (key_jump2) && (!place_meeting(x, (y + 64), obj_metalblock))
+				if (vsp > 0) && (input_buffer_jump < 8) && (!place_meeting(x, (y + 64), obj_metalblock))
 				{
 					image_index = 0
-					if (move != 0)
-					{
-						state = 70
-						vsp = -8
-						movespeed = 10
-						sprite_index = spr_player_hanstandjump
-					}
-					else
-					{
-						state = 58
-						vsp = -18
-						jumpAnim = 1
-						bumped = 2
-						sprite_index = spr_player_hanstandjump2
-					}
+					state = 58
+					vsp = -15
+					jumpAnim = 1
+					bumped = 2
+					sprite_index = spr_player_hanstandjump2
 				}
 				else
 				{

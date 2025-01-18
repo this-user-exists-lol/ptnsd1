@@ -23,7 +23,7 @@ with (obj_player)
 		x = other.x + 16
 		y = other.y - 32
         state = 63
-        vsp = -10
+        superjumpspeed = -10
         other.image_index = 0
         other.image_speed = 0.35
     }

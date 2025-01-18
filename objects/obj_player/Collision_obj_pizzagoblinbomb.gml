@@ -1,6 +1,6 @@
-if ((cutscene == 0) && ((other.grounded == 1) && ((state != 27) && ((state == 22) || (character == "S")))))
+if ((cutscene == 0) && ((other.grounded == 1) && ((state != 27) && ((state == 12) || (character == "S")))))
 {
-    bombpeptimer = 100
+    bombpeptimer = other.countdown
     state = 27
     image_index = 0
     sprite_index = spr_bombpepintro

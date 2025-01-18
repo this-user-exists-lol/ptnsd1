@@ -60,7 +60,12 @@ function scr_player_mach2() {
 	if grounded
 	{
 	    if (movespeed < 12)
-	        movespeed += 0.1
+		{
+			if (sprite_index == spr_mach1)
+				movespeed += 0.15
+			else if (sprite_index == spr_mach)
+				movespeed += 0.1
+		}
 	    if ((movespeed >= 12) && (global.coop == 0))
 	    {
 	        movespeed = 12
@@ -77,7 +82,7 @@ function scr_player_mach2() {
 	}
 	if key_jump
 	    input_buffer_jump = 0
-	if key_down && (movespeed > 5)
+	if key_down && (movespeed > 7)
 	{
 		if (!grounded && (!place_meeting(x, y, obj_dashpad)))  && ((sprite_index != spr_player_hanstandjump) && (sprite_index != spr_player_hanstandjumpfall))
 		{
@@ -179,14 +184,14 @@ function scr_player_mach2() {
 	}
 	else if ((!key_attack) && ((move != xscale) && grounded && (sprite_index == spr_mach1)))
 		state = 0
-	if ((move == (-xscale)) && grounded) && (movespeed > 5)
+	if ((move == (-xscale)) && grounded) && (movespeed > 7)
 	{
 	    scr_soundeffect(sfx_machslideboost)
 	    image_index = 0
 	    state = 71
 	    sprite_index = spr_machslideboost
 	}
-	else if ((move == (-xscale)) && grounded) && (movespeed < 5)
+	else if ((move == (-xscale)) && grounded) && (movespeed < 7)
 		xscale = move
 	if (!grounded) && (movespeed == 0)
 		movespeed = 3

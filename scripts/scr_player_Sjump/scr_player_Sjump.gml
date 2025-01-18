@@ -7,16 +7,27 @@ function scr_player_Sjump() {
 	moveAnim = 1
 	stopAnim = 1
 	crouchslideAnim = 1
+	if superjumpspeed > -50
+		superjumpspeed--
 	crouchAnim = 0
 	machhitAnim = 0
 	if (sprite_index == spr_superjump)
-	    vsp = -25
+	    vsp = superjumpspeed
 	if (sprite_index == spr_player_supersidejump)
 	{
 	    if (a < 25)
 	        a++
 	    hsp = (xscale * a)
 	    vsp = 0
+	}
+	if (!instance_exists(spriteid))
+	{
+	    with (instance_create(x, y, obj_sprite))
+		{
+	        other.spriteid = id
+			sprite_index = spr_fastfalleffect
+			animend = 1
+		}
 	}
 	if (scr_solid(x, (y - 1)) && (!place_meeting(x, (y - 1), obj_destructibles)))
 	{

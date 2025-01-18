@@ -7,7 +7,7 @@
     "path": "sprites/spr_swordhitbox/spr_swordhitbox.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

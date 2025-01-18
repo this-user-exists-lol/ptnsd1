@@ -15,7 +15,7 @@
     "path": "audiogroups/sfx",
   },
   "soundFile": "sfx_bombpep1",
-  "duration": 0.0,
+  "duration": 3.096644,
   "parent": {
     "name": "sounds",
     "path": "folders/Sounds/sounds.yy",

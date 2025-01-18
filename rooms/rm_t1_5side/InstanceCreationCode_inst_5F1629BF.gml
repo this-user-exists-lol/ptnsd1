@@ -1,0 +1,1 @@
+bombcontdown = 300
